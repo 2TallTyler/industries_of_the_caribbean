@@ -6,10 +6,10 @@
 newgrf_name = "industries_of_the_caribbean"
 
 # Files which should be first, in order (header, cargotable, etc)
-header_stuff = ["header", "cargos"]
+header_stuff = ["header", "functions", "cargos"]
 
 # Files to place in alphabetical order below
-unordered_stuff = []
+unordered_stuff = ["coffee_plantation"]
 
 # Do you want to copy the completed NewGRF to your OpenTTD folder? (True/False)
 copy_bool = True

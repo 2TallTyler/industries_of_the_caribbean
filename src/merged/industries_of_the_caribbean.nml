@@ -139,6 +139,16 @@ if (grf_future_status("GGQT")) { error(FATAL, string(STR_ERROR_INCOMPATIBLE_SET,
 if (grf_future_status("TT\04\01")) { error(FATAL, string(STR_ERROR_INCOMPATIBLE_SET, "Improved Town Industries"));}
 
 
+/* Begin Functions */
+
+/**
+ * Check if an industry is within a range of elevation.
+ * @param min_z elevation (inclusive)
+ * @param max_z elevation (inclusive)
+ * @return 1 if the industry is at or between the specified min and max elevations, else 0
+ */
+switch (FEAT_INDUSTRIES, SELF, IndustryElevationCheck, min_z, max_z, nearby_tile_height(0,0) >= min_z && nearby_tile_height(0,0) <= max_z) {return;}
+
 /* Begin Cargos */
 
 cargotable {
@@ -649,5 +659,37 @@ item (FEAT_CARGOS, cargo_cobalt, 0x13) {
 		capacity_multiplier:		1;
 		station_list_colour:		158;
 		cargo_payment_list_colour:	158;
+	}
+}
+
+/* Begin Coffee Plantation */
+
+/* Coffee plantations must be at least height 2, no max limit. */
+switch (FEAT_INDUSTRIES, SELF, loc_check_coffee_plantation, IndustryElevationCheck(2, 255)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_COFFEE_ELEVATION);}
+
+item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
+{
+	property {
+		substitute: INDUSTRYTYPE_RUBBER_PLANTATION; // ID: 13h
+		name: string(STR_COFFEE_PLANTATION);
+		nearby_station_name: string(STR_COFFEE_PLANTATION);
+		life_type: IND_LIFE_TYPE_ORGANIC;
+		cargo_types: [
+			produce_cargo("JAVA", 4),
+		];
+		conflicting_ind_types: [industry_coffee_plantation]; // FIXME: Add plantations which plant fields around them
+		prob_map_gen: 1; // FIXME: Adjust as necessary
+		prob_in_game: 0;
+		map_colour: 63;
+		prospect_chance: 1;
+		
+	}
+	graphics {
+		location_check: loc_check_coffee_plantation;
+		/* Don't allow any production changes */
+		build_prod_change: 16; // 100% production
+		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		extra_text_industry: string(STR_NO_PRODUCTION_CHANGE);
 	}
 }

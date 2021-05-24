@@ -14,6 +14,10 @@ STR_NAME_OBJECT_MENU				:Industry Tiles
 STR_TOWN							:{STRING}
 STR_STATION							:{STRING} {STRING}
 
+STR_NO_PRODUCTION_CHANGE			:Production never changes.
+
+STR_ERR_COFFEE_ELEVATION			:Coffee Plantations must be at elevation 2 or greater.
+
 
 STR_COFFEE_PLANTATION				:Coffee Plantation
 STR_CITRUS_GROVE					:Citrus Grove
