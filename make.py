@@ -6,7 +6,7 @@
 newgrf_name = "industries_of_the_caribbean"
 
 # Files which should be first, in order (header, cargotable, etc)
-header_stuff = ["header"]
+header_stuff = ["header", "cargos"]
 
 # Files to place in alphabetical order below
 unordered_stuff = []
