@@ -14,6 +14,23 @@ STR_NAME_OBJECT_MENU				:Industry Tiles
 STR_TOWN							:{STRING}
 STR_STATION							:{STRING} {STRING}
 
+
+STR_COFFEE_PLANTATION				:Coffee Plantation
+STR_CITRUS_GROVE					:Citrus Grove
+STR_SUGARCANE_PLANTATION			:Sugarcane Plantation
+STR_TOBACCO_PLANTATION				:Tobacco Plantation
+STR_SUGAR_MILL						:Sugar Mill
+STR_CIGAR_FACTORY					:Cigar Factory
+STR_RUM_DISTILLERY					:Rum Distillery
+STR_OIL_REFINERY					:Oil Refinery
+STR_HOTEL							:Hotel
+STR_BEACH							:Beach
+STR_NICKEL_MINE						:Nickel Mine
+STR_NICKEL_SMELTER					:Nickel Smelter
+
+STR_IMPORT_EXPORT					:Import/Export
+
+
 STR_CARGO_NAME_WORKERS				:Workers
 STR_CARGO_SINGULAR_WORKERS			:Worker
 STR_CARGO_ABBREV_WORKERS			:{TINYFONT}WK
