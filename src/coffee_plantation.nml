@@ -1,6 +1,76 @@
 
 /* Begin Coffee Plantation */
 
+spritelayout coffee_plantation_office_1 {
+	ground {
+		sprite: 2116;
+	}
+	building {
+		sprite: 4450;
+	}
+}
+
+spritelayout coffee_plantation_office_2 {
+	ground {
+		sprite: 2116;
+	}
+	building {
+		sprite: 4456;
+	}
+}
+
+random_switch (FEAT_INDUSTRYTILES, SELF, random_coffee_plantation_office) {
+	1: return coffee_plantation_office_1;
+	1: return coffee_plantation_office_2;
+}
+
+item (FEAT_INDUSTRYTILES, ind_tile_coffee_plantation) {
+	property {
+		substitute: 117;
+		override: 117;
+		land_shape_flags: bitmask(LSF_ONLY_ON_FLAT_LAND);
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+}
+
+item (FEAT_INDUSTRYTILES, ind_tile_coffee_plantation_office) {
+	property {
+		substitute: 117;
+		land_shape_flags: bitmask(LSF_ONLY_ON_FLAT_LAND);
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: random_coffee_plantation_office;
+	}
+}
+
+tilelayout tilelayout_coffee_plantation_1 {
+	0,0: ind_tile_coffee_plantation;	0,1: ind_tile_coffee_plantation;	0,2: ind_tile_coffee_plantation;	0,3: ind_tile_coffee_plantation;
+	1,0: ind_tile_coffee_plantation;	1,1: ind_tile_coffee_plantation;	1,2: ind_tile_coffee_plantation;	1,3: ind_tile_coffee_plantation;
+	2,0: ind_tile_coffee_plantation;	2,1: ind_tile_coffee_plantation;	2,2: ind_tile_coffee_plantation;	2,3: ind_tile_coffee_plantation;
+										3,1: ind_tile_coffee_plantation_office;
+}
+
+tilelayout tilelayout_coffee_plantation_2 {
+	0,0: ind_tile_coffee_plantation;	0,1: ind_tile_coffee_plantation;	0,2: ind_tile_coffee_plantation;	0,3: ind_tile_coffee_plantation;
+	1,0: ind_tile_coffee_plantation;	1,1: ind_tile_coffee_plantation;	1,2: ind_tile_coffee_plantation;	1,3: ind_tile_coffee_plantation;	1,4: ind_tile_coffee_plantation_office;
+	2,0: ind_tile_coffee_plantation;	2,1: ind_tile_coffee_plantation;	2,2: ind_tile_coffee_plantation;	2,3: ind_tile_coffee_plantation;
+}
+
+tilelayout tilelayout_coffee_plantation_3 {
+	0,0: ind_tile_coffee_plantation;	0,1: ind_tile_coffee_plantation;	0,2: ind_tile_coffee_plantation;	0,3: ind_tile_coffee_plantation_office;
+	1,0: ind_tile_coffee_plantation;	1,1: ind_tile_coffee_plantation;	1,2: ind_tile_coffee_plantation;
+	2,0: ind_tile_coffee_plantation;	2,1: ind_tile_coffee_plantation;	2,2: ind_tile_coffee_plantation;
+	3,0: ind_tile_coffee_plantation;	3,1: ind_tile_coffee_plantation;	3,2: ind_tile_coffee_plantation;
+}
+
+tilelayout tilelayout_coffee_plantation_4 {
+	0,0: ind_tile_coffee_plantation;	0,1: ind_tile_coffee_plantation;	0,2: ind_tile_coffee_plantation;
+	1,0: ind_tile_coffee_plantation;	1,1: ind_tile_coffee_plantation;	1,2: ind_tile_coffee_plantation;
+	2,0: ind_tile_coffee_plantation;	2,1: ind_tile_coffee_plantation;	2,2: ind_tile_coffee_plantation;
+	3,0: ind_tile_coffee_plantation;	3,1: ind_tile_coffee_plantation;	3,2: ind_tile_coffee_plantation;	3,3: ind_tile_coffee_plantation_office;
+}
+
 /* Coffee plantations must be at least height 2, no max limit. */
 switch (FEAT_INDUSTRIES, SELF, loc_check_coffee_plantation, IndustryElevationCheck(2, 255)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_COFFEE_ELEVATION);}
 
@@ -13,6 +83,12 @@ item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 		life_type: IND_LIFE_TYPE_ORGANIC;
 		cargo_types: [
 			produce_cargo("JAVA", 4),
+		];
+		layouts: [
+			tilelayout_coffee_plantation_1,
+			tilelayout_coffee_plantation_2,
+			tilelayout_coffee_plantation_3,
+			tilelayout_coffee_plantation_4
 		];
 		conflicting_ind_types: [industry_coffee_plantation]; // FIXME: Add plantations which plant fields around them
 		prob_map_gen: 1; // FIXME: Adjust as necessary
