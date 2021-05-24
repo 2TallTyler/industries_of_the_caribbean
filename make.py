@@ -9,7 +9,7 @@ newgrf_name = "industries_of_the_caribbean"
 header_stuff = ["header", "functions", "cargos"]
 
 # Files to place in alphabetical order below
-unordered_stuff = ["coffee_plantation"]
+unordered_stuff = ["coffee_plantation", "citrus_grove"]
 
 # Do you want to copy the completed NewGRF to your OpenTTD folder? (True/False)
 copy_bool = True

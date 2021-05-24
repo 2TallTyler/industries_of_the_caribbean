@@ -1,0 +1,139 @@
+
+/* Begin Citrus Grove */
+
+spritelayout citrus_grove_office_1 {
+	ground {
+		sprite: 2116;
+	}
+	building {
+		sprite: 4450;
+	}
+}
+
+spritelayout citrus_grove_office_2 {
+	ground {
+		sprite: 2116;
+	}
+	building {
+		sprite: 4456;
+	}
+}
+
+random_switch (FEAT_INDUSTRYTILES, SELF, random_citrus_grove_office) {
+	1: return citrus_grove_office_1;
+	1: return citrus_grove_office_2;
+}
+
+item (FEAT_INDUSTRYTILES, ind_tile_citrus_grove) {
+	property {
+		substitute:				116;
+		land_shape_flags:		bitmask(LSF_ONLY_ON_FLAT_LAND);
+		special_flags:			bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+}
+
+item (FEAT_INDUSTRYTILES, ind_tile_citrus_grove_office) {
+	property {
+		substitute: 117;
+		land_shape_flags: bitmask(LSF_ONLY_ON_FLAT_LAND);
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: random_citrus_grove_office;
+	}
+}
+
+tilelayout tilelayout_citrus_grove_1 {
+	0,0: ind_tile_citrus_grove;	0,1: ind_tile_citrus_grove;	0,2: ind_tile_citrus_grove;		0,4: ind_tile_citrus_grove;	0,5: ind_tile_citrus_grove;	0,6: ind_tile_citrus_grove;
+	1,0: ind_tile_citrus_grove;	1,1: ind_tile_citrus_grove;	1,2: ind_tile_citrus_grove;		1,4: ind_tile_citrus_grove;	1,5: ind_tile_citrus_grove;	1,6: ind_tile_citrus_grove;
+	2,0: ind_tile_citrus_grove;	2,1: ind_tile_citrus_grove;	2,2: ind_tile_citrus_grove;		2,4: ind_tile_citrus_grove;	2,5: ind_tile_citrus_grove;	2,6: ind_tile_citrus_grove;
+	3,0: ind_tile_citrus_grove;	3,1: ind_tile_citrus_grove;	3,2: ind_tile_citrus_grove;		3,4: ind_tile_citrus_grove;	3,5: ind_tile_citrus_grove;	3,6: ind_tile_citrus_grove;
+	4,0: ind_tile_citrus_grove;	4,1: ind_tile_citrus_grove;	4,2: ind_tile_citrus_grove;		4,4: ind_tile_citrus_grove;	4,5: ind_tile_citrus_grove;	4,6: ind_tile_citrus_grove;
+	5,0: ind_tile_citrus_grove;	5,1: ind_tile_citrus_grove;	5,2: ind_tile_citrus_grove;		5,4: ind_tile_citrus_grove;	5,5: ind_tile_citrus_grove;	5,6: ind_tile_citrus_grove;
+								6,1: ind_tile_citrus_grove_office;
+}
+
+tilelayout tilelayout_citrus_grove_2 {
+	0,0: ind_tile_citrus_grove;	0,1: ind_tile_citrus_grove;	0,2: ind_tile_citrus_grove;		0,4: ind_tile_citrus_grove;	0,5: ind_tile_citrus_grove;	0,6: ind_tile_citrus_grove;
+	1,0: ind_tile_citrus_grove;	1,1: ind_tile_citrus_grove;	1,2: ind_tile_citrus_grove;		1,4: ind_tile_citrus_grove;	1,5: ind_tile_citrus_grove;	1,6: ind_tile_citrus_grove;
+	2,0: ind_tile_citrus_grove;	2,1: ind_tile_citrus_grove;	2,2: ind_tile_citrus_grove;		2,4: ind_tile_citrus_grove;	2,5: ind_tile_citrus_grove;	2,6: ind_tile_citrus_grove;
+	3,0: ind_tile_citrus_grove;	3,1: ind_tile_citrus_grove;	3,2: ind_tile_citrus_grove;		3,4: ind_tile_citrus_grove;	3,5: ind_tile_citrus_grove;	3,6: ind_tile_citrus_grove;
+	4,0: ind_tile_citrus_grove;	4,1: ind_tile_citrus_grove;	4,2: ind_tile_citrus_grove;		4,4: ind_tile_citrus_grove;	4,5: ind_tile_citrus_grove;	4,6: ind_tile_citrus_grove;
+	5,0: ind_tile_citrus_grove;	5,1: ind_tile_citrus_grove;	5,2: ind_tile_citrus_grove;		5,4: ind_tile_citrus_grove;	5,5: ind_tile_citrus_grove;	5,6: ind_tile_citrus_grove;
+																							6,4: ind_tile_citrus_grove_office;
+}
+
+tilelayout tilelayout_citrus_grove_3 {
+	0,0: ind_tile_citrus_grove;	0,1: ind_tile_citrus_grove;	0,2: ind_tile_citrus_grove;		0,4: ind_tile_citrus_grove;	0,5: ind_tile_citrus_grove;	0,6: ind_tile_citrus_grove;
+	1,0: ind_tile_citrus_grove;	1,1: ind_tile_citrus_grove;	1,2: ind_tile_citrus_grove;		1,4: ind_tile_citrus_grove;	1,5: ind_tile_citrus_grove;	1,6: ind_tile_citrus_grove;
+	2,0: ind_tile_citrus_grove;	2,1: ind_tile_citrus_grove;	2,2: ind_tile_citrus_grove;		2,4: ind_tile_citrus_grove;	2,5: ind_tile_citrus_grove;	2,6: ind_tile_citrus_grove; 2,7: ind_tile_citrus_grove_office;
+	3,0: ind_tile_citrus_grove;	3,1: ind_tile_citrus_grove;	3,2: ind_tile_citrus_grove;		3,4: ind_tile_citrus_grove;	3,5: ind_tile_citrus_grove;	3,6: ind_tile_citrus_grove;
+	4,0: ind_tile_citrus_grove;	4,1: ind_tile_citrus_grove;	4,2: ind_tile_citrus_grove;		4,4: ind_tile_citrus_grove;	4,5: ind_tile_citrus_grove;	4,6: ind_tile_citrus_grove;
+	5,0: ind_tile_citrus_grove;	5,1: ind_tile_citrus_grove;	5,2: ind_tile_citrus_grove;		5,4: ind_tile_citrus_grove;	5,5: ind_tile_citrus_grove;	5,6: ind_tile_citrus_grove;
+}
+
+tilelayout tilelayout_citrus_grove_4 {
+	0,0: ind_tile_citrus_grove;	0,1: ind_tile_citrus_grove;	0,2: ind_tile_citrus_grove;	0,3: ind_tile_citrus_grove;
+	1,0: ind_tile_citrus_grove;	1,1: ind_tile_citrus_grove;	1,2: ind_tile_citrus_grove;	1,3: ind_tile_citrus_grove;
+	2,0: ind_tile_citrus_grove;	2,1: ind_tile_citrus_grove;	2,2: ind_tile_citrus_grove;	2,3: ind_tile_citrus_grove;
+	3,0: ind_tile_citrus_grove;	3,1: ind_tile_citrus_grove;	3,2: ind_tile_citrus_grove;	3,3: ind_tile_citrus_grove;
+	4,0: ind_tile_citrus_grove;	4,1: ind_tile_citrus_grove;	4,2: ind_tile_citrus_grove;	4,3: ind_tile_citrus_grove;
+	5,0: ind_tile_citrus_grove;	5,1: ind_tile_citrus_grove;	5,2: ind_tile_citrus_grove;	5,3: ind_tile_citrus_grove;
+								6,1: ind_tile_citrus_grove_office;
+}
+
+tilelayout tilelayout_citrus_grove_5 {
+	0,0: ind_tile_citrus_grove;	0,1: ind_tile_citrus_grove;	0,2: ind_tile_citrus_grove;	0,3: ind_tile_citrus_grove;
+	1,0: ind_tile_citrus_grove;	1,1: ind_tile_citrus_grove;	1,2: ind_tile_citrus_grove;	1,3: ind_tile_citrus_grove;
+	2,0: ind_tile_citrus_grove;	2,1: ind_tile_citrus_grove;	2,2: ind_tile_citrus_grove;	2,3: ind_tile_citrus_grove; 2,4: ind_tile_citrus_grove_office;
+	3,0: ind_tile_citrus_grove;	3,1: ind_tile_citrus_grove;	3,2: ind_tile_citrus_grove;	3,3: ind_tile_citrus_grove;
+	4,0: ind_tile_citrus_grove;	4,1: ind_tile_citrus_grove;	4,2: ind_tile_citrus_grove;	4,3: ind_tile_citrus_grove;
+	5,0: ind_tile_citrus_grove;	5,1: ind_tile_citrus_grove;	5,2: ind_tile_citrus_grove;	5,3: ind_tile_citrus_grove;
+}
+
+tilelayout tilelayout_citrus_grove_6 {
+	0,0: ind_tile_citrus_grove;	0,1: ind_tile_citrus_grove;	0,2: ind_tile_citrus_grove;	0,3: ind_tile_citrus_grove;
+	1,0: ind_tile_citrus_grove;	1,1: ind_tile_citrus_grove;	1,2: ind_tile_citrus_grove;	1,3: ind_tile_citrus_grove;
+	2,0: ind_tile_citrus_grove;	2,1: ind_tile_citrus_grove;	2,2: ind_tile_citrus_grove;	2,3: ind_tile_citrus_grove;
+	3,0: ind_tile_citrus_grove;	3,1: ind_tile_citrus_grove;	3,2: ind_tile_citrus_grove;	3,3: ind_tile_citrus_grove;
+	4,0: ind_tile_citrus_grove;	4,1: ind_tile_citrus_grove;	4,2: ind_tile_citrus_grove;	4,3: ind_tile_citrus_grove; 4,4: ind_tile_citrus_grove_office;
+	5,0: ind_tile_citrus_grove;	5,1: ind_tile_citrus_grove;	5,2: ind_tile_citrus_grove;	5,3: ind_tile_citrus_grove;
+}
+
+/* Citrus groves only generate at elevation 1. */
+switch (FEAT_INDUSTRIES, SELF, loc_check_citrus_grove, IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_CITRUS_ELEVATION);}
+
+item (FEAT_INDUSTRIES, industry_citrus_grove, 1)
+{
+	property {
+		substitute: INDUSTRYTYPE_FRUIT_PLANTATION;
+		name: string(STR_CITRUS_GROVE);
+		nearby_station_name: string(STR_CITRUS_GROVE);
+		life_type: IND_LIFE_TYPE_ORGANIC;
+		cargo_types: [
+			produce_cargo("FRUT", 16),
+		];
+		layouts: [
+			tilelayout_citrus_grove_1,
+			tilelayout_citrus_grove_2,
+			tilelayout_citrus_grove_3,
+			tilelayout_citrus_grove_4,
+			tilelayout_citrus_grove_5,
+			tilelayout_citrus_grove_6
+		];
+		conflicting_ind_types: [industry_citrus_grove]; // FIXME: Add plantations which plant fields around them
+		prob_map_gen: 1; // FIXME: Adjust as necessary
+		prob_in_game: 0;
+		map_colour: 188;
+		prospect_chance: 1;
+		
+	}
+	graphics {
+		location_check: loc_check_citrus_grove;
+		/* Don't allow any production changes */
+		build_prod_change: 16; // 100% production
+		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		extra_text_industry: string(STR_NO_PRODUCTION_CHANGE);
+	}
+}
