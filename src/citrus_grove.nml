@@ -101,7 +101,7 @@ tilelayout tilelayout_citrus_grove_6 {
 }
 
 /* Citrus groves only generate at elevation 1. */
-switch (FEAT_INDUSTRIES, SELF, loc_check_citrus_grove, IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_CITRUS_ELEVATION);}
+switch (FEAT_INDUSTRIES, SELF, loc_check_citrus_grove, IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_CITRUS_LOCATION);}
 
 item (FEAT_INDUSTRIES, industry_citrus_grove, 1)
 {
@@ -121,7 +121,7 @@ item (FEAT_INDUSTRIES, industry_citrus_grove, 1)
 			tilelayout_citrus_grove_5,
 			tilelayout_citrus_grove_6
 		];
-		conflicting_ind_types: [industry_citrus_grove]; // FIXME: Add plantations which plant fields around them
+		conflicting_ind_types: [industry_citrus_grove, industry_sugarcane_plantation]; // FIXME: Add plantations which plant fields around them
 		prob_map_gen: 1; // FIXME: Adjust as necessary
 		prob_in_game: 0;
 		map_colour: 188;

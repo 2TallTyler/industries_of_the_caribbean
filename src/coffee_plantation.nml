@@ -72,7 +72,7 @@ tilelayout tilelayout_coffee_plantation_4 {
 }
 
 /* Coffee plantations must be at least height 2, no max limit. */
-switch (FEAT_INDUSTRIES, SELF, loc_check_coffee_plantation, IndustryElevationCheck(2, 255)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_COFFEE_ELEVATION);}
+switch (FEAT_INDUSTRIES, SELF, loc_check_coffee_plantation, IndustryElevationCheck(2, 255)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_COFFEE_LOCATION);}
 
 item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 {
@@ -90,7 +90,7 @@ item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 			tilelayout_coffee_plantation_3,
 			tilelayout_coffee_plantation_4
 		];
-		conflicting_ind_types: [industry_coffee_plantation]; // FIXME: Add plantations which plant fields around them
+		conflicting_ind_types: [industry_coffee_plantation, industry_sugarcane_plantation]; // FIXME: Add plantations which plant fields around them
 		prob_map_gen: 1; // FIXME: Adjust as necessary
 		prob_in_game: 0;
 		map_colour: 63;

@@ -30,7 +30,7 @@ tilelayout tilelayout_import_export {
 
 switch (FEAT_INDUSTRIES, SELF, loc_check_import_export,
 	IsNearMapEdge() && 
-	DistanceFromLand(8) && 
+	DistanceFromWaterOrLand(8) && 
 	industry_distance(industry_import_export) > 512
 ) {1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW;}
 
@@ -44,6 +44,7 @@ item (FEAT_INDUSTRIES, industry_import_export, 2) {
 		cargo_types: [
 			accept_cargo("JAVA", produce_cargo("FOOD", 1)),
 			accept_cargo("FRUT", produce_cargo("FOOD", 1)),
+			accept_cargo("SUGR", produce_cargo("OIL_", 1))
 		];
 		layouts: [
 			tilelayout_import_export

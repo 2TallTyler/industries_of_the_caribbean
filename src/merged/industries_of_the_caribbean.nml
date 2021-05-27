@@ -13,12 +13,12 @@ disable_item(FEAT_INDUSTRIES);
 /* Disable base game cargos */
 disable_item(FEAT_CARGOS);
 
-/* Increase base costs for funding industries to 4x the base cost. This gives us a greater range of possible purchase prices for funding industries.
+/* Increase base costs for funding industries to 32x the base cost. This gives us a greater range of possible purchase prices for funding industries.
  * Note that this also increase the cost to fund a town, so we also decrement that by the same factor to leave it unchanged. 
  */
 basecost {
-	PR_BUILD_INDUSTRY: 2;
-	PR_BUILD_TOWN: -2;
+	PR_BUILD_INDUSTRY: 6;
+	PR_BUILD_TOWN: -6;
 }
 
 /* Create an error if OpenTTD version is before 1.10.0 (required for increased cargo types at industries) */
@@ -150,11 +150,11 @@ if (grf_future_status("TT\04\01")) { error(FATAL, string(STR_ERROR_INCOMPATIBLE_
 switch (FEAT_INDUSTRIES, SELF, IndustryElevationCheck, min_z, max_z, nearby_tile_height(0,0) >= min_z && nearby_tile_height(0,0) <= max_z) {return;}
 
 /**
- * Check if an industry is near land
- * @param required distance from land
- * @return 1 if the industry is greater than the given distance from land, else 0
+ * Check if a water-based industry is near land, or a land-based industry is near water
+ * @param required distance from land/water
+ * @return 1 if the industry is greater than the given distance from land/water, else 0
  */
-switch (FEAT_INDUSTRIES, SELF, DistanceFromLand, required, water_distance >= required) {return;}
+switch (FEAT_INDUSTRIES, SELF, DistanceFromWaterOrLand, required, water_distance >= required) {return;}
 
 /**
  * Calculate the x coordinate of an industry's northernmost tile.
@@ -796,7 +796,7 @@ tilelayout tilelayout_citrus_grove_6 {
 }
 
 /* Citrus groves only generate at elevation 1. */
-switch (FEAT_INDUSTRIES, SELF, loc_check_citrus_grove, IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_CITRUS_ELEVATION);}
+switch (FEAT_INDUSTRIES, SELF, loc_check_citrus_grove, IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_CITRUS_LOCATION);}
 
 item (FEAT_INDUSTRIES, industry_citrus_grove, 1)
 {
@@ -816,7 +816,7 @@ item (FEAT_INDUSTRIES, industry_citrus_grove, 1)
 			tilelayout_citrus_grove_5,
 			tilelayout_citrus_grove_6
 		];
-		conflicting_ind_types: [industry_citrus_grove]; // FIXME: Add plantations which plant fields around them
+		conflicting_ind_types: [industry_citrus_grove, industry_sugarcane_plantation]; // FIXME: Add plantations which plant fields around them
 		prob_map_gen: 1; // FIXME: Adjust as necessary
 		prob_in_game: 0;
 		map_colour: 188;
@@ -907,7 +907,7 @@ tilelayout tilelayout_coffee_plantation_4 {
 }
 
 /* Coffee plantations must be at least height 2, no max limit. */
-switch (FEAT_INDUSTRIES, SELF, loc_check_coffee_plantation, IndustryElevationCheck(2, 255)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_COFFEE_ELEVATION);}
+switch (FEAT_INDUSTRIES, SELF, loc_check_coffee_plantation, IndustryElevationCheck(2, 255)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_COFFEE_LOCATION);}
 
 item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 {
@@ -925,7 +925,7 @@ item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 			tilelayout_coffee_plantation_3,
 			tilelayout_coffee_plantation_4
 		];
-		conflicting_ind_types: [industry_coffee_plantation]; // FIXME: Add plantations which plant fields around them
+		conflicting_ind_types: [industry_coffee_plantation, industry_sugarcane_plantation]; // FIXME: Add plantations which plant fields around them
 		prob_map_gen: 1; // FIXME: Adjust as necessary
 		prob_in_game: 0;
 		map_colour: 63;
@@ -974,7 +974,7 @@ tilelayout tilelayout_import_export {
 
 switch (FEAT_INDUSTRIES, SELF, loc_check_import_export,
 	IsNearMapEdge() && 
-	DistanceFromLand(8) && 
+	DistanceFromWaterOrLand(8) && 
 	industry_distance(industry_import_export) > 512
 ) {1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW;}
 
@@ -988,6 +988,7 @@ item (FEAT_INDUSTRIES, industry_import_export, 2) {
 		cargo_types: [
 			accept_cargo("JAVA", produce_cargo("FOOD", 1)),
 			accept_cargo("FRUT", produce_cargo("FOOD", 1)),
+			accept_cargo("SUGR", produce_cargo("OIL_", 1))
 		];
 		layouts: [
 			tilelayout_import_export
@@ -999,5 +1000,92 @@ item (FEAT_INDUSTRIES, industry_import_export, 2) {
 	}
 	graphics {
 		location_check: loc_check_import_export;
+	}
+}
+
+/* Begin Sugar Mill */
+
+item (FEAT_INDUSTRYTILES, tile_sugar_mill_0)
+{
+	property {
+		substitute: 60;
+		override: 60;
+		accepted_cargos: [[SGCN, 8]];
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_sugar_mill_1)
+{
+	property {
+		substitute: 61;
+		override: 61;
+		accepted_cargos: [[SGCN, 8]];
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_sugar_mill_2)
+{
+	property {
+		substitute: 62;
+		override: 62;
+		accepted_cargos: [[SGCN, 8]];
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_sugar_mill_3)
+{
+	property {
+		substitute: 63;
+		override: 63;
+		accepted_cargos: [[SGCN, 8]];
+	}
+}
+
+item (FEAT_INDUSTRIES, industry_sugar_mill, 4)
+{
+	property {
+		substitute: INDUSTRYTYPE_FOOD_PROCESSING_PLANT;
+		name: string(STR_SUGAR_MILL);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_SUGAR_MILL));
+		life_type: IND_LIFE_TYPE_PROCESSING;
+		cargo_types: [
+			accept_cargo("SGCN", produce_cargo("SUGR", 1)),
+		];
+		prob_map_gen: 0;
+		prob_in_game: 0;
+		fund_cost_multiplier: 5;
+		map_colour: 15;
+	}
+}
+
+/* Begin Sugarcane plantation */
+
+/* Citrus groves only generate at elevation 1. */
+switch (FEAT_INDUSTRIES, SELF, loc_check_sugarcane_plantation, IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_SUGARCANE_LOCATION);}
+
+item (FEAT_INDUSTRIES, industry_sugarcane_plantation, 3)
+{
+	property {
+		substitute: INDUSTRYTYPE_TROPICAL_FARM;
+		name: string(STR_SUGARCANE_PLANTATION);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_SUGARCANE_PLANTATION));
+		life_type: IND_LIFE_TYPE_ORGANIC;
+		cargo_types: [
+			produce_cargo("SGCN", 8),
+		];
+		conflicting_ind_types: [industry_sugarcane_plantation, industry_citrus_grove, industry_coffee_plantation]; // FIXME: Add plantations which plant fields around them
+		prob_map_gen: 1; // FIXME: Adjust as necessary
+		prob_in_game: 0;
+		map_colour: 94;
+		prospect_chance: 1;
+		
+	}
+	graphics {
+		location_check: loc_check_sugarcane_plantation;
+		/* Don't allow any production changes */
+		build_prod_change: 16; // 100% production
+		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		extra_text_industry: string(STR_NO_PRODUCTION_CHANGE);
 	}
 }

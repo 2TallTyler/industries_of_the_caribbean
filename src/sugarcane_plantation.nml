@@ -1,0 +1,32 @@
+
+/* Begin Sugarcane plantation */
+
+/* Citrus groves only generate at elevation 1. */
+switch (FEAT_INDUSTRIES, SELF, loc_check_sugarcane_plantation, IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_SUGARCANE_LOCATION);}
+
+item (FEAT_INDUSTRIES, industry_sugarcane_plantation, 3)
+{
+	property {
+		substitute: INDUSTRYTYPE_TROPICAL_FARM;
+		name: string(STR_SUGARCANE_PLANTATION);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_SUGARCANE_PLANTATION));
+		life_type: IND_LIFE_TYPE_ORGANIC;
+		cargo_types: [
+			produce_cargo("SGCN", 8),
+		];
+		conflicting_ind_types: [industry_sugarcane_plantation, industry_citrus_grove, industry_coffee_plantation]; // FIXME: Add plantations which plant fields around them
+		prob_map_gen: 1; // FIXME: Adjust as necessary
+		prob_in_game: 0;
+		map_colour: 94;
+		prospect_chance: 1;
+		
+	}
+	graphics {
+		location_check: loc_check_sugarcane_plantation;
+		/* Don't allow any production changes */
+		build_prod_change: 16; // 100% production
+		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		extra_text_industry: string(STR_NO_PRODUCTION_CHANGE);
+	}
+}

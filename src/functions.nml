@@ -10,11 +10,11 @@
 switch (FEAT_INDUSTRIES, SELF, IndustryElevationCheck, min_z, max_z, nearby_tile_height(0,0) >= min_z && nearby_tile_height(0,0) <= max_z) {return;}
 
 /**
- * Check if an industry is near land
- * @param required distance from land
- * @return 1 if the industry is greater than the given distance from land, else 0
+ * Check if a water-based industry is near land, or a land-based industry is near water
+ * @param required distance from land/water
+ * @return 1 if the industry is greater than the given distance from land/water, else 0
  */
-switch (FEAT_INDUSTRIES, SELF, DistanceFromLand, required, water_distance >= required) {return;}
+switch (FEAT_INDUSTRIES, SELF, DistanceFromWaterOrLand, required, water_distance >= required) {return;}
 
 /**
  * Calculate the x coordinate of an industry's northernmost tile.
