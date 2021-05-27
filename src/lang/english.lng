@@ -19,6 +19,7 @@ STR_NO_PRODUCTION_CHANGE			:Production never changes.
 STR_ERR_COFFEE_LOCATION				:Coffee Plantations must be at elevation 2 or greater.
 STR_ERR_CITRUS_LOCATION				:Citrus Groves must be at elevation 1.
 STR_ERR_SUGARCANE_LOCATION			:Sugarcane Farms must be near water and at elevation 1.
+STR_ERR_IMPORT_EXPORT_LOCATION		:Import/Export must be near map edge.
 
 
 STR_COFFEE_PLANTATION				:Coffee Plantation

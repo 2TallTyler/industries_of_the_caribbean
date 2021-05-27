@@ -30,9 +30,8 @@ tilelayout tilelayout_import_export {
 
 switch (FEAT_INDUSTRIES, SELF, loc_check_import_export,
 	IsNearMapEdge() && 
-	DistanceFromWaterOrLand(8) && 
-	industry_distance(industry_import_export) > 512
-) {1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW;}
+	((DistanceFromWaterOrLand(8) && industry_distance(industry_import_export) > 512) || IsFundedConstruction())
+) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_IMPORT_EXPORT_LOCATION);}
 
 item (FEAT_INDUSTRIES, industry_import_export, 2) {
 	property {
@@ -53,6 +52,7 @@ item (FEAT_INDUSTRIES, industry_import_export, 2) {
 		prob_in_game: 0;
 		map_colour: 15;
 		prospect_chance: 1;
+		fund_cost_multiplier: 0;
 	}
 	graphics {
 		location_check: loc_check_import_export;

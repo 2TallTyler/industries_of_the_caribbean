@@ -38,3 +38,9 @@ switch (FEAT_INDUSTRIES, SELF, IsNearMapEdge,
 	(GetTileY() < 4) ||
 	((map_y_edge - GetTileY()) < 8)
 ) {return;}
+
+/**
+ * Checks if an industry is being funded 
+ * @returns 1 if so, else 0
+ */
+switch (FEAT_INDUSTRIES, SELF, IsFundedConstruction, extra_callback_info2 == IND_CREATION_FUND) {return;}
