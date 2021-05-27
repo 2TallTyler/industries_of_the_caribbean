@@ -108,7 +108,7 @@ item (FEAT_INDUSTRIES, industry_citrus_grove, 1)
 	property {
 		substitute: INDUSTRYTYPE_FRUIT_PLANTATION;
 		name: string(STR_CITRUS_GROVE);
-		nearby_station_name: string(STR_CITRUS_GROVE);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_CITRUS_GROVE));
 		life_type: IND_LIFE_TYPE_ORGANIC;
 		cargo_types: [
 			produce_cargo("FRUT", 16),

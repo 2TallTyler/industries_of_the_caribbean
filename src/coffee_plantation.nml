@@ -79,7 +79,7 @@ item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 	property {
 		substitute: INDUSTRYTYPE_RUBBER_PLANTATION;
 		name: string(STR_COFFEE_PLANTATION);
-		nearby_station_name: string(STR_COFFEE_PLANTATION);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_COFFEE_PLANTATION));
 		life_type: IND_LIFE_TYPE_ORGANIC;
 		cargo_types: [
 			produce_cargo("JAVA", 4),

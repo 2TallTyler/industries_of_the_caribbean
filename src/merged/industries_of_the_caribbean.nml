@@ -149,6 +149,36 @@ if (grf_future_status("TT\04\01")) { error(FATAL, string(STR_ERROR_INCOMPATIBLE_
  */
 switch (FEAT_INDUSTRIES, SELF, IndustryElevationCheck, min_z, max_z, nearby_tile_height(0,0) >= min_z && nearby_tile_height(0,0) <= max_z) {return;}
 
+/**
+ * Check if an industry is near land
+ * @param required distance from land
+ * @return 1 if the industry is greater than the given distance from land, else 0
+ */
+switch (FEAT_INDUSTRIES, SELF, DistanceFromLand, required, water_distance >= required) {return;}
+
+/**
+ * Calculate the x coordinate of an industry's northernmost tile.
+ * @returns the x coordinate
+ */ 
+switch (FEAT_INDUSTRIES, SELF, GetTileX, var[0x80, 0, 0xFFFFFFFF] % map_x_edge) {return;}
+
+/**
+ * Calculate the y coordinate of an industry's northernmost tile.
+ * @returns the y coordinate
+ */
+switch (FEAT_INDUSTRIES, SELF, GetTileY, var[0x80, 0, 0xFFFFFFFF] / map_x_edge) {return;}
+ 
+/**
+ * Checks if an industry is suitably close to the edge of the map
+ * @returns 1 if it is close enouugh, else 0
+ */
+switch (FEAT_INDUSTRIES, SELF, IsNearMapEdge, 
+	(GetTileX() < 4) ||
+	((map_x_edge - GetTileX()) < 8) ||
+	(GetTileY() < 4) ||
+	((map_y_edge - GetTileY()) < 8)
+) {return;}
+
 
 /* Begin Cargos */
 
@@ -773,7 +803,7 @@ item (FEAT_INDUSTRIES, industry_citrus_grove, 1)
 	property {
 		substitute: INDUSTRYTYPE_FRUIT_PLANTATION;
 		name: string(STR_CITRUS_GROVE);
-		nearby_station_name: string(STR_CITRUS_GROVE);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_CITRUS_GROVE));
 		life_type: IND_LIFE_TYPE_ORGANIC;
 		cargo_types: [
 			produce_cargo("FRUT", 16),
@@ -884,7 +914,7 @@ item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 	property {
 		substitute: INDUSTRYTYPE_RUBBER_PLANTATION;
 		name: string(STR_COFFEE_PLANTATION);
-		nearby_station_name: string(STR_COFFEE_PLANTATION);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_COFFEE_PLANTATION));
 		life_type: IND_LIFE_TYPE_ORGANIC;
 		cargo_types: [
 			produce_cargo("JAVA", 4),
@@ -909,5 +939,65 @@ item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		extra_text_industry: string(STR_NO_PRODUCTION_CHANGE);
+	}
+}
+
+
+/* Begin Import/Export */
+
+spritelayout sprlay_import_export_buoy {
+	ground {
+		sprite: 4061;
+	}
+	building {
+		sprite: 4790;
+	}
+}
+
+item (FEAT_INDUSTRYTILES, ind_tile_import_export_buoy) {
+	property {
+		substitute: 0;
+		land_shape_flags: bitmask(LSF_ALLOW_ON_WATER);
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: sprlay_import_export_buoy;
+	}
+}
+
+tilelayout tilelayout_import_export {
+	0,0: 24;
+	0,1: 24;
+	1,0: 24;
+	1,1: ind_tile_import_export_buoy;
+}
+
+switch (FEAT_INDUSTRIES, SELF, loc_check_import_export,
+	IsNearMapEdge() && 
+	DistanceFromLand(8) && 
+	industry_distance(industry_import_export) > 512
+) {1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW;}
+
+item (FEAT_INDUSTRIES, industry_import_export, 2) {
+	property {
+		substitute: 9;
+		name: string(STR_IMPORT_EXPORT);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_IMPORT_EXPORT));
+		life_type: IND_LIFE_TYPE_BLACK_HOLE;
+		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
+		cargo_types: [
+			accept_cargo("JAVA", produce_cargo("FOOD", 1)),
+			accept_cargo("FRUT", produce_cargo("FOOD", 1)),
+		];
+		layouts: [
+			tilelayout_import_export
+		];
+		prob_map_gen: 1; // FIXME: Adjust as necessary
+		prob_in_game: 0;
+		map_colour: 15;
+		prospect_chance: 1;
+	}
+	graphics {
+		location_check: loc_check_import_export;
 	}
 }
