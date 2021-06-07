@@ -53,3 +53,14 @@ switch (FEAT_INDUSTRIES, SELF, IsFundedConstruction, extra_callback_info2 == IND
 	1: return 0x3800 + string(STR_EMPTY); // per FIRS source, hides the cargo waiting text
 	return CB_RESULT_NO_TEXT;
 }
+
+/* Empty production block */
+produce (produce_none, [], [])
+
+/* Consume idle workers (no cargo available to process */ 
+produce (produce_idle_workers, [PASS: 1;], [], 1)
+
+switch (FEAT_INDUSTRIES, SELF, switch_produce_idle, incoming_cargo_waiting("PASS") > 0) {
+	1: produce_idle_workers;
+	produce_none;
+}

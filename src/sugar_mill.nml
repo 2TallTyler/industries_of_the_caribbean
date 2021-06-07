@@ -36,24 +36,15 @@ item (FEAT_INDUSTRYTILES, tile_sugar_mill_3)
 	}
 }
 
-produce (produce_none_sugar_mill, [], [])
-
-produce (produce_consume_workers_sugar_mill, [PASS: 1;], [], 1)
-
-switch (FEAT_INDUSTRIES, SELF, switch_produce_sugar_mill_idle, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("SGCN") < 8)) {
-	1: produce_consume_workers_sugar_mill;
-	produce_none_sugar_mill;
-}
-
 produce (produce_sugar_mill,
-	[PASS: 8; SGCN: 8;],
-	[SUGR: 5; MOLS: 1;],
-	1
+	[PASS: 8; SGCN: 8;],	// Consume
+	[SUGR: 5; MOLS: 1;],	// Produce
+	1 						// Run callback again
 	)
 	
 switch (FEAT_INDUSTRIES, SELF, switch_produce_sugar_mill, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("SGCN") >= 8)) {
 	1: produce_sugar_mill;
-	switch_produce_sugar_mill_idle;
+	switch_produce_idle;
 }
 
 item (FEAT_INDUSTRIES, industry_sugar_mill, 4)
