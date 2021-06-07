@@ -1,0 +1,63 @@
+/* Begin Nickel Mine */
+
+item (FEAT_INDUSTRYTILES, tile_nickel_mine_0)
+{
+	property {
+		substitute: 47;
+		override: 47;
+		accepted_cargos: [[FUEL, 8]];
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_nickel_mine_1)
+{
+	property {
+		substitute: 48;
+		override: 48;
+		accepted_cargos: [[FUEL, 8]];
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_nickel_mine_2)
+{
+	property {
+		substitute: 49;
+		override: 49;
+		accepted_cargos: [[FUEL, 8]];
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_nickel_mine_3)
+{
+	property {
+		substitute: 50;
+		override: 50;
+		accepted_cargos: [[FUEL, 8]];
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_nickel_mine_4)
+{
+	property {
+		substitute: 51;
+		override: 51;
+		accepted_cargos: [[FUEL, 8]];
+	}
+}
+
+item (FEAT_INDUSTRIES, industry_nickel_mine, 6)
+{
+	property {
+		substitute: INDUSTRYTYPE_COPPER_ORE_MINE;
+		name: string(STR_NICKEL_MINE);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_NICKEL_MINE));
+		life_type: IND_LIFE_TYPE_PROCESSING;
+		cargo_types: [
+			accept_cargo("FUEL", produce_cargo("NKOR", 3), produce_cargo("COBL", 1)),
+		];
+		prob_map_gen: 0;
+		prob_in_game: 0;
+		fund_cost_multiplier: 5;
+		map_colour: 11;
+	}
+}

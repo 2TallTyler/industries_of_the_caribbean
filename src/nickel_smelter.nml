@@ -1,0 +1,109 @@
+/* Begin Nickel Smelter */
+
+item (FEAT_INDUSTRYTILES, tile_nickel_smelter_0)
+{
+	property {
+		substitute: 64;
+		override: 64;
+		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_nickel_smelter_1)
+{
+	property {
+		substitute: 65;
+		override: 65;
+		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_nickel_smelter_2)
+{
+	property {
+		substitute: 66;
+		override: 66;
+		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_nickel_smelter_3)
+{
+	property {
+		substitute: 67;
+		override: 67;
+		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_nickel_smelter_4)
+{
+	property {
+		substitute: 68;
+		override: 68;
+		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_nickel_smelter_5)
+{
+	property {
+		substitute: 69;
+		override: 69;
+		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_nickel_smelter_6)
+{
+	property {
+		substitute: 70;
+		override: 70;
+		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_nickel_smelter_7)
+{
+	property {
+		substitute: 71;
+		override: 71;
+		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+	}
+}
+
+produce (produce_nickel_smelter,
+	[PASS: 10; NKOR: 9; RFPR: 1;],	// Consume
+	[NICK: 10;],						// Produce
+	1 								// Run callback again
+	)
+	
+switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_smelter, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("NKOR") >= 10 && incoming_cargo_waiting("RFPR") > 0)) {
+	1: produce_nickel_smelter;
+	switch_produce_idle;
+}
+
+item (FEAT_INDUSTRIES, industry_nickel_smelter, 7)
+{
+	property {
+		substitute: INDUSTRYTYPE_PAPER_MILL;
+		name: string(STR_NICKEL_SMELTER);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_NICKEL_SMELTER));
+		life_type: IND_LIFE_TYPE_PROCESSING;
+		cargo_types: [
+			accept_cargo("NKOR"),
+			accept_cargo("RFPR"),
+			accept_cargo("PASS"),
+			produce_cargo("NICK", 0)
+		];
+		prob_map_gen: 0;
+		prob_in_game: 0;
+		fund_cost_multiplier: 5;
+		map_colour: 15;
+	}
+	graphics {
+		produce_cargo_arrival: switch_produce_nickel_smelter;
+		cargo_subtype_display: HideCargoWaitingText(2);
+		extra_text_industry: string(STR_WORKERS_HELPTEXT);
+	}
+}
