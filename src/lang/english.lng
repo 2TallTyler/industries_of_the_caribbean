@@ -40,7 +40,10 @@ STR_BEACH							:Beach
 STR_NICKEL_MINE						:Nickel Mine
 STR_NICKEL_SMELTER					:Nickel Smelter
 
-STR_IMPORT_EXPORT					:Import/Export
+STR_IMPORT_EXPORT_0					:Import/Export 0
+STR_IMPORT_EXPORT_1					:Import/Export 1
+STR_IMPORT_EXPORT_2					:Import/Export 2
+STR_IMPORT_EXPORT_3					:Import/Export 3
 
 
 STR_CARGO_NAME_WORKERS				:Workers
