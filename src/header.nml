@@ -26,6 +26,9 @@ if (version_openttd(1,10,0,28004) > openttd_version) {
 	error(FATAL, string(STR_ERROR_GAME_VERSION));
 }
 
+/* Create a non-tatal error if Improved Town Layouts is not loaded */
+if (param["TT\03\01", 254] < 18) { error(ERROR, string(STR_ERROR_NO_ITL));}
+
 /* Create an error if a conflicting industry replacement set is active - thanks to FIRS for much of this code */
 
 if (grf_future_status("Meo\81")) { error(FATAL, string(STR_ERROR_INCOMPATIBLE_SET, "New Cargos"));}
