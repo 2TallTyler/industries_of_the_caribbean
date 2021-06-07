@@ -44,6 +44,11 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_4)
 		accepted_cargos: [[FUEL, 8]];
 	}
 }
+/* FIXME: Should this industry be unlocked and spawn by itself, be prospected by the player, or appear at map generation? */
+//switch (FEAT_INDUSTRIES, SELF, switch_unlock_nickel_mine, (getbits(extra_callback_info2, 0, 8) != IND_CREATION_GENERATION) && industry_count(industry_oil_refinery, -1) > 0) {1: return 1; return 0;}
+
+/* Nickel Mines must be at least height 2, no max limit. */
+switch (FEAT_INDUSTRIES, SELF, loc_check_nickel_mine, IndustryElevationCheck(2, 255)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_NICKEL_MINE_LOCATION);}
 
 item (FEAT_INDUSTRIES, industry_nickel_mine, 6)
 {
@@ -51,13 +56,20 @@ item (FEAT_INDUSTRIES, industry_nickel_mine, 6)
 		substitute: INDUSTRYTYPE_COPPER_ORE_MINE;
 		name: string(STR_NICKEL_MINE);
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_NICKEL_MINE));
-		life_type: IND_LIFE_TYPE_PROCESSING;
+		life_type: IND_LIFE_TYPE_EXTRACTIVE;
 		cargo_types: [
 			accept_cargo("FUEL", produce_cargo("NKOR", 3), produce_cargo("COBL", 1)),
 		];
-		prob_map_gen: 0;
+		prob_map_gen: 1; // FIXME: Adjust as necessary
 		prob_in_game: 0;
 		fund_cost_multiplier: 5;
-		map_colour: 11;
+		map_colour: 8;
+	}
+	graphics {
+		location_check: loc_check_nickel_mine;
+		//construction_probability: switch_unlock_nickel_mine;
+		/* Don't allow any production changes */
+		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 	}
 }

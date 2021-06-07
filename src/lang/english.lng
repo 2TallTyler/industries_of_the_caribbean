@@ -23,6 +23,7 @@ STR_WORKERS_HELPTEXT				:Deliver Workers to process waiting cargo.
 STR_ERR_COFFEE_LOCATION				:Coffee Plantations must be at elevation 2 or greater.
 STR_ERR_CITRUS_LOCATION				:Citrus Groves must be at elevation 1.
 STR_ERR_SUGARCANE_LOCATION			:Sugarcane Farms must be near water and at elevation 1.
+STR_ERR_NICKEL_MINE_LOCATION		:Nickel Mines must be at elevation 2 or greater.
 STR_ERR_IMPORT_EXPORT_LOCATION		:Import/Export must be near map edge.
 
 
