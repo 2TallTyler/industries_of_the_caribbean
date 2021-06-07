@@ -5,7 +5,7 @@ item (FEAT_INDUSTRYTILES, tile_sugar_mill_0)
 	property {
 		substitute: 60;
 		override: 60;
-		accepted_cargos: [[SGCN, 8]];
+		accepted_cargos: [[SGCN, 8], [PASS, 8]];
 	}
 }
 
@@ -14,7 +14,7 @@ item (FEAT_INDUSTRYTILES, tile_sugar_mill_1)
 	property {
 		substitute: 61;
 		override: 61;
-		accepted_cargos: [[SGCN, 8]];
+		accepted_cargos: [[SGCN, 8], [PASS, 8]];
 	}
 }
 
@@ -23,7 +23,7 @@ item (FEAT_INDUSTRYTILES, tile_sugar_mill_2)
 	property {
 		substitute: 62;
 		override: 62;
-		accepted_cargos: [[SGCN, 8]];
+		accepted_cargos: [[SGCN, 8], [PASS, 8]];
 	}
 }
 
@@ -32,8 +32,28 @@ item (FEAT_INDUSTRYTILES, tile_sugar_mill_3)
 	property {
 		substitute: 63;
 		override: 63;
-		accepted_cargos: [[SGCN, 8]];
+		accepted_cargos: [[SGCN, 8], [PASS, 8]];
 	}
+}
+
+produce (produce_none_sugar_mill, [], [])
+
+produce (produce_consume_workers_sugar_mill, [PASS: 1;], [], 1)
+
+switch (FEAT_INDUSTRIES, SELF, switch_produce_sugar_mill_idle, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("SGCN") < 8)) {
+	1: produce_consume_workers_sugar_mill;
+	produce_none_sugar_mill;
+}
+
+produce (produce_sugar_mill,
+	[PASS: 8; SGCN: 8;],
+	[SUGR: 5; MOLS: 1;],
+	1
+	)
+	
+switch (FEAT_INDUSTRIES, SELF, switch_produce_sugar_mill, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("SGCN") >= 8)) {
+	1: produce_sugar_mill;
+	switch_produce_sugar_mill_idle;
 }
 
 item (FEAT_INDUSTRIES, industry_sugar_mill, 4)
@@ -44,11 +64,19 @@ item (FEAT_INDUSTRIES, industry_sugar_mill, 4)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_SUGAR_MILL));
 		life_type: IND_LIFE_TYPE_PROCESSING;
 		cargo_types: [
-			accept_cargo("SGCN", produce_cargo("SUGR", 1)),
+			accept_cargo("SGCN"),
+			accept_cargo("PASS"),
+			produce_cargo("SUGR", 0),
+			produce_cargo("MOLS", 0)
 		];
 		prob_map_gen: 0;
 		prob_in_game: 0;
 		fund_cost_multiplier: 5;
 		map_colour: 15;
+	}
+	graphics {
+		produce_cargo_arrival: switch_produce_sugar_mill;
+		cargo_subtype_display: HideCargoWaitingText(1);
+		extra_text_industry: string(STR_WORKERS_HELPTEXT);
 	}
 }
