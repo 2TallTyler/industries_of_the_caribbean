@@ -69,5 +69,6 @@ item (FEAT_INDUSTRIES, industry_sugar_mill, 4)
 		produce_cargo_arrival: switch_produce_sugar_mill;
 		cargo_subtype_display: HideCargoWaitingText(1);
 		extra_text_industry: string(STR_WORKERS_HELPTEXT);
+		colour: founder_colour1;
 	}
 }

@@ -1201,6 +1201,7 @@ item (FEAT_INDUSTRIES, industry_nickel_smelter, 7)
 		produce_cargo_arrival: switch_produce_nickel_smelter;
 		cargo_subtype_display: HideCargoWaitingText(2);
 		extra_text_industry: string(STR_WORKERS_HELPTEXT);
+		colour: founder_colour1;
 	}
 }
 /* Begin Oil Refinery */
@@ -1427,6 +1428,7 @@ item (FEAT_INDUSTRIES, industry_oil_refinery, 5)
 		produce_cargo_arrival: switch_produce_oil_refinery;
 		cargo_subtype_display: HideCargoWaitingText(1);
 		extra_text_industry: string(STR_WORKERS_HELPTEXT);
+		colour: founder_colour1;
 	}
 }
 /* Begin Sugar Mill */
@@ -1500,6 +1502,7 @@ item (FEAT_INDUSTRIES, industry_sugar_mill, 4)
 		produce_cargo_arrival: switch_produce_sugar_mill;
 		cargo_subtype_display: HideCargoWaitingText(1);
 		extra_text_industry: string(STR_WORKERS_HELPTEXT);
+		colour: founder_colour1;
 	}
 }
 

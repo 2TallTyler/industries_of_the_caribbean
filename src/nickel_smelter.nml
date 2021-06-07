@@ -105,5 +105,6 @@ item (FEAT_INDUSTRIES, industry_nickel_smelter, 7)
 		produce_cargo_arrival: switch_produce_nickel_smelter;
 		cargo_subtype_display: HideCargoWaitingText(2);
 		extra_text_industry: string(STR_WORKERS_HELPTEXT);
+		colour: founder_colour1;
 	}
 }
