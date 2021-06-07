@@ -111,7 +111,7 @@ item (FEAT_INDUSTRIES, industry_citrus_grove, 1)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_CITRUS_GROVE));
 		life_type: IND_LIFE_TYPE_ORGANIC;
 		cargo_types: [
-			produce_cargo("FRUT", 16),
+			produce_cargo("FRUT", 8),
 		];
 		layouts: [
 			tilelayout_citrus_grove_1,
