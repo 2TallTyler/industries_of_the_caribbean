@@ -1,0 +1,173 @@
+
+/* Begin Tobacco Plantation */
+
+spritelayout tobacco_plantation_office_1 {
+	ground {
+		sprite: 2116;
+	}
+	building {
+		sprite: 4450;
+	}
+}
+
+spritelayout tobacco_plantation_office_2 {
+	ground {
+		sprite: 2116;
+	}
+	building {
+		sprite: 4456;
+	}
+}
+
+spritelayout tobacco_field {
+	ground {
+		sprite: 2341;
+	}
+}
+
+random_switch (FEAT_INDUSTRYTILES, SELF, random_tobacco_plantation_office) {
+	1: return tobacco_plantation_office_1;
+	1: return tobacco_plantation_office_2;
+}
+
+item (FEAT_INDUSTRYTILES, ind_tile_tobacco_plantation) {
+	property {
+		substitute:				116;
+		land_shape_flags:		bitmask(LSF_ONLY_ON_FLAT_LAND);
+		special_flags:			bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: tobacco_field;
+	}
+}
+
+item (FEAT_INDUSTRYTILES, ind_tile_tobacco_plantation_office) {
+	property {
+		substitute: 117;
+		land_shape_flags: bitmask(LSF_ONLY_ON_FLAT_LAND);
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: random_tobacco_plantation_office;
+	}
+}
+
+tilelayout tilelayout_tobacco_plantation_1 {
+	0,0: ind_tile_tobacco_plantation;	0,1: ind_tile_tobacco_plantation;	0,2: ind_tile_tobacco_plantation;		0,4: ind_tile_tobacco_plantation;	0,5: ind_tile_tobacco_plantation;	0,6: ind_tile_tobacco_plantation;
+	1,0: ind_tile_tobacco_plantation;	1,1: ind_tile_tobacco_plantation;	1,2: ind_tile_tobacco_plantation;		1,4: ind_tile_tobacco_plantation;	1,5: ind_tile_tobacco_plantation;	1,6: ind_tile_tobacco_plantation;
+	2,0: ind_tile_tobacco_plantation;	2,1: ind_tile_tobacco_plantation;	2,2: ind_tile_tobacco_plantation;		2,4: ind_tile_tobacco_plantation;	2,5: ind_tile_tobacco_plantation;	2,6: ind_tile_tobacco_plantation;
+	3,0: ind_tile_tobacco_plantation;	3,1: ind_tile_tobacco_plantation;	3,2: ind_tile_tobacco_plantation;		3,4: ind_tile_tobacco_plantation;	3,5: ind_tile_tobacco_plantation;	3,6: ind_tile_tobacco_plantation;
+	4,0: ind_tile_tobacco_plantation;	4,1: ind_tile_tobacco_plantation;	4,2: ind_tile_tobacco_plantation;		4,4: ind_tile_tobacco_plantation;	4,5: ind_tile_tobacco_plantation;	4,6: ind_tile_tobacco_plantation;
+	5,0: ind_tile_tobacco_plantation;	5,1: ind_tile_tobacco_plantation;	5,2: ind_tile_tobacco_plantation;		5,4: ind_tile_tobacco_plantation;	5,5: ind_tile_tobacco_plantation;	5,6: ind_tile_tobacco_plantation;
+								6,1: ind_tile_tobacco_plantation_office;
+}
+
+tilelayout tilelayout_tobacco_plantation_2 {
+	0,0: ind_tile_tobacco_plantation;	0,1: ind_tile_tobacco_plantation;	0,2: ind_tile_tobacco_plantation;	0,3: ind_tile_tobacco_plantation;	0,4: ind_tile_tobacco_plantation;	0,5: ind_tile_tobacco_plantation;
+	1,0: ind_tile_tobacco_plantation;	1,1: ind_tile_tobacco_plantation;	1,2: ind_tile_tobacco_plantation;	1,3: ind_tile_tobacco_plantation;	1,4: ind_tile_tobacco_plantation;	1,5: ind_tile_tobacco_plantation;
+	2,0: ind_tile_tobacco_plantation;	2,1: ind_tile_tobacco_plantation;	2,2: ind_tile_tobacco_plantation;	2,3: ind_tile_tobacco_plantation;	2,4: ind_tile_tobacco_plantation;	2,5: ind_tile_tobacco_plantation;
+	3,0: ind_tile_tobacco_plantation;	3,1: ind_tile_tobacco_plantation;	3,2: ind_tile_tobacco_plantation;	3,3: ind_tile_tobacco_plantation;	3,4: ind_tile_tobacco_plantation;	3,5: ind_tile_tobacco_plantation;
+	4,0: ind_tile_tobacco_plantation;	4,1: ind_tile_tobacco_plantation;	4,2: ind_tile_tobacco_plantation;	4,3: ind_tile_tobacco_plantation;	4,4: ind_tile_tobacco_plantation;	4,5: ind_tile_tobacco_plantation;
+	5,0: ind_tile_tobacco_plantation;	5,1: ind_tile_tobacco_plantation;	5,2: ind_tile_tobacco_plantation;	5,3: ind_tile_tobacco_plantation;	5,4: ind_tile_tobacco_plantation;	5,5: ind_tile_tobacco_plantation;
+																																					6,4: ind_tile_tobacco_plantation_office;
+}
+
+tilelayout tilelayout_tobacco_plantation_3 {
+	0,0: ind_tile_tobacco_plantation;	0,1: ind_tile_tobacco_plantation;	0,2: ind_tile_tobacco_plantation;	0,3: ind_tile_tobacco_plantation;	0,4: ind_tile_tobacco_plantation;	0,5: ind_tile_tobacco_plantation;
+	1,0: ind_tile_tobacco_plantation;	1,1: ind_tile_tobacco_plantation;	1,2: ind_tile_tobacco_plantation;	1,3: ind_tile_tobacco_plantation;	1,4: ind_tile_tobacco_plantation;	1,5: ind_tile_tobacco_plantation;
+	2,0: ind_tile_tobacco_plantation;	2,1: ind_tile_tobacco_plantation;	2,2: ind_tile_tobacco_plantation;	2,3: ind_tile_tobacco_plantation;	2,4: ind_tile_tobacco_plantation;	2,5: ind_tile_tobacco_plantation;
+	3,0: ind_tile_tobacco_plantation;	3,1: ind_tile_tobacco_plantation;	3,2: ind_tile_tobacco_plantation;	3,3: ind_tile_tobacco_plantation;	3,4: ind_tile_tobacco_plantation;	3,5: ind_tile_tobacco_plantation;
+	4,0: ind_tile_tobacco_plantation;	4,1: ind_tile_tobacco_plantation;	4,2: ind_tile_tobacco_plantation;	4,3: ind_tile_tobacco_plantation;	4,4: ind_tile_tobacco_plantation;	4,5: ind_tile_tobacco_plantation;
+	5,0: ind_tile_tobacco_plantation;	5,1: ind_tile_tobacco_plantation;	5,2: ind_tile_tobacco_plantation;	5,3: ind_tile_tobacco_plantation;	5,4: ind_tile_tobacco_plantation;	5,5: ind_tile_tobacco_plantation;
+	6,0: ind_tile_tobacco_plantation_office;
+}
+
+tilelayout tilelayout_tobacco_plantation_4 {
+	0,0: ind_tile_tobacco_plantation;	0,1: ind_tile_tobacco_plantation;	0,2: ind_tile_tobacco_plantation;	0,3: ind_tile_tobacco_plantation;
+	1,0: ind_tile_tobacco_plantation;	1,1: ind_tile_tobacco_plantation;	1,2: ind_tile_tobacco_plantation;	1,3: ind_tile_tobacco_plantation;
+	2,0: ind_tile_tobacco_plantation;	2,1: ind_tile_tobacco_plantation;	2,2: ind_tile_tobacco_plantation;	2,3: ind_tile_tobacco_plantation;
+	3,0: ind_tile_tobacco_plantation;	3,1: ind_tile_tobacco_plantation;	3,2: ind_tile_tobacco_plantation;	3,3: ind_tile_tobacco_plantation;
+	4,0: ind_tile_tobacco_plantation;	4,1: ind_tile_tobacco_plantation;	4,2: ind_tile_tobacco_plantation;	4,3: ind_tile_tobacco_plantation;
+	5,0: ind_tile_tobacco_plantation;	5,1: ind_tile_tobacco_plantation;	5,2: ind_tile_tobacco_plantation;	5,3: ind_tile_tobacco_plantation;
+								6,1: ind_tile_tobacco_plantation_office;
+}
+
+tilelayout tilelayout_tobacco_plantation_5 {
+	0,0: ind_tile_tobacco_plantation;	0,1: ind_tile_tobacco_plantation;	0,2: ind_tile_tobacco_plantation;	0,3: ind_tile_tobacco_plantation;
+	1,0: ind_tile_tobacco_plantation;	1,1: ind_tile_tobacco_plantation;	1,2: ind_tile_tobacco_plantation;	1,3: ind_tile_tobacco_plantation;
+	2,0: ind_tile_tobacco_plantation;	2,1: ind_tile_tobacco_plantation;	2,2: ind_tile_tobacco_plantation;	2,3: ind_tile_tobacco_plantation; 2,4: ind_tile_tobacco_plantation_office;
+	3,0: ind_tile_tobacco_plantation;	3,1: ind_tile_tobacco_plantation;	3,2: ind_tile_tobacco_plantation;	3,3: ind_tile_tobacco_plantation;
+	4,0: ind_tile_tobacco_plantation;	4,1: ind_tile_tobacco_plantation;	4,2: ind_tile_tobacco_plantation;	4,3: ind_tile_tobacco_plantation;
+	5,0: ind_tile_tobacco_plantation;	5,1: ind_tile_tobacco_plantation;	5,2: ind_tile_tobacco_plantation;	5,3: ind_tile_tobacco_plantation;
+}
+
+tilelayout tilelayout_tobacco_plantation_6 {
+	0,0: ind_tile_tobacco_plantation;	0,1: ind_tile_tobacco_plantation;	0,2: ind_tile_tobacco_plantation;	0,3: ind_tile_tobacco_plantation;
+	1,0: ind_tile_tobacco_plantation;	1,1: ind_tile_tobacco_plantation;	1,2: ind_tile_tobacco_plantation;	1,3: ind_tile_tobacco_plantation;
+	2,0: ind_tile_tobacco_plantation;	2,1: ind_tile_tobacco_plantation;	2,2: ind_tile_tobacco_plantation;	2,3: ind_tile_tobacco_plantation;
+	3,0: ind_tile_tobacco_plantation;	3,1: ind_tile_tobacco_plantation;	3,2: ind_tile_tobacco_plantation;	3,3: ind_tile_tobacco_plantation;
+	4,0: ind_tile_tobacco_plantation;	4,1: ind_tile_tobacco_plantation;	4,2: ind_tile_tobacco_plantation;	4,3: ind_tile_tobacco_plantation; 4,4: ind_tile_tobacco_plantation_office;
+	5,0: ind_tile_tobacco_plantation;	5,1: ind_tile_tobacco_plantation;	5,2: ind_tile_tobacco_plantation;	5,3: ind_tile_tobacco_plantation;
+}
+
+/* Tobacco Plantations only generate at elevation 1. */
+switch (FEAT_INDUSTRIES, SELF, loc_check_tobacco_plantation, IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_CITRUS_LOCATION);}
+
+/* Boosted production if Fertilizier is supplied */
+produce (produce_tobacco_plantation_boosted,
+	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3); FERT: 3;],	// Consume
+	[TBCO: 24;],													// Produce
+	0 																// Don't run callback again
+	)
+
+/* Regular production uses at least 24 passengers/month, but will consume excess passengers so they don't build up */
+produce (produce_tobacco_plantation,
+	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3);],	// Consume
+	[TBCO: 12;],											// Produce
+	0 														// Don't run callback again
+	)
+
+/* Check for Fertilizier for normal or boosted production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_tobacco_plantation_boosted, incoming_cargo_waiting("FERT") >= 3) {1: produce_tobacco_plantation_boosted; produce_tobacco_plantation;}
+
+/* Check for Workers for any production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_tobacco_plantation, incoming_cargo_waiting("PASS") >= 3) {1: switch_produce_tobacco_plantation_boosted; produce_none;}
+
+item (FEAT_INDUSTRIES, industry_tobacco_plantation, 12)
+{
+	property {
+		substitute: INDUSTRYTYPE_FRUIT_PLANTATION;
+		name: string(STR_TOBACCO_PLANTATION);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_TOBACCO_PLANTATION));
+		life_type: IND_LIFE_TYPE_ORGANIC;
+		cargo_types: [
+			accept_cargo("PASS"),
+			accept_cargo("FERT"),
+			produce_cargo("TBCO", 0),
+		];
+		layouts: [
+			tilelayout_tobacco_plantation_1,
+			tilelayout_tobacco_plantation_2,
+			tilelayout_tobacco_plantation_3,
+			tilelayout_tobacco_plantation_4,
+			tilelayout_tobacco_plantation_5,
+			tilelayout_tobacco_plantation_6
+		];
+		conflicting_ind_types: [industry_tobacco_plantation, industry_sugarcane_plantation]; // FIXME: Add plantations which plant fields around them
+		prob_map_gen: 1; // FIXME: Adjust as necessary
+		prob_in_game: 0;
+		map_colour: 57;
+		prospect_chance: 1;
+		
+	}
+	graphics {
+		produce_256_ticks: switch_produce_tobacco_plantation;
+		cargo_subtype_display: HideCargoWaitingText(0);
+		location_check: loc_check_tobacco_plantation;
+		/* Don't allow any production changes */
+		build_prod_change: 16; // 100% production
+		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		extra_text_industry: string(STR_PRIMARY_HELPTEXT);
+	}
+}
