@@ -42,7 +42,7 @@ produce (produce_rum_distillery,
 	1 						// Run callback again
 	)
 	
-switch (FEAT_INDUSTRIES, SELF, switch_produce_rum_distillery, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("MOLS") >= 8)) {
+switch (FEAT_INDUSTRIES, SELF, switch_produce_rum_distillery, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("MOLS") > 0)) {
 	1: produce_rum_distillery;
 	switch_produce_idle;
 }
