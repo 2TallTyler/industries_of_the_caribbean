@@ -5,7 +5,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_0)
 	property {
 		substitute: 47;
 		override: 47;
-		accepted_cargos: [[FUEL, 8], [PASS, 8]];
+		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
 	}
 }
 
@@ -14,7 +14,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_1)
 	property {
 		substitute: 48;
 		override: 48;
-		accepted_cargos: [[FUEL, 8], [PASS, 8]];
+		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
 	}
 }
 
@@ -23,7 +23,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_2)
 	property {
 		substitute: 49;
 		override: 49;
-		accepted_cargos: [[FUEL, 8], [PASS, 8]];
+		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
 	}
 }
 
@@ -32,7 +32,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_3)
 	property {
 		substitute: 50;
 		override: 50;
-		accepted_cargos: [[FUEL, 8], [PASS, 8]];
+		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
 	}
 }
 
@@ -41,7 +41,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_4)
 	property {
 		substitute: 51;
 		override: 51;
-		accepted_cargos: [[FUEL, 8], [PASS, 8]];
+		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
 	}
 }
 /* FIXME: Should this industry be unlocked and spawn by itself, be prospected by the player, or appear at map generation? */
@@ -50,21 +50,21 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_4)
 /* Nickel Mines must be at least height 2, no max limit. */
 switch (FEAT_INDUSTRIES, SELF, loc_check_nickel_mine, IndustryElevationCheck(2, 255)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_NICKEL_MINE_LOCATION);}
 
-/* Boosted production: 48 Workers and 96 tons of Fuel. Extra workers are consumed so they don't build up */
+/* Boosted production: 48 Workers, 48 units of Fuel, and 48 units of Machinery. Extra workers are consumed so they don't build up */
 produce (produce_nickel_mine_boosted,
-	[FUEL: 18; PASS: max((incoming_cargo_waiting("PASS") / 8), 6);],	// Consume
-	[NKOR: 40; COBL: 10;],											// Produce
-	0 																// Don't run callback again
+	[FUEL: 6; PASS: max((incoming_cargo_waiting("PASS") / 8), 6); ENSP: 6;],	// Consume
+	[NKOR: 40; COBL: 10;],														// Produce
+	0 																			// Don't run callback again
 	)
 
-/* Regular production: 48 Workers and 48 tons of Fuel. Extra workers are consumed so they don't build up */
+/* Regular production: 48 Workers and 48 units of Fuel. Extra workers are consumed so they don't build up */
 produce (produce_nickel_mine,
 	[FUEL: 6; PASS: max((incoming_cargo_waiting("PASS") / 8), 6);],	// Consume
 	[NKOR: 20; COBL: 5;],											// Produce
 	0 																// Don't run callback again
 	)
 
-switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_mine_boosted, incoming_cargo_waiting("FUEL") >= 144) {1: produce_nickel_mine_boosted; produce_nickel_mine;}	
+switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_mine_boosted, incoming_cargo_waiting("ENSP") >= 6) {1: produce_nickel_mine_boosted; produce_nickel_mine;}	
 
 
 /* Check for Workers for any production */
@@ -78,8 +78,9 @@ item (FEAT_INDUSTRIES, industry_nickel_mine, 6)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_NICKEL_MINE));
 		life_type: IND_LIFE_TYPE_EXTRACTIVE;
 		cargo_types: [
-			accept_cargo("FUEL"),
 			accept_cargo("PASS"),
+			accept_cargo("FUEL"),
+			accept_cargo("ENSP"),
 			produce_cargo("NKOR", 0), // 3
 			produce_cargo("COBL", 0)  // 1
 		];
@@ -90,7 +91,7 @@ item (FEAT_INDUSTRIES, industry_nickel_mine, 6)
 	}
 	graphics {
 		produce_256_ticks: switch_produce_nickel_mine;
-		cargo_subtype_display: HideCargoWaitingText(1);
+		cargo_subtype_display: HideCargoWaitingText(0);
 		location_check: loc_check_nickel_mine;
 		//construction_probability: switch_unlock_nickel_mine;
 		/* Don't allow any production changes */

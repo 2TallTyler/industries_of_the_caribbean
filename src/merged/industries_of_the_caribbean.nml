@@ -218,7 +218,10 @@ cargotable {
 	JAVA, FRUT, SGCN, TBCO, WOOD, OIL_, NKOR,
 	
 	/* Secondary products */
-	SUGR, MOLS, CIGR, BEER, FOOD, CHEM, RFPR, FUEL, NICK, COBL, PIPE, FERT
+	SUGR, MOLS, CIGR, BEER, FOOD, CHEM, RFPR, FUEL, NICK, COBL, PIPE,
+	
+	/* Boost Supplies */
+	FERT, ENSP
 }
 
 // Replace passengers, keep original ID. Use cargo label "PASS" to avoid breaking vehicle refits.
@@ -258,7 +261,7 @@ item (FEAT_CARGOS, cargo_tourists, 0x01) {
 		is_freight:					0;
 		cargo_classes:				bitmask(CC_PASSENGERS);
 		cargo_label:				"TOUR";
-		town_growth_effect:			TOWNGROWTH_PASSENGERS;
+		town_growth_effect:			TOWNGROWTH_WATER;
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				string(STR_CARGO_QUANTITY_TOURISTS);
 		items_of_cargo:				string(STR_CARGO_QUANTITY_TOURISTS);
@@ -358,7 +361,7 @@ item (FEAT_CARGOS, cargo_rum, 0x05) {
 		is_freight:					1;
 		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS);
 		cargo_label:				"BEER";
-		town_growth_effect:			TOWNGROWTH_NONE;
+		town_growth_effect:			TOWNGROWTH_WATER;
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_RUM);
@@ -746,6 +749,31 @@ item (FEAT_CARGOS, cargo_fertilizer, 0x14) {
 	}
 }
 
+// Machinery in 0x15 Toffee
+item (FEAT_CARGOS, cargo_machinery, 0x15) {
+	property {
+		number:						0x15;
+		sprite:						4302;
+		type_name:					string(STR_CARGO_NAME_MACHINERY);
+		unit_name:					string(STR_CARGO_NAME_MACHINERY);
+		type_abbreviation:			string(STR_CARGO_ABBREV_MACHINERY);
+		weight:						0.65;
+		is_freight:					1;
+		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS);
+		cargo_label:				"ENSP";
+		town_growth_effect:			TOWNGROWTH_NONE;
+		town_growth_multiplier:		1;
+		units_of_cargo:				TTD_STR_TONS;
+		items_of_cargo:				string(STR_CARGO_QUANTITY_MACHINERY);
+		penalty_lowerbound:			2;
+		single_penalty_length:		32;
+		price_factor:				172;
+		capacity_multiplier:		1;
+		station_list_colour:		165;
+		cargo_payment_list_colour:	165;
+	}
+}
+
 
 /* Begin Citrus Grove */
 
@@ -1101,8 +1129,8 @@ item (FEAT_INDUSTRIES, industry_import_export_0, 8) {
 		life_type: IND_LIFE_TYPE_BLACK_HOLE;
 		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
 		cargo_types: [
-			accept_cargo("JAVA", produce_cargo("FOOD", 1)),
-			accept_cargo("FRUT", produce_cargo("FOOD", 1))
+			accept_cargo("JAVA", produce_cargo("FOOD", 0.75), produce_cargo("ENSP", 0.25)),
+			accept_cargo("FRUT", produce_cargo("FOOD", 0.75), produce_cargo("ENSP", 0.25))
 		];
 		layouts: [
 			tilelayout_import_export
@@ -1126,7 +1154,7 @@ item (FEAT_INDUSTRIES, industry_import_export_1, 2) {
 		life_type: IND_LIFE_TYPE_BLACK_HOLE;
 		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
 		cargo_types: [
-			accept_cargo("SUGR", produce_cargo("OIL_", 1))
+			accept_cargo("SUGR", produce_cargo("OIL_", 0.75), produce_cargo("PIPE", 0.25))
 		];
 		layouts: [
 			tilelayout_import_export
@@ -1153,7 +1181,6 @@ item (FEAT_INDUSTRIES, industry_import_export_2, 9) {
 			accept_cargo("BEER", produce_cargo("TOUR", 1)),
 			accept_cargo("CIGR", produce_cargo("TOUR", 1)),
 			accept_cargo("COBL", produce_cargo("TOUR", 1)),
-			produce_cargo("FUEL", 8) // FIXME: Debug production
 		];
 		layouts: [
 			tilelayout_import_export
@@ -1200,7 +1227,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_0)
 	property {
 		substitute: 47;
 		override: 47;
-		accepted_cargos: [[FUEL, 8], [PASS, 8]];
+		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
 	}
 }
 
@@ -1209,7 +1236,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_1)
 	property {
 		substitute: 48;
 		override: 48;
-		accepted_cargos: [[FUEL, 8], [PASS, 8]];
+		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
 	}
 }
 
@@ -1218,7 +1245,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_2)
 	property {
 		substitute: 49;
 		override: 49;
-		accepted_cargos: [[FUEL, 8], [PASS, 8]];
+		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
 	}
 }
 
@@ -1227,7 +1254,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_3)
 	property {
 		substitute: 50;
 		override: 50;
-		accepted_cargos: [[FUEL, 8], [PASS, 8]];
+		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
 	}
 }
 
@@ -1236,7 +1263,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_4)
 	property {
 		substitute: 51;
 		override: 51;
-		accepted_cargos: [[FUEL, 8], [PASS, 8]];
+		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
 	}
 }
 /* FIXME: Should this industry be unlocked and spawn by itself, be prospected by the player, or appear at map generation? */
@@ -1245,21 +1272,21 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_4)
 /* Nickel Mines must be at least height 2, no max limit. */
 switch (FEAT_INDUSTRIES, SELF, loc_check_nickel_mine, IndustryElevationCheck(2, 255)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_NICKEL_MINE_LOCATION);}
 
-/* Boosted production: 48 Workers and 96 tons of Fuel. Extra workers are consumed so they don't build up */
+/* Boosted production: 48 Workers, 48 units of Fuel, and 48 units of Machinery. Extra workers are consumed so they don't build up */
 produce (produce_nickel_mine_boosted,
-	[FUEL: 18; PASS: max((incoming_cargo_waiting("PASS") / 8), 6);],	// Consume
-	[NKOR: 40; COBL: 10;],											// Produce
-	0 																// Don't run callback again
+	[FUEL: 6; PASS: max((incoming_cargo_waiting("PASS") / 8), 6); ENSP: 6;],	// Consume
+	[NKOR: 40; COBL: 10;],														// Produce
+	0 																			// Don't run callback again
 	)
 
-/* Regular production: 48 Workers and 48 tons of Fuel. Extra workers are consumed so they don't build up */
+/* Regular production: 48 Workers and 48 units of Fuel. Extra workers are consumed so they don't build up */
 produce (produce_nickel_mine,
 	[FUEL: 6; PASS: max((incoming_cargo_waiting("PASS") / 8), 6);],	// Consume
 	[NKOR: 20; COBL: 5;],											// Produce
 	0 																// Don't run callback again
 	)
 
-switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_mine_boosted, incoming_cargo_waiting("FUEL") >= 144) {1: produce_nickel_mine_boosted; produce_nickel_mine;}	
+switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_mine_boosted, incoming_cargo_waiting("ENSP") >= 6) {1: produce_nickel_mine_boosted; produce_nickel_mine;}	
 
 
 /* Check for Workers for any production */
@@ -1273,8 +1300,9 @@ item (FEAT_INDUSTRIES, industry_nickel_mine, 6)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_NICKEL_MINE));
 		life_type: IND_LIFE_TYPE_EXTRACTIVE;
 		cargo_types: [
-			accept_cargo("FUEL"),
 			accept_cargo("PASS"),
+			accept_cargo("FUEL"),
+			accept_cargo("ENSP"),
 			produce_cargo("NKOR", 0), // 3
 			produce_cargo("COBL", 0)  // 1
 		];
@@ -1285,7 +1313,7 @@ item (FEAT_INDUSTRIES, industry_nickel_mine, 6)
 	}
 	graphics {
 		produce_256_ticks: switch_produce_nickel_mine;
-		cargo_subtype_display: HideCargoWaitingText(1);
+		cargo_subtype_display: HideCargoWaitingText(0);
 		location_check: loc_check_nickel_mine;
 		//construction_probability: switch_unlock_nickel_mine;
 		/* Don't allow any production changes */

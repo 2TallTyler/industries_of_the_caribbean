@@ -9,7 +9,10 @@ cargotable {
 	JAVA, FRUT, SGCN, TBCO, WOOD, OIL_, NKOR,
 	
 	/* Secondary products */
-	SUGR, MOLS, CIGR, BEER, FOOD, CHEM, RFPR, FUEL, NICK, COBL, PIPE, FERT
+	SUGR, MOLS, CIGR, BEER, FOOD, CHEM, RFPR, FUEL, NICK, COBL, PIPE,
+	
+	/* Boost Supplies */
+	FERT, ENSP
 }
 
 // Replace passengers, keep original ID. Use cargo label "PASS" to avoid breaking vehicle refits.
@@ -49,7 +52,7 @@ item (FEAT_CARGOS, cargo_tourists, 0x01) {
 		is_freight:					0;
 		cargo_classes:				bitmask(CC_PASSENGERS);
 		cargo_label:				"TOUR";
-		town_growth_effect:			TOWNGROWTH_PASSENGERS;
+		town_growth_effect:			TOWNGROWTH_WATER;
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				string(STR_CARGO_QUANTITY_TOURISTS);
 		items_of_cargo:				string(STR_CARGO_QUANTITY_TOURISTS);
@@ -149,7 +152,7 @@ item (FEAT_CARGOS, cargo_rum, 0x05) {
 		is_freight:					1;
 		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS);
 		cargo_label:				"BEER";
-		town_growth_effect:			TOWNGROWTH_NONE;
+		town_growth_effect:			TOWNGROWTH_WATER;
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_RUM);
@@ -534,5 +537,30 @@ item (FEAT_CARGOS, cargo_fertilizer, 0x14) {
 		capacity_multiplier:		1;
 		station_list_colour:		118;
 		cargo_payment_list_colour:	118;
+	}
+}
+
+// Machinery in 0x15 Toffee
+item (FEAT_CARGOS, cargo_machinery, 0x15) {
+	property {
+		number:						0x15;
+		sprite:						4302;
+		type_name:					string(STR_CARGO_NAME_MACHINERY);
+		unit_name:					string(STR_CARGO_NAME_MACHINERY);
+		type_abbreviation:			string(STR_CARGO_ABBREV_MACHINERY);
+		weight:						0.65;
+		is_freight:					1;
+		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS);
+		cargo_label:				"ENSP";
+		town_growth_effect:			TOWNGROWTH_NONE;
+		town_growth_multiplier:		1;
+		units_of_cargo:				TTD_STR_TONS;
+		items_of_cargo:				string(STR_CARGO_QUANTITY_MACHINERY);
+		penalty_lowerbound:			2;
+		single_penalty_length:		32;
+		price_factor:				172;
+		capacity_multiplier:		1;
+		station_list_colour:		165;
+		cargo_payment_list_colour:	165;
 	}
 }

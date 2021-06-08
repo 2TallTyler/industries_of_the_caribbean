@@ -17,8 +17,8 @@ STR_STATION							:{STRING} {STRING}
 
 STR_EMPTY							:
 
-STR_PRIMARY_HELPTEXT				:Production needs:{}* {WHITE}Normal{BLACK}: 24 Workers/month{}* {WHITE}Double{BLACK}: 24 tons of Fertilizer/month
-STR_NICKEL_MINE_HELPTEXT			:Monthly production needs:{}* {WHITE}Normal{BLACK}: 48 Workers and 48 units of Fuel{}* {WHITE}Double{BLACK}: 48 Workers and 144 units of Fuel
+STR_PRIMARY_HELPTEXT				:Monthly production needs:{}* {WHITE}Base{BLACK}: 24 Workers{}* {WHITE}Double{BLACK}: +24 tons of Fertilizer
+STR_NICKEL_MINE_HELPTEXT			:Monthly production needs:{}* {WHITE}Base{BLACK}: 48 Workers and 48 units of Fuel{}* {WHITE}Double{BLACK}: +48 units of Machinery
 STR_WORKERS_HELPTEXT				:Deliver Workers to process waiting cargo.
 
 STR_ERR_COFFEE_LOCATION				:Coffee Plantations must be at elevation 2 or greater.
@@ -111,3 +111,7 @@ STR_CARGO_QUANTITY_COBALT			:{WEIGHT} of cobalt
 STR_CARGO_NAME_FERTILIZER			:Fertilizer
 STR_CARGO_ABBREV_FERTILIZER			:{TINYFONT}FT
 STR_CARGO_QUANTITY_FERTILIZER		:{WEIGHT} of fertilizer
+
+STR_CARGO_NAME_MACHINERY			:Machinery
+STR_CARGO_ABBREV_MACHINERY			:{TINYFONT}MC
+STR_CARGO_QUANTITY_MACHINERY		:{WEIGHT} of machinery

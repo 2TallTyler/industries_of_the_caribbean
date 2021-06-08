@@ -56,8 +56,8 @@ item (FEAT_INDUSTRIES, industry_import_export_0, 8) {
 		life_type: IND_LIFE_TYPE_BLACK_HOLE;
 		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
 		cargo_types: [
-			accept_cargo("JAVA", produce_cargo("FOOD", 1)),
-			accept_cargo("FRUT", produce_cargo("FOOD", 1))
+			accept_cargo("JAVA", produce_cargo("FOOD", 0.75), produce_cargo("ENSP", 0.25)),
+			accept_cargo("FRUT", produce_cargo("FOOD", 0.75), produce_cargo("ENSP", 0.25))
 		];
 		layouts: [
 			tilelayout_import_export
@@ -81,7 +81,7 @@ item (FEAT_INDUSTRIES, industry_import_export_1, 2) {
 		life_type: IND_LIFE_TYPE_BLACK_HOLE;
 		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
 		cargo_types: [
-			accept_cargo("SUGR", produce_cargo("OIL_", 1))
+			accept_cargo("SUGR", produce_cargo("OIL_", 0.75), produce_cargo("PIPE", 0.25))
 		];
 		layouts: [
 			tilelayout_import_export
@@ -108,7 +108,6 @@ item (FEAT_INDUSTRIES, industry_import_export_2, 9) {
 			accept_cargo("BEER", produce_cargo("TOUR", 1)),
 			accept_cargo("CIGR", produce_cargo("TOUR", 1)),
 			accept_cargo("COBL", produce_cargo("TOUR", 1)),
-			produce_cargo("FUEL", 8) // FIXME: Debug production
 		];
 		layouts: [
 			tilelayout_import_export
