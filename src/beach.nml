@@ -1,0 +1,388 @@
+/* Begin Beach */
+
+spriteset(spriteset_beach, "src/gfx/beach-tiles.png") {
+
+    //SLOPE_SW	
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ 0,      0,       64,    26,     -31,        -3]
+    [ 0,     40,       64,    23,     -31,         0]
+    [ 0,     80,       64,    23,     -31,         0]
+
+    //SLOPE_SE	
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ 65,     0,       64,    26,     -31,        -3]
+    [ 65,    40,       64,    23,     -31,         0]
+    [ 65,    80,       64,    23,     -31,         0]
+
+    //SLOPE_NW	
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ 130,    0,       64,    39,     -31,        -8]
+    [ 130,   40,       64,    39,     -31,        -8]
+    [ 130,   80,       64,    39,     -31,        -8]
+
+    //SLOPE_NE	
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ 195,    0,       64,    39,     -31,        -8]
+    [ 195,   40,       64,    39,     -31,        -8]
+    [ 195,   80,       64,    39,     -31,        -8]
+}
+
+spritelayout beach_sprite_SW_1 {
+	ground {sprite: 3927 ;}
+	building {
+		sprite:	spriteset_beach(0);
+	}
+}
+
+spritelayout beach_sprite_SW_2 {
+	ground {sprite: 3927 ;}
+	building {
+		sprite:	spriteset_beach(1);
+	}
+}
+
+spritelayout beach_sprite_SW_3 {
+	ground {sprite: 3927 ;}
+	building {
+		sprite:	spriteset_beach(2);
+	}
+}
+
+spritelayout beach_sprite_SE_1 {
+	ground {sprite: 3930 ;}
+	building {
+		sprite:	spriteset_beach(3);
+	}
+}
+
+spritelayout beach_sprite_SE_2 {
+	ground {sprite: 3930 ;}
+	building {
+		sprite:	spriteset_beach(4);
+	}
+}
+
+spritelayout beach_sprite_SE_3 {
+	ground {sprite: 3930 ;}
+	building {
+		sprite:	spriteset_beach(5);
+	}
+}
+
+spritelayout beach_sprite_NW_1 {
+	ground {sprite: 3933 ;}
+	building {
+		sprite:	spriteset_beach(6);
+	}
+}
+
+spritelayout beach_sprite_NW_2 {
+	ground {sprite: 3933 ;}
+	building {
+		sprite:	spriteset_beach(7);
+	}
+}
+
+spritelayout beach_sprite_NW_3 {
+	ground {sprite: 3933 ;}
+	building {
+		sprite:	spriteset_beach(8);
+	}
+}
+
+spritelayout beach_sprite_NE_1 {
+	ground {
+		sprite: 3936;
+	}
+	building {
+		sprite:	spriteset_beach(9);
+	}
+}
+
+spritelayout beach_sprite_NE_2 {
+	ground {
+		sprite: 3936;
+	}
+	building {
+		sprite:	spriteset_beach(10);
+	}
+}
+
+spritelayout beach_sprite_NE_3 {
+	ground {
+		sprite: 3936;
+	}
+	building {
+		sprite:	spriteset_beach(11);
+	}
+}
+
+
+/* Location Checks */
+
+switch(FEAT_INDUSTRYTILES, SELF, beach_ocean_check, nearby_tile_water_class(0,0) == WATER_CLASS_SEA) { 1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW; }
+switch(FEAT_INDUSTRYTILES, SELF, beach_slope_NE_check, nearby_tile_slope(0,0) == SLOPE_NE) { 0: return CB_RESULT_LOCATION_DISALLOW; beach_ocean_check; }
+switch(FEAT_INDUSTRYTILES, SELF, beach_slope_SE_check, nearby_tile_slope(0,0) == SLOPE_SE) { 0: return CB_RESULT_LOCATION_DISALLOW; beach_ocean_check; }
+switch(FEAT_INDUSTRYTILES, SELF, beach_slope_NW_check, nearby_tile_slope(0,0) == SLOPE_NW) { 0: return CB_RESULT_LOCATION_DISALLOW; beach_ocean_check; }
+switch(FEAT_INDUSTRYTILES, SELF, beach_slope_SW_check, nearby_tile_slope(0,0) == SLOPE_SW) { 0: return CB_RESULT_LOCATION_DISALLOW; beach_ocean_check; }
+
+/* Industry Tile Layouts */
+
+tilelayout beach_layout_NE_1 {
+	0, 0: beach_tile_NE_1;
+	0, 1: beach_tile_NE_2;
+	0, 2: beach_tile_NE_3;
+}
+
+tilelayout beach_layout_NE_2 {
+	0, 0: beach_tile_NE_2;
+	0, 1: beach_tile_NE_3;
+	0, 2: beach_tile_NE_2;
+}
+
+tilelayout beach_layout_NE_3 {
+	0, 0: beach_tile_NE_2;
+	0, 1: beach_tile_NE_3;
+}
+
+tilelayout beach_layout_SE_1 {
+	0, 0: beach_tile_SE_3;
+	1, 0: beach_tile_SE_2;
+	2, 0: beach_tile_SE_1;
+}
+
+tilelayout beach_layout_SE_2 {
+	0, 0: beach_tile_SE_3;
+	1, 0: beach_tile_SE_1;
+	2, 0: beach_tile_SE_2;
+}
+
+tilelayout beach_layout_SE_3 {
+	0, 0: beach_tile_SE_3;
+	1, 0: beach_tile_SE_2;
+}
+
+tilelayout beach_layout_NW_1 {
+	0, 0: beach_tile_NW_1;
+	1, 0: beach_tile_NW_2;
+	2, 0: beach_tile_NW_3;
+}
+
+tilelayout beach_layout_NW_2 {
+	0, 0: beach_tile_NW_3;
+	1, 0: beach_tile_NW_2;
+	2, 0: beach_tile_NW_3;
+}
+
+tilelayout beach_layout_NW_3 {
+	1, 0: beach_tile_NW_2;
+	2, 0: beach_tile_NW_1;
+}
+
+tilelayout beach_layout_SW_1 {
+	0, 0: beach_tile_SW_1;
+	0, 1: beach_tile_SW_2;
+	0, 2: beach_tile_SW_3;
+}
+
+tilelayout beach_layout_SW_2 {
+	0, 0: beach_tile_SW_2;
+	0, 1: beach_tile_SW_1;
+	0, 2: beach_tile_SW_3;
+}
+
+tilelayout beach_layout_SW_3 {
+	0, 0: beach_tile_SW_3;
+	0, 1: beach_tile_SW_2;
+}
+
+/* Tile Definitions */
+
+// NE Tiles
+
+item(FEAT_INDUSTRYTILES, beach_tile_NE_1) {
+	property {
+		substitute: 02;
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: beach_sprite_NE_1;
+		foundations: return CB_RESULT_NO_FOUNDATIONS;
+		tile_check: beach_slope_NE_check;
+	}
+}
+
+item(FEAT_INDUSTRYTILES, beach_tile_NE_2) {
+	property {
+		substitute: 02;
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: beach_sprite_NE_2;
+		foundations: return CB_RESULT_NO_FOUNDATIONS;
+		tile_check: beach_slope_NE_check;
+	}
+}
+
+item(FEAT_INDUSTRYTILES, beach_tile_NE_3) {
+	property {
+		substitute: 02;
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: beach_sprite_NE_3;
+		foundations: return CB_RESULT_NO_FOUNDATIONS;
+		tile_check: beach_slope_NE_check;
+	}
+}
+
+// SE Tiles
+
+item(FEAT_INDUSTRYTILES, beach_tile_SE_1) {
+	property {
+		substitute: 02;
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: beach_sprite_SE_1;
+		foundations: return CB_RESULT_NO_FOUNDATIONS;
+		tile_check: beach_slope_SE_check;
+	}
+}
+
+item(FEAT_INDUSTRYTILES, beach_tile_SE_2) {
+	property {
+		substitute: 02;
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: beach_sprite_SE_2;
+		foundations: return CB_RESULT_NO_FOUNDATIONS;
+		tile_check: beach_slope_SE_check;
+	}
+}
+
+item(FEAT_INDUSTRYTILES, beach_tile_SE_3) {
+	property {
+		substitute: 02;
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: beach_sprite_SE_3;
+		foundations: return CB_RESULT_NO_FOUNDATIONS;
+		tile_check: beach_slope_SE_check;
+	}
+}
+
+// NW tiles
+
+item(FEAT_INDUSTRYTILES, beach_tile_NW_1) {
+	property {
+		substitute: 02;
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: beach_sprite_NW_1;
+		foundations: return CB_RESULT_NO_FOUNDATIONS;
+		tile_check: beach_slope_NW_check;
+	}
+}
+
+item(FEAT_INDUSTRYTILES, beach_tile_NW_2) {
+	property {
+		substitute: 02;
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: beach_sprite_NW_2;
+		foundations: return CB_RESULT_NO_FOUNDATIONS;
+		tile_check: beach_slope_NW_check;
+	}
+}
+
+item(FEAT_INDUSTRYTILES, beach_tile_NW_3) {
+	property {
+		substitute: 02;
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: beach_sprite_NW_3;
+		foundations: return CB_RESULT_NO_FOUNDATIONS;
+		tile_check: beach_slope_NW_check;
+	}
+}
+
+// SW tiles
+
+item(FEAT_INDUSTRYTILES, beach_tile_SW_1) {
+	property {
+		substitute: 02;
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: beach_sprite_SW_1;
+		foundations: return CB_RESULT_NO_FOUNDATIONS;
+		tile_check: beach_slope_SW_check;
+	}
+}
+
+item(FEAT_INDUSTRYTILES, beach_tile_SW_2) {
+	property {
+		substitute: 02;
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: beach_sprite_SW_2;
+		foundations: return CB_RESULT_NO_FOUNDATIONS;
+		tile_check: beach_slope_SW_check;
+	}
+}
+
+item(FEAT_INDUSTRYTILES, beach_tile_SW_3) {
+	property {
+		substitute: 02;
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
+	}
+	graphics {
+		default: beach_sprite_SW_3;
+		foundations: return CB_RESULT_NO_FOUNDATIONS;
+		tile_check: beach_slope_SW_check;
+	}
+}
+
+item(FEAT_INDUSTRIES, industry_beach, 15) {
+	property {
+		substitute: 0;
+		life_type: IND_LIFE_TYPE_BLACK_HOLE;
+		cargo_types:
+			[
+				accept_cargo("TOUR"),
+				accept_cargo("FOOD")
+			];
+		name: string(STR_BEACH);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_BEACH));
+		prob_map_gen: 2;
+		prob_in_game: 1; // FIXME: Check this later
+		fund_cost_multiplier: 5;
+		map_colour: 176;
+		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_BUILT_NEAR_TOWN);		
+		layouts: [
+			beach_layout_NE_1,
+			beach_layout_NE_2,
+			beach_layout_NE_3,
+			beach_layout_SE_1,
+			beach_layout_SE_2,
+			beach_layout_SE_3,
+			beach_layout_NW_1,
+			beach_layout_NW_2,
+			beach_layout_NW_3,
+			beach_layout_SW_1,
+			beach_layout_SW_2,
+			beach_layout_SW_3,
+			];
+	}
+	graphics {
+		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+	}
+}
