@@ -1,0 +1,71 @@
+/* Begin Hotel */
+
+spritelayout sprite_hotel_n {
+	ground {
+		sprite: 1420;
+	}
+	building {
+		sprite: construction_state==0 ? 4471 : construction_state==3 ? 4475 : 4473;
+	}
+}
+
+spritelayout sprite_hotel_e {
+	ground {
+		sprite: 1420;
+	}
+	building {
+		sprite: construction_state==0 ? 4472 : construction_state==3 ? 4476 : 4474;
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_hotel_n)
+{
+	property {
+		substitute: 0;
+		accepted_cargos: [[TOUR, 8], [FOOD, 8]];
+	}
+	graphics {
+		default: sprite_hotel_n;
+	}
+}
+
+item (FEAT_INDUSTRYTILES, tile_hotel_e)
+{
+	property {
+		substitute: 0;
+		accepted_cargos: [[TOUR, 8], [FOOD, 8]];
+	}
+	graphics {
+		default: sprite_hotel_e;
+	}
+}
+
+tilelayout tilelayout_hotel_square {
+	0,0: tile_hotel_n;	0,1: tile_hotel_e;
+	1,0: tile_hotel_n;	1,1: tile_hotel_e;
+}
+
+item (FEAT_INDUSTRIES, industry_hotel, 14)
+{
+	property {
+		substitute: INDUSTRYTYPE_POWER_PLANT;
+		name: string(STR_HOTEL);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_HOTEL));
+		life_type: IND_LIFE_TYPE_BLACK_HOLE;
+		spec_flags: bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
+		layouts: [
+			tilelayout_hotel_square,
+		];
+		cargo_types: [
+			accept_cargo("TOUR"),
+			accept_cargo("FOOD")
+		];
+		prob_map_gen: 1; // FIXME: Balance this later
+		prob_in_game: 0;
+		fund_cost_multiplier: 5;
+		map_colour: 176;
+	}
+	graphics {
+		extra_text_industry: string(STR_HOTEL_HELPTEXT);
+	}
+}
