@@ -218,7 +218,7 @@ cargotable {
 	JAVA, FRUT, SGCN, TBCO, WOOD, OIL_, NKOR,
 	
 	/* Secondary products */
-	SUGR, MOLS, CIGR, BEER, FOOD, CHEM, RFPR, FUEL, NICK, COBL, PIPE
+	SUGR, MOLS, CIGR, BEER, FOOD, CHEM, RFPR, FUEL, NICK, COBL, PIPE, FERT
 }
 
 // Replace passengers, keep original ID. Use cargo label "PASS" to avoid breaking vehicle refits.
@@ -721,6 +721,31 @@ item (FEAT_CARGOS, cargo_cobalt, 0x13) {
 	}
 }
 
+// Fertilizer in 0x14 Sweets
+item (FEAT_CARGOS, cargo_fertilizer, 0x14) {
+	property {
+		number:						0x14;
+		sprite:						4320;
+		type_name:					string(STR_CARGO_NAME_FERTILIZER);
+		unit_name:					string(STR_CARGO_NAME_FERTILIZER);
+		type_abbreviation:			string(STR_CARGO_ABBREV_FERTILIZER);
+		weight:						1;
+		is_freight:					1;
+		cargo_classes:				bitmask(CC_PIECE_GOODS, CC_BULK, CC_COVERED);
+		cargo_label:				"FERT";
+		town_growth_effect:			TOWNGROWTH_NONE;
+		town_growth_multiplier:		1;
+		units_of_cargo:				TTD_STR_TONS;
+		items_of_cargo:				string(STR_CARGO_QUANTITY_FERTILIZER);
+		penalty_lowerbound:			22;
+		single_penalty_length:		44;
+		price_factor:				123;
+		capacity_multiplier:		1;
+		station_list_colour:		118;
+		cargo_payment_list_colour:	118;
+	}
+}
+
 
 /* Begin Citrus Grove */
 
@@ -826,6 +851,26 @@ tilelayout tilelayout_citrus_grove_6 {
 /* Citrus groves only generate at elevation 1. */
 switch (FEAT_INDUSTRIES, SELF, loc_check_citrus_grove, IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_CITRUS_LOCATION);}
 
+/* Boosted production if Fertilizier is supplied */
+produce (produce_citrus_grove_boosted,
+	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3); FERT: 3;],	// Consume
+	[FRUT: 16;],													// Produce
+	0 																// Don't run callback again
+	)
+
+/* Regular production uses at least 24 passengers/month, but will consume excess passengers so they don't build up */
+produce (produce_citrus_grove,
+	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3);],	// Consume
+	[FRUT: 8;],												// Produce
+	0 														// Don't run callback again
+	)
+
+/* Check for Fertilizier for normal or boosted production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_citrus_grove_boosted, incoming_cargo_waiting("FERT") >= 3) {1: produce_citrus_grove_boosted; produce_citrus_grove;}
+
+/* Check for Workers for any production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_citrus_grove, incoming_cargo_waiting("PASS") >= 3) {1: switch_produce_citrus_grove_boosted; produce_none;}
+
 item (FEAT_INDUSTRIES, industry_citrus_grove, 1)
 {
 	property {
@@ -834,7 +879,9 @@ item (FEAT_INDUSTRIES, industry_citrus_grove, 1)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_CITRUS_GROVE));
 		life_type: IND_LIFE_TYPE_ORGANIC;
 		cargo_types: [
-			produce_cargo("FRUT", 8),
+			accept_cargo("PASS"),
+			accept_cargo("FERT"),
+			produce_cargo("FRUT", 0),
 		];
 		layouts: [
 			tilelayout_citrus_grove_1,
@@ -852,12 +899,14 @@ item (FEAT_INDUSTRIES, industry_citrus_grove, 1)
 		
 	}
 	graphics {
+		produce_256_ticks: switch_produce_citrus_grove;
+		cargo_subtype_display: HideCargoWaitingText(0);
 		location_check: loc_check_citrus_grove;
 		/* Don't allow any production changes */
 		build_prod_change: 16; // 100% production
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
-		extra_text_industry: string(STR_NO_PRODUCTION_CHANGE);
+		extra_text_industry: string(STR_PRIMARY_HELPTEXT);
 	}
 }
 
@@ -937,6 +986,26 @@ tilelayout tilelayout_coffee_plantation_4 {
 /* Coffee plantations must be at least height 2, no max limit. */
 switch (FEAT_INDUSTRIES, SELF, loc_check_coffee_plantation, IndustryElevationCheck(2, 255)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_COFFEE_LOCATION);}
 
+/* Boosted production if Fertilizier is supplied */
+produce (produce_coffee_plantation_boosted,
+	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3); FERT: 3;],	// Consume
+	[JAVA: 8;],													// Produce
+	0 																// Don't run callback again
+	)
+
+/* Regular production uses at least 24 passengers/month, but will consume excess passengers so they don't build up */
+produce (produce_coffee_plantation,
+	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3);],	// Consume
+	[JAVA: 4;],												// Produce
+	0 														// Don't run callback again
+	)
+
+/* Check for Fertilizier for normal or boosted production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_coffee_plantation_boosted, incoming_cargo_waiting("FERT") >= 3) {1: produce_coffee_plantation_boosted; produce_coffee_plantation;}
+
+/* Check for Workers for any production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_coffee_plantation, incoming_cargo_waiting("PASS") >= 3) {1: switch_produce_coffee_plantation_boosted; produce_none;}
+
 item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 {
 	property {
@@ -945,7 +1014,9 @@ item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_COFFEE_PLANTATION));
 		life_type: IND_LIFE_TYPE_ORGANIC;
 		cargo_types: [
-			produce_cargo("JAVA", 4),
+			accept_cargo("PASS"),
+			accept_cargo("FERT"),
+			produce_cargo("JAVA", 0),
 		];
 		layouts: [
 			tilelayout_coffee_plantation_1,
@@ -961,12 +1032,14 @@ item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 		
 	}
 	graphics {
+		produce_256_ticks: switch_produce_coffee_plantation;
+		cargo_subtype_display: HideCargoWaitingText(0);
 		location_check: loc_check_coffee_plantation;
 		/* Don't allow any production changes */
 		build_prod_change: 16; // 100% production
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
-		extra_text_industry: string(STR_NO_PRODUCTION_CHANGE);
+		extra_text_industry: string(STR_PRIMARY_HELPTEXT);
 	}
 }
 
@@ -1103,7 +1176,7 @@ item (FEAT_INDUSTRIES, industry_import_export_3, 10) {
 		life_type: IND_LIFE_TYPE_BLACK_HOLE;
 		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
 		cargo_types: [
-			accept_cargo("NICK", produce_cargo("PIPE", 1))
+			accept_cargo("NICK", produce_cargo("FERT", 1))
 		];
 		layouts: [
 			tilelayout_import_export
@@ -1684,6 +1757,26 @@ item (FEAT_INDUSTRIES, industry_sugar_mill, 4)
 /* Citrus groves only generate at elevation 1. */
 switch (FEAT_INDUSTRIES, SELF, loc_check_sugarcane_plantation, IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_SUGARCANE_LOCATION);}
 
+/* Boosted production if Fertilizier is supplied */
+produce (produce_sugarcane_plantation_boosted,
+	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3); FERT: 3;],	// Consume
+	[SGCN: 32;],													// Produce
+	0 																// Don't run callback again
+	)
+
+/* Regular production uses at least 24 passengers/month, but will consume excess passengers so they don't build up */
+produce (produce_sugarcane_plantation,
+	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3);],	// Consume
+	[SGCN: 16;],											// Produce
+	0 														// Don't run callback again
+	)
+
+/* Check for Fertilizier for normal or boosted production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_sugarcane_plantation_boosted, incoming_cargo_waiting("FERT") >= 3) {1: produce_sugarcane_plantation_boosted; produce_sugarcane_plantation;}
+
+/* Check for Workers for any production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_sugarcane_plantation, incoming_cargo_waiting("PASS") >= 3) {1: switch_produce_sugarcane_plantation_boosted; produce_none;}
+
 item (FEAT_INDUSTRIES, industry_sugarcane_plantation, 3)
 {
 	property {
@@ -1692,7 +1785,9 @@ item (FEAT_INDUSTRIES, industry_sugarcane_plantation, 3)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_SUGARCANE_PLANTATION));
 		life_type: IND_LIFE_TYPE_ORGANIC;
 		cargo_types: [
-			produce_cargo("SGCN", 16),
+			accept_cargo("PASS"),
+			accept_cargo("FERT"),
+			produce_cargo("SGCN", 0),
 		];
 		conflicting_ind_types: [industry_sugarcane_plantation, industry_citrus_grove, industry_coffee_plantation]; // FIXME: Add plantations which plant fields around them
 		prob_map_gen: 1; // FIXME: Adjust as necessary
@@ -1702,11 +1797,13 @@ item (FEAT_INDUSTRIES, industry_sugarcane_plantation, 3)
 		
 	}
 	graphics {
+		produce_256_ticks: switch_produce_sugarcane_plantation;
+		cargo_subtype_display: HideCargoWaitingText(0);
 		location_check: loc_check_sugarcane_plantation;
 		/* Don't allow any production changes */
 		build_prod_change: 16; // 100% production
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
-		extra_text_industry: string(STR_NO_PRODUCTION_CHANGE);
+		extra_text_industry: string(STR_PRIMARY_HELPTEXT);
 	}
 }

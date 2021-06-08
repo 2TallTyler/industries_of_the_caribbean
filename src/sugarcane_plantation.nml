@@ -4,6 +4,26 @@
 /* Citrus groves only generate at elevation 1. */
 switch (FEAT_INDUSTRIES, SELF, loc_check_sugarcane_plantation, IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_SUGARCANE_LOCATION);}
 
+/* Boosted production if Fertilizier is supplied */
+produce (produce_sugarcane_plantation_boosted,
+	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3); FERT: 3;],	// Consume
+	[SGCN: 32;],													// Produce
+	0 																// Don't run callback again
+	)
+
+/* Regular production uses at least 24 passengers/month, but will consume excess passengers so they don't build up */
+produce (produce_sugarcane_plantation,
+	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3);],	// Consume
+	[SGCN: 16;],											// Produce
+	0 														// Don't run callback again
+	)
+
+/* Check for Fertilizier for normal or boosted production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_sugarcane_plantation_boosted, incoming_cargo_waiting("FERT") >= 3) {1: produce_sugarcane_plantation_boosted; produce_sugarcane_plantation;}
+
+/* Check for Workers for any production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_sugarcane_plantation, incoming_cargo_waiting("PASS") >= 3) {1: switch_produce_sugarcane_plantation_boosted; produce_none;}
+
 item (FEAT_INDUSTRIES, industry_sugarcane_plantation, 3)
 {
 	property {
@@ -12,7 +32,9 @@ item (FEAT_INDUSTRIES, industry_sugarcane_plantation, 3)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_SUGARCANE_PLANTATION));
 		life_type: IND_LIFE_TYPE_ORGANIC;
 		cargo_types: [
-			produce_cargo("SGCN", 16),
+			accept_cargo("PASS"),
+			accept_cargo("FERT"),
+			produce_cargo("SGCN", 0),
 		];
 		conflicting_ind_types: [industry_sugarcane_plantation, industry_citrus_grove, industry_coffee_plantation]; // FIXME: Add plantations which plant fields around them
 		prob_map_gen: 1; // FIXME: Adjust as necessary
@@ -22,11 +44,13 @@ item (FEAT_INDUSTRIES, industry_sugarcane_plantation, 3)
 		
 	}
 	graphics {
+		produce_256_ticks: switch_produce_sugarcane_plantation;
+		cargo_subtype_display: HideCargoWaitingText(0);
 		location_check: loc_check_sugarcane_plantation;
 		/* Don't allow any production changes */
 		build_prod_change: 16; // 100% production
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
-		extra_text_industry: string(STR_NO_PRODUCTION_CHANGE);
+		extra_text_industry: string(STR_PRIMARY_HELPTEXT);
 	}
 }

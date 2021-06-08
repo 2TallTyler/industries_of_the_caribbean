@@ -9,7 +9,7 @@ cargotable {
 	JAVA, FRUT, SGCN, TBCO, WOOD, OIL_, NKOR,
 	
 	/* Secondary products */
-	SUGR, MOLS, CIGR, BEER, FOOD, CHEM, RFPR, FUEL, NICK, COBL, PIPE
+	SUGR, MOLS, CIGR, BEER, FOOD, CHEM, RFPR, FUEL, NICK, COBL, PIPE, FERT
 }
 
 // Replace passengers, keep original ID. Use cargo label "PASS" to avoid breaking vehicle refits.
@@ -509,5 +509,30 @@ item (FEAT_CARGOS, cargo_cobalt, 0x13) {
 		capacity_multiplier:		1;
 		station_list_colour:		158;
 		cargo_payment_list_colour:	158;
+	}
+}
+
+// Fertilizer in 0x14 Sweets
+item (FEAT_CARGOS, cargo_fertilizer, 0x14) {
+	property {
+		number:						0x14;
+		sprite:						4320;
+		type_name:					string(STR_CARGO_NAME_FERTILIZER);
+		unit_name:					string(STR_CARGO_NAME_FERTILIZER);
+		type_abbreviation:			string(STR_CARGO_ABBREV_FERTILIZER);
+		weight:						1;
+		is_freight:					1;
+		cargo_classes:				bitmask(CC_PIECE_GOODS, CC_BULK, CC_COVERED);
+		cargo_label:				"FERT";
+		town_growth_effect:			TOWNGROWTH_NONE;
+		town_growth_multiplier:		1;
+		units_of_cargo:				TTD_STR_TONS;
+		items_of_cargo:				string(STR_CARGO_QUANTITY_FERTILIZER);
+		penalty_lowerbound:			22;
+		single_penalty_length:		44;
+		price_factor:				123;
+		capacity_multiplier:		1;
+		station_list_colour:		118;
+		cargo_payment_list_colour:	118;
 	}
 }

@@ -17,7 +17,7 @@ STR_STATION							:{STRING} {STRING}
 
 STR_EMPTY							:
 
-STR_NO_PRODUCTION_CHANGE			:Production never changes.
+STR_PRIMARY_HELPTEXT				:Production needs:{}* {WHITE}Normal{BLACK}: 24 Workers/month{}* {WHITE}Double{BLACK}: 24 tons of Fertilizer/month
 STR_WORKERS_HELPTEXT				:Deliver Workers to process waiting cargo.
 
 STR_ERR_COFFEE_LOCATION				:Coffee Plantations must be at elevation 2 or greater.
@@ -107,3 +107,7 @@ STR_CARGO_QUANTITY_NICKEL			:{WEIGHT} of nickel
 STR_CARGO_NAME_COBALT				:Cobalt
 STR_CARGO_ABBREV_COBALT				:{TINYFONT}CB
 STR_CARGO_QUANTITY_COBALT			:{WEIGHT} of cobalt
+
+STR_CARGO_NAME_FERTILIZER			:Fertilizer
+STR_CARGO_ABBREV_FERTILIZER			:{TINYFONT}FT
+STR_CARGO_QUANTITY_FERTILIZER		:{WEIGHT} of fertilizer

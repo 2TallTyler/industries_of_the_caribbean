@@ -74,6 +74,26 @@ tilelayout tilelayout_coffee_plantation_4 {
 /* Coffee plantations must be at least height 2, no max limit. */
 switch (FEAT_INDUSTRIES, SELF, loc_check_coffee_plantation, IndustryElevationCheck(2, 255)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_COFFEE_LOCATION);}
 
+/* Boosted production if Fertilizier is supplied */
+produce (produce_coffee_plantation_boosted,
+	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3); FERT: 3;],	// Consume
+	[JAVA: 8;],													// Produce
+	0 																// Don't run callback again
+	)
+
+/* Regular production uses at least 24 passengers/month, but will consume excess passengers so they don't build up */
+produce (produce_coffee_plantation,
+	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3);],	// Consume
+	[JAVA: 4;],												// Produce
+	0 														// Don't run callback again
+	)
+
+/* Check for Fertilizier for normal or boosted production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_coffee_plantation_boosted, incoming_cargo_waiting("FERT") >= 3) {1: produce_coffee_plantation_boosted; produce_coffee_plantation;}
+
+/* Check for Workers for any production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_coffee_plantation, incoming_cargo_waiting("PASS") >= 3) {1: switch_produce_coffee_plantation_boosted; produce_none;}
+
 item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 {
 	property {
@@ -82,7 +102,9 @@ item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_COFFEE_PLANTATION));
 		life_type: IND_LIFE_TYPE_ORGANIC;
 		cargo_types: [
-			produce_cargo("JAVA", 4),
+			accept_cargo("PASS"),
+			accept_cargo("FERT"),
+			produce_cargo("JAVA", 0),
 		];
 		layouts: [
 			tilelayout_coffee_plantation_1,
@@ -98,11 +120,13 @@ item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 		
 	}
 	graphics {
+		produce_256_ticks: switch_produce_coffee_plantation;
+		cargo_subtype_display: HideCargoWaitingText(0);
 		location_check: loc_check_coffee_plantation;
 		/* Don't allow any production changes */
 		build_prod_change: 16; // 100% production
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
-		extra_text_industry: string(STR_NO_PRODUCTION_CHANGE);
+		extra_text_industry: string(STR_PRIMARY_HELPTEXT);
 	}
 }
