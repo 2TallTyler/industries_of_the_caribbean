@@ -1154,7 +1154,7 @@ item (FEAT_INDUSTRIES, industry_import_export_1, 2) {
 		life_type: IND_LIFE_TYPE_BLACK_HOLE;
 		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
 		cargo_types: [
-			accept_cargo("SUGR", produce_cargo("OIL_", 0.75), produce_cargo("PIPE", 0.25))
+			accept_cargo("SUGR", produce_cargo("OIL_", 0.75), produce_cargo("PIPE", 0.25)) // FIXME: Why doesn't Oil show up on the industry window?
 		];
 		layouts: [
 			tilelayout_import_export
@@ -1415,9 +1415,9 @@ item (FEAT_INDUSTRIES, industry_nickel_smelter, 7)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_NICKEL_SMELTER));
 		life_type: IND_LIFE_TYPE_PROCESSING;
 		cargo_types: [
+			accept_cargo("PASS"),
 			accept_cargo("NKOR"),
 			accept_cargo("RFPR"),
-			accept_cargo("PASS"),
 			produce_cargo("NICK", 0)
 		];
 		prob_map_gen: 0;
@@ -1427,8 +1427,8 @@ item (FEAT_INDUSTRIES, industry_nickel_smelter, 7)
 	}
 	graphics {
 		produce_cargo_arrival: switch_produce_nickel_smelter;
-		cargo_subtype_display: HideCargoWaitingText(2);
-		extra_text_industry: string(STR_WORKERS_HELPTEXT);
+		cargo_subtype_display: HideCargoWaitingText(0);
+		extra_text_industry: string(STR_NICKEL_SMELTER_HELPTEXT);
 		colour: founder_colour1;
 	}
 }
@@ -1642,8 +1642,8 @@ item (FEAT_INDUSTRIES, industry_oil_refinery, 5)
 			industry_layout_oil_refinery_3,
 		];
 		cargo_types: [
-			accept_cargo("OIL_"),
 			accept_cargo("PASS"),
+			accept_cargo("OIL_"),
 			produce_cargo("RFPR", 0),
 			produce_cargo("FUEL", 0)
 		];
@@ -1654,8 +1654,8 @@ item (FEAT_INDUSTRIES, industry_oil_refinery, 5)
 	}
 	graphics {
 		produce_cargo_arrival: switch_produce_oil_refinery;
-		cargo_subtype_display: HideCargoWaitingText(1);
-		extra_text_industry: string(STR_WORKERS_HELPTEXT);
+		cargo_subtype_display: HideCargoWaitingText(0);
+		extra_text_industry: string(STR_OIL_REFINERY_HELPTEXT);
 		colour: founder_colour1;
 	}
 }
@@ -1716,8 +1716,8 @@ item (FEAT_INDUSTRIES, industry_rum_distillery, 11)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_RUM_DISTILLERY));
 		life_type: IND_LIFE_TYPE_PROCESSING;
 		cargo_types: [
-			accept_cargo("MOLS"),
 			accept_cargo("PASS"),
+			accept_cargo("MOLS"),
 			produce_cargo("BEER", 0)
 		];
 		prob_map_gen: 0;
@@ -1727,8 +1727,8 @@ item (FEAT_INDUSTRIES, industry_rum_distillery, 11)
 	}
 	graphics {
 		produce_cargo_arrival: switch_produce_rum_distillery;
-		cargo_subtype_display: HideCargoWaitingText(1);
-		extra_text_industry: string(STR_WORKERS_HELPTEXT);
+		cargo_subtype_display: HideCargoWaitingText(0);
+		extra_text_industry: string(STR_RUM_DISTILLERY_HELPTEXT);
 		colour: founder_colour1;
 	}
 }
@@ -1772,7 +1772,7 @@ item (FEAT_INDUSTRYTILES, tile_sugar_mill_3)
 
 produce (produce_sugar_mill,
 	[PASS: 8; SGCN: 8;],	// Consume
-	[SUGR: 5; MOLS: 1;],	// Produce
+	[SUGR: 4; MOLS: 1;],	// Produce
 	1 						// Run callback again
 	)
 	
@@ -1789,8 +1789,8 @@ item (FEAT_INDUSTRIES, industry_sugar_mill, 4)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_SUGAR_MILL));
 		life_type: IND_LIFE_TYPE_PROCESSING;
 		cargo_types: [
-			accept_cargo("SGCN"),
 			accept_cargo("PASS"),
+			accept_cargo("SGCN"),
 			produce_cargo("SUGR", 0),
 			produce_cargo("MOLS", 0)
 		];
@@ -1801,8 +1801,8 @@ item (FEAT_INDUSTRIES, industry_sugar_mill, 4)
 	}
 	graphics {
 		produce_cargo_arrival: switch_produce_sugar_mill;
-		cargo_subtype_display: HideCargoWaitingText(1);
-		extra_text_industry: string(STR_WORKERS_HELPTEXT);
+		cargo_subtype_display: HideCargoWaitingText(0);
+		extra_text_industry: string(STR_SUGAR_MILL_HELPTEXT);
 		colour: founder_colour1;
 	}
 }

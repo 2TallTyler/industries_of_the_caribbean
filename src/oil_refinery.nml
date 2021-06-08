@@ -208,8 +208,8 @@ item (FEAT_INDUSTRIES, industry_oil_refinery, 5)
 			industry_layout_oil_refinery_3,
 		];
 		cargo_types: [
-			accept_cargo("OIL_"),
 			accept_cargo("PASS"),
+			accept_cargo("OIL_"),
 			produce_cargo("RFPR", 0),
 			produce_cargo("FUEL", 0)
 		];
@@ -220,8 +220,8 @@ item (FEAT_INDUSTRIES, industry_oil_refinery, 5)
 	}
 	graphics {
 		produce_cargo_arrival: switch_produce_oil_refinery;
-		cargo_subtype_display: HideCargoWaitingText(1);
-		extra_text_industry: string(STR_WORKERS_HELPTEXT);
+		cargo_subtype_display: HideCargoWaitingText(0);
+		extra_text_industry: string(STR_OIL_REFINERY_HELPTEXT);
 		colour: founder_colour1;
 	}
 }

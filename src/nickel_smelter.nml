@@ -91,9 +91,9 @@ item (FEAT_INDUSTRIES, industry_nickel_smelter, 7)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_NICKEL_SMELTER));
 		life_type: IND_LIFE_TYPE_PROCESSING;
 		cargo_types: [
+			accept_cargo("PASS"),
 			accept_cargo("NKOR"),
 			accept_cargo("RFPR"),
-			accept_cargo("PASS"),
 			produce_cargo("NICK", 0)
 		];
 		prob_map_gen: 0;
@@ -103,8 +103,8 @@ item (FEAT_INDUSTRIES, industry_nickel_smelter, 7)
 	}
 	graphics {
 		produce_cargo_arrival: switch_produce_nickel_smelter;
-		cargo_subtype_display: HideCargoWaitingText(2);
-		extra_text_industry: string(STR_WORKERS_HELPTEXT);
+		cargo_subtype_display: HideCargoWaitingText(0);
+		extra_text_industry: string(STR_NICKEL_SMELTER_HELPTEXT);
 		colour: founder_colour1;
 	}
 }

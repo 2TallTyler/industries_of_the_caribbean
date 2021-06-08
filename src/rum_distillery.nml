@@ -55,8 +55,8 @@ item (FEAT_INDUSTRIES, industry_rum_distillery, 11)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_RUM_DISTILLERY));
 		life_type: IND_LIFE_TYPE_PROCESSING;
 		cargo_types: [
-			accept_cargo("MOLS"),
 			accept_cargo("PASS"),
+			accept_cargo("MOLS"),
 			produce_cargo("BEER", 0)
 		];
 		prob_map_gen: 0;
@@ -66,8 +66,8 @@ item (FEAT_INDUSTRIES, industry_rum_distillery, 11)
 	}
 	graphics {
 		produce_cargo_arrival: switch_produce_rum_distillery;
-		cargo_subtype_display: HideCargoWaitingText(1);
-		extra_text_industry: string(STR_WORKERS_HELPTEXT);
+		cargo_subtype_display: HideCargoWaitingText(0);
+		extra_text_industry: string(STR_RUM_DISTILLERY_HELPTEXT);
 		colour: founder_colour1;
 	}
 }

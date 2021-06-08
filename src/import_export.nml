@@ -81,7 +81,7 @@ item (FEAT_INDUSTRIES, industry_import_export_1, 2) {
 		life_type: IND_LIFE_TYPE_BLACK_HOLE;
 		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
 		cargo_types: [
-			accept_cargo("SUGR", produce_cargo("OIL_", 0.75), produce_cargo("PIPE", 0.25))
+			accept_cargo("SUGR", produce_cargo("OIL_", 0.75), produce_cargo("PIPE", 0.25)) // FIXME: Why doesn't Oil show up on the industry window?
 		];
 		layouts: [
 			tilelayout_import_export
