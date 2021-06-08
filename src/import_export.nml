@@ -107,7 +107,8 @@ item (FEAT_INDUSTRIES, industry_import_export_2, 9) {
 		cargo_types: [
 			accept_cargo("BEER", produce_cargo("TOUR", 1)),
 			accept_cargo("CIGR", produce_cargo("TOUR", 1)),
-			accept_cargo("COBL", produce_cargo("TOUR", 1))
+			accept_cargo("COBL", produce_cargo("TOUR", 1)),
+			produce_cargo("FUEL", 8) // FIXME: Debug production
 		];
 		layouts: [
 			tilelayout_import_export
