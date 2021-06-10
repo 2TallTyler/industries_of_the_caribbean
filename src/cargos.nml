@@ -116,13 +116,13 @@ item (FEAT_CARGOS, cargo_coffee, 0x03) {
 }
 
 // Uses Livestock ID
-item (FEAT_CARGOS, cargo_citrus, 0x04) {
+item (FEAT_CARGOS, cargo_fruit, 0x04) {
 	property {
 		number:						0x04;
 		sprite:						4308;
-		type_name:					string(STR_CARGO_NAME_CITRUS);
-		unit_name:					string(STR_CARGO_NAME_CITRUS);
-		type_abbreviation:			string(STR_CARGO_ABBREV_CITRUS);
+		type_name:					TTD_STR_CARGO_PLURAL_FRUIT;
+		unit_name:					TTD_STR_CARGO_SINGULAR_FRUIT;
+		type_abbreviation:			TTD_STR_ABBREV_FRUIT;
 		weight:						1;
 		is_freight:					1;
 		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS, CC_REFRIGERATED);
@@ -130,7 +130,7 @@ item (FEAT_CARGOS, cargo_citrus, 0x04) {
 		town_growth_effect:			TOWNGROWTH_NONE;
 		town_growth_multiplier:		1;
 		units_of_cargo:				TTD_STR_TONS;
-		items_of_cargo:				string(STR_CARGO_QUANTITY_CITRUS);
+		items_of_cargo:				TTD_STR_QUANTITY_FRUIT;
 		penalty_lowerbound:			16;
 		single_penalty_length:		64;
 		capacity_multiplier:		1;
