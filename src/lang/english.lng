@@ -19,6 +19,7 @@ STR_EMPTY							:
 
 STR_PRIMARY_HELPTEXT				:Monthly production needs:{}* {WHITE}Base{BLACK}: 24 Workers{}* {WHITE}Double{BLACK}: + 24 tons of Fertilizer
 STR_NICKEL_MINE_HELPTEXT			:Monthly production needs:{}* {WHITE}Base{BLACK}: 48 Workers and 48 units of Fuel{}* {WHITE}Double{BLACK}: + 48 units of Machinery
+STR_OIL_WELLS_HELPTEXT				:Monthly production needs:{}* {WHITE}Base{BLACK}: 48 Workers and 48 units of Pipe{}* {WHITE}Double{BLACK}: + 48 units of Machinery
 
 STR_SUGAR_MILL_HELPTEXT				:Production ratio:{}+ 1 Worker{}+ 1 unit of Sugarcane{}= 1/2 unit of Sugar{}= 1/8 unit of Molasses
 STR_RUM_DISTILLERY_HELPTEXT			:Production ratio:{}+ 1 Worker{}+ 1 unit of Molasses{}= 1 unit of Rum
@@ -43,6 +44,7 @@ STR_SUGAR_MILL						:Sugar Mill
 STR_CIGAR_FACTORY					:Cigar Factory
 STR_RUM_DISTILLERY					:Rum Distillery
 STR_OIL_REFINERY					:Oil Refinery
+STR_OIL_WELLS						:Oil Wells
 STR_HOTEL							:Hotel
 STR_BEACH							:Beach
 STR_NICKEL_MINE						:Nickel Mine
