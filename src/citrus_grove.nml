@@ -105,16 +105,16 @@ switch (FEAT_INDUSTRIES, SELF, loc_check_citrus_grove, IndustryElevationCheck(0,
 
 /* Boosted production if Fertilizier is supplied */
 produce (produce_citrus_grove_boosted,
-	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3); FERT: 3;],	// Consume
-	[FRUT: 24;],													// Produce
-	0 																// Don't run callback again
+	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3; FERT: 3;],	// Consume
+	[FRUT: 24;],																							// Produce
+	0 																										// Don't run callback again
 	)
 
-/* Regular production uses at least 24 passengers/month, but will consume excess passengers so they don't build up */
+/* Regular production uses at least 24 passengers/month, but will consume excess passengers (>200) so they don't build up */
 produce (produce_citrus_grove,
-	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3);],	// Consume
-	[FRUT: 12;],											// Produce
-	0 														// Don't run callback again
+	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3;],	// Consume
+	[FRUT: 12;],																				// Produce
+	0 																							// Don't run callback again
 	)
 
 /* Check for Fertilizier for normal or boosted production */
@@ -152,7 +152,6 @@ item (FEAT_INDUSTRIES, industry_citrus_grove, 1)
 	}
 	graphics {
 		produce_256_ticks: switch_produce_citrus_grove;
-		cargo_subtype_display: HideCargoWaitingText(0);
 		location_check: loc_check_citrus_grove;
 		/* Don't allow any production changes */
 		build_prod_change: 16; // 100% production

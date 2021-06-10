@@ -139,11 +139,11 @@ produce (produce_oil_wells,
 	0 																// Don't run callback again
 	)
 
+/* Check for Machinery for boosted production */
 switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_wells_boosted, incoming_cargo_waiting("ENSP") >= 6) {1: produce_oil_wells_boosted; produce_oil_wells;}	
 
-
-/* Check for Workers for any production */
-switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_wells, (incoming_cargo_waiting("PIPE") >= 6 && incoming_cargo_waiting("PASS") >= 6)) {1: switch_produce_oil_wells_boosted; produce_none;}
+/* Check for sufficient Workers and Fuel to begin production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_wells, (incoming_cargo_waiting("FUEL") >= 6 && incoming_cargo_waiting("PASS") >= 6)) {1: switch_produce_oil_wells_boosted; switch_produce_idle;}
 
 item (FEAT_INDUSTRIES, industry_oil_wells, 16)
 {
@@ -169,7 +169,6 @@ item (FEAT_INDUSTRIES, industry_oil_wells, 16)
 	}
 	graphics {
 		produce_256_ticks: switch_produce_oil_wells;
-		cargo_subtype_display: HideCargoWaitingText(0);
 		//construction_probability: switch_unlock_oil_wells;
 		/* Don't allow any production changes */
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;

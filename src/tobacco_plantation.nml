@@ -115,14 +115,14 @@ switch (FEAT_INDUSTRIES, SELF, loc_check_tobacco_plantation, IndustryElevationCh
 
 /* Boosted production if Fertilizier is supplied */
 produce (produce_tobacco_plantation_boosted,
-	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3); FERT: 3;],	// Consume
+	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3; FERT: 3;],	// Consume
 	[TBCO: 24;],													// Produce
 	0 																// Don't run callback again
 	)
 
 /* Regular production uses at least 24 passengers/month, but will consume excess passengers so they don't build up */
 produce (produce_tobacco_plantation,
-	[PASS: max((incoming_cargo_waiting("PASS") / 8), 3);],	// Consume
+	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3;],	// Consume
 	[TBCO: 12;],											// Produce
 	0 														// Don't run callback again
 	)
@@ -162,7 +162,6 @@ item (FEAT_INDUSTRIES, industry_tobacco_plantation, 12)
 	}
 	graphics {
 		produce_256_ticks: switch_produce_tobacco_plantation;
-		cargo_subtype_display: HideCargoWaitingText(0);
 		location_check: loc_check_tobacco_plantation;
 		/* Don't allow any production changes */
 		build_prod_change: 16; // 100% production

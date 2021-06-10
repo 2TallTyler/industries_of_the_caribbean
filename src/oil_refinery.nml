@@ -220,7 +220,6 @@ item (FEAT_INDUSTRIES, industry_oil_refinery, 5)
 	}
 	graphics {
 		produce_cargo_arrival: switch_produce_oil_refinery;
-		cargo_subtype_display: HideCargoWaitingText(0);
 		extra_text_industry: string(STR_OIL_REFINERY_HELPTEXT);
 		colour: founder_colour1;
 	}

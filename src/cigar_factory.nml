@@ -66,7 +66,6 @@ item (FEAT_INDUSTRIES, industry_cigar_factory, 13)
 	}
 	graphics {
 		produce_cargo_arrival: switch_produce_cigar_factory;
-		cargo_subtype_display: HideCargoWaitingText(0);
 		extra_text_industry: string(STR_CIGAR_FACTORY_HELPTEXT);
 		colour: founder_colour1;
 	}

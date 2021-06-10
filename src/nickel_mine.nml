@@ -50,25 +50,25 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_4)
 /* Nickel Mines must be at least height 2, no max limit. */
 switch (FEAT_INDUSTRIES, SELF, loc_check_nickel_mine, IndustryElevationCheck(2, 255)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_NICKEL_MINE_LOCATION);}
 
-/* Boosted production: 48 Workers, 48 units of Fuel, and 48 units of Machinery. Extra workers are consumed so they don't build up */
+/* Boosted production: 48 Workers, 48 units of Fuel, and 48 units of Machinery. Extra workers (>400) are consumed so they don't build up */
 produce (produce_nickel_mine_boosted,
-	[FUEL: 6; PASS: max((incoming_cargo_waiting("PASS") / 8), 6); ENSP: 6;],	// Consume
+	[FUEL: 6; PASS: (incoming_cargo_waiting("PASS") > 400) ? (incoming_cargo_waiting("PASS") / 8) : 6; ENSP: 6;],	// Consume
 	[NKOR: 40; COBL: 10;],														// Produce
 	0 																			// Don't run callback again
 	)
 
-/* Regular production: 48 Workers and 48 units of Fuel. Extra workers are consumed so they don't build up */
+/* Regular production: 48 Workers and 48 units of Fuel. Extra workers (>400) are consumed so they don't build up */
 produce (produce_nickel_mine,
-	[FUEL: 6; PASS: max((incoming_cargo_waiting("PASS") / 8), 6);],	// Consume
+	[FUEL: 6; PASS: (incoming_cargo_waiting("PASS") > 400) ? (incoming_cargo_waiting("PASS") / 8) : 6;],	// Consume
 	[NKOR: 20; COBL: 5;],											// Produce
 	0 																// Don't run callback again
 	)
 
+/* Check for Machinery for boosted production */
 switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_mine_boosted, incoming_cargo_waiting("ENSP") >= 6) {1: produce_nickel_mine_boosted; produce_nickel_mine;}	
 
-
-/* Check for Workers for any production */
-switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_mine, (incoming_cargo_waiting("FUEL") >= 6 && incoming_cargo_waiting("PASS") >= 6)) {1: switch_produce_nickel_mine_boosted; produce_none;}
+/* Check for sufficient Workers and Fuel to begin production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_mine, (incoming_cargo_waiting("FUEL") >= 6 && incoming_cargo_waiting("PASS") >= 6)) {1: switch_produce_nickel_mine_boosted; switch_produce_idle;}
 
 item (FEAT_INDUSTRIES, industry_nickel_mine, 6)
 {
@@ -91,7 +91,6 @@ item (FEAT_INDUSTRIES, industry_nickel_mine, 6)
 	}
 	graphics {
 		produce_256_ticks: switch_produce_nickel_mine;
-		cargo_subtype_display: HideCargoWaitingText(0);
 		location_check: loc_check_nickel_mine;
 		//construction_probability: switch_unlock_nickel_mine;
 		/* Don't allow any production changes */

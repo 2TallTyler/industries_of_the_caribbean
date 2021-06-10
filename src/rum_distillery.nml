@@ -66,7 +66,6 @@ item (FEAT_INDUSTRIES, industry_rum_distillery, 11)
 	}
 	graphics {
 		produce_cargo_arrival: switch_produce_rum_distillery;
-		cargo_subtype_display: HideCargoWaitingText(0);
 		extra_text_industry: string(STR_RUM_DISTILLERY_HELPTEXT);
 		colour: founder_colour1;
 	}

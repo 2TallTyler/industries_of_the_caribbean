@@ -45,20 +45,11 @@ switch (FEAT_INDUSTRIES, SELF, IsNearMapEdge,
  */
 switch (FEAT_INDUSTRIES, SELF, IsFundedConstruction, extra_callback_info2 == IND_CREATION_FUND) {return;}
 
-/**
- * Hides the cargo waiting text for the selected cargo number
- * @returns a special string which hides the cargo waiting text for the proper cargo number, else does nothing
- */
- switch (FEAT_INDUSTRIES, SELF, HideCargoWaitingText, cargonum, getbits(extra_callback_info2, 0, 8) == cargonum) {
-	1: return 0x3800 + string(STR_EMPTY); // per FIRS source, hides the cargo waiting text
-	return CB_RESULT_NO_TEXT;
-}
-
 /* Empty production block */
 produce (produce_none, [], [])
 
-/* Consume idle workers (no cargo available to process */ 
-produce (produce_idle_workers, [PASS: 1;], [], 1)
+/* Consume idle workers (no cargo available to process) */ 
+produce (produce_idle_workers, [PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3;], [], 0)
 
 switch (FEAT_INDUSTRIES, SELF, switch_produce_idle, incoming_cargo_waiting("PASS") > 0) {
 	1: produce_idle_workers;
