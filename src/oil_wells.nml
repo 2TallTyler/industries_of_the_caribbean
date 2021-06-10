@@ -145,7 +145,7 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_wells_boosted, incoming_cargo_
 /* Check for Workers for any production */
 switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_wells, (incoming_cargo_waiting("PIPE") >= 6 && incoming_cargo_waiting("PASS") >= 6)) {1: switch_produce_oil_wells_boosted; produce_none;}
 
-item (FEAT_INDUSTRIES, industry_oil_wells, 6)
+item (FEAT_INDUSTRIES, industry_oil_wells, 16)
 {
 	property {
 		substitute: INDUSTRYTYPE_OIL_WELLS;
