@@ -84,7 +84,7 @@ item (FEAT_INDUSTRIES, industry_nickel_mine, 6)
 			produce_cargo("NKOR", 0), // 3
 			produce_cargo("COBL", 0)  // 1
 		];
-		prob_map_gen: 1; // FIXME: Adjust as necessary
+		prob_map_gen: 5; // FIXME: Adjust as necessary
 		prob_in_game: 0;
 		fund_cost_multiplier: 5;
 		map_colour: 8;
