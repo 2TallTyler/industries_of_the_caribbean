@@ -61,7 +61,7 @@ item (FEAT_INDUSTRIES, industry_rum_distillery, 11)
 		];
 		prob_map_gen: 0;
 		prob_in_game: 0;
-		fund_cost_multiplier: 5;
+		fund_cost_multiplier: 10; // 1.875 million GBP, twice Sugar Mill
 		map_colour: 61;
 	}
 	graphics {
