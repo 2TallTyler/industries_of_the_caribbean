@@ -1105,7 +1105,7 @@ item(FEAT_INDUSTRIES, industry_beach, 15) {
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_BEACH));
 		prob_map_gen: 5;
 		prob_in_game: 0;
-		fund_cost_multiplier: 5;
+		fund_cost_multiplier: 7;
 		map_colour: 176;
 		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_BUILT_NEAR_TOWN);		
 		layouts: [
@@ -1191,7 +1191,7 @@ item (FEAT_INDUSTRIES, industry_cigar_factory, 13)
 		];
 		prob_map_gen: 0;
 		prob_in_game: 0;
-		fund_cost_multiplier: 5;
+		fund_cost_multiplier: 10;
 		map_colour: 36;
 	}
 	graphics {
@@ -1559,7 +1559,7 @@ item (FEAT_INDUSTRIES, industry_hotel, 14)
 		];
 		prob_map_gen: 1; // FIXME: Balance this later
 		prob_in_game: 0;
-		fund_cost_multiplier: 5;
+		fund_cost_multiplier: 2;
 		map_colour: 176;
 	}
 	graphics {
@@ -1916,7 +1916,7 @@ item (FEAT_INDUSTRIES, industry_nickel_smelter, 7)
 		];
 		prob_map_gen: 0;
 		prob_in_game: 0;
-		fund_cost_multiplier: 5;
+		fund_cost_multiplier: 80;
 		map_colour: 11;
 	}
 	graphics {
@@ -2142,7 +2142,7 @@ item (FEAT_INDUSTRIES, industry_oil_refinery, 5)
 		];
 		prob_map_gen: 0;
 		prob_in_game: 0;
-		fund_cost_multiplier: 10;
+		fund_cost_multiplier: 40;
 		map_colour: 173;
 	}
 	graphics {
@@ -2281,14 +2281,14 @@ tilelayout industry_layout_oil_wells_2 {
 /* Boosted production: 48 Workers, 48 units of Pipe, and 48 units of Machinery. Extra workers are consumed so they don't build up */
 produce (produce_oil_wells_boosted,
 	[PIPE: 6; PASS: max((incoming_cargo_waiting("PASS") / 8), 6); ENSP: 6;],	// Consume
-	[NKOR: 40; COBL: 10;],														// Produce
+	[OIL_: 40;],														// Produce
 	0 																			// Don't run callback again
 	)
 
 /* Regular production: 48 Workers and 48 units of Pipe. Extra workers are consumed so they don't build up */
 produce (produce_oil_wells,
 	[PIPE: 6; PASS: max((incoming_cargo_waiting("PASS") / 8), 6);],	// Consume
-	[NKOR: 20; COBL: 5;],											// Produce
+	[OIL_: 20;],											// Produce
 	0 																// Don't run callback again
 	)
 
@@ -2296,7 +2296,7 @@ produce (produce_oil_wells,
 switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_wells_boosted, incoming_cargo_waiting("ENSP") >= 6) {1: produce_oil_wells_boosted; produce_oil_wells;}	
 
 /* Check for sufficient Workers and Fuel to begin production */
-switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_wells, (incoming_cargo_waiting("FUEL") >= 6 && incoming_cargo_waiting("PASS") >= 6)) {1: switch_produce_oil_wells_boosted; switch_produce_idle;}
+switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_wells, (incoming_cargo_waiting("PIPE") >= 6 && incoming_cargo_waiting("PASS") >= 6)) {1: switch_produce_oil_wells_boosted; switch_produce_idle;}
 
 item (FEAT_INDUSTRIES, industry_oil_wells, 16)
 {

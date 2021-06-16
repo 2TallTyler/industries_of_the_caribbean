@@ -62,7 +62,7 @@ item (FEAT_INDUSTRIES, industry_hotel, 14)
 		];
 		prob_map_gen: 1; // FIXME: Balance this later
 		prob_in_game: 0;
-		fund_cost_multiplier: 5;
+		fund_cost_multiplier: 2;
 		map_colour: 176;
 	}
 	graphics {
