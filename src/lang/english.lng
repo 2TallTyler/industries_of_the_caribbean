@@ -27,7 +27,7 @@ STR_SUGAR_MILL_HELPTEXT				:Production ratio:{}+ 1 Worker{}+ 1 unit of Sugarcane
 STR_RUM_DISTILLERY_HELPTEXT			:Production ratio:{}+ 1 Worker{}+ 1 unit of Molasses{}= 1 unit of Rum
 STR_CIGAR_FACTORY_HELPTEXT			:Production ratio:{}+ 1 Worker{}+ 1 unit of Tobacco{}= 1 unit of Cigars
 STR_OIL_REFINERY_HELPTEXT			:Production ratio:{}+ 1 Worker{}+ 1 unit of Oil{}= 3/4 unit of Fuel{}= 1/4 unit of Chemicals
-STR_NICKEL_SMELTER_HELPTEXT			:Production ratio:{}+ 1 Worker{}+ 1 unit of Nickel Ore{}+ 1/9 unit of Chemicals{}= 1 unit of Nickel
+STR_NICKEL_SMELTER_HELPTEXT			:Production ratio:{}+ 1 Worker{}+ 1 unit of Nickel Ore{}+ 1/8 unit of Chemicals{}= 1 unit of Nickel
 
 STR_ERR_COFFEE_LOCATION				:Coffee Plantations must be at elevation 2 or greater.
 STR_ERR_CITRUS_LOCATION				:Citrus Groves must be at elevation 1.
