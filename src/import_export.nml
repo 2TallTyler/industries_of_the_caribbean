@@ -45,7 +45,6 @@ item (FEAT_INDUSTRIES, industry_import_export_0, 8) {
 			accept_cargo("SUGR", produce_cargo("OIL_", 1)), // FIXME: Why doesn't Oil show up on the industry window?
 			accept_cargo("NICK", produce_cargo("FERT", 1)),
 			accept_cargo("COBL", produce_cargo("PIPE", 1)),
-			accept_cargo("BEER", produce_cargo("RFPR", 1)),
 			accept_cargo("CIGR", produce_cargo("RFPR", 1)),
 			accept_cargo("TOUR", produce_cargo("ENSP", 1)),
 		];

@@ -350,14 +350,35 @@ item(FEAT_INDUSTRYTILES, beach_tile_SW_3) {
 	}
 }
 
+/* Boosted production if Rum is supplied */
+produce (produce_beach_boosted,
+	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 2; FOOD: 2; BEER: 2;],	// Consume
+	[TOUR: 16;],																								// Produce
+	0 																										// Don't run callback again
+	)
+
+/* Regular production uses at least 24 passengers/month, but will consume excess passengers (>200) so they don't build up */
+produce (produce_beach,
+	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 2; FOOD: 2;],	// Consume
+	[TOUR: 8;],																				// Produce
+	0 																							// Don't run callback again
+	)
+
+/* Check for Rum for normal or boosted production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_beach_boosted, incoming_cargo_waiting("BEER") >= 2) {1: produce_beach_boosted; produce_beach;}
+
+/* Check for Workers and Food for any production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_beach, (incoming_cargo_waiting("FOOD") >= 2 && incoming_cargo_waiting("PASS") >= 2)) {1: switch_produce_beach_boosted; switch_produce_idle;}
+
 item(FEAT_INDUSTRIES, industry_beach, 15) {
 	property {
 		substitute: 0;
 		life_type: IND_LIFE_TYPE_BLACK_HOLE;
-		cargo_types:
-			[
-				accept_cargo("TOUR"),
-				accept_cargo("FOOD")
+		cargo_types:[
+			accept_cargo("PASS"),
+			accept_cargo("FOOD"),
+			accept_cargo("BEER"),
+			produce_cargo("TOUR", 0),
 			];
 		name: string(STR_BEACH);
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_BEACH));
@@ -382,6 +403,8 @@ item(FEAT_INDUSTRIES, industry_beach, 15) {
 			];
 	}
 	graphics {
+		produce_256_ticks: switch_produce_beach;
+		extra_text_industry: string(STR_BEACH_HELPTEXT);
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 	}
