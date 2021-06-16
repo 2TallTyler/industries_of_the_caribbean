@@ -33,30 +33,21 @@ switch (FEAT_INDUSTRIES, SELF, loc_check_import_export_0,
 	((DistanceFromWaterOrLand(8) && industry_distance(industry_import_export_0) > 512) || IsFundedConstruction())
 ) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_IMPORT_EXPORT_LOCATION);}
 
-switch (FEAT_INDUSTRIES, SELF, loc_check_import_export_1,
-	IsNearMapEdge() && 
-	((DistanceFromWaterOrLand(8) && industry_distance(industry_import_export_1) > 512) || IsFundedConstruction())
-) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_IMPORT_EXPORT_LOCATION);}
-
-switch (FEAT_INDUSTRIES, SELF, loc_check_import_export_2,
-	IsNearMapEdge() && 
-	((DistanceFromWaterOrLand(8) && industry_distance(industry_import_export_2) > 512) || IsFundedConstruction())
-) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_IMPORT_EXPORT_LOCATION);}
-
-switch (FEAT_INDUSTRIES, SELF, loc_check_import_export_3,
-	IsNearMapEdge() && 
-	((DistanceFromWaterOrLand(8) && industry_distance(industry_import_export_3) > 512) || IsFundedConstruction())
-) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_IMPORT_EXPORT_LOCATION);}
-
 item (FEAT_INDUSTRIES, industry_import_export_0, 8) {
 	property {
 		substitute: 9;
-		name: string(STR_IMPORT_EXPORT_0);
-		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_IMPORT_EXPORT_0));
+		name: string(STR_IMPORT_EXPORT);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_IMPORT_EXPORT));
 		life_type: IND_LIFE_TYPE_BLACK_HOLE;
 		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
 		cargo_types: [
-			accept_cargo("JAVA", produce_cargo("FOOD", 0.75), produce_cargo("ENSP", 0.25))
+			accept_cargo("JAVA", produce_cargo("FOOD", 1)),
+			accept_cargo("SUGR", produce_cargo("OIL_", 1)), // FIXME: Why doesn't Oil show up on the industry window?
+			accept_cargo("NICK", produce_cargo("FERT", 1)),
+			accept_cargo("COBL", produce_cargo("PIPE", 1)),
+			accept_cargo("BEER", produce_cargo("RFPR", 1)),
+			accept_cargo("CIGR", produce_cargo("RFPR", 1)),
+			accept_cargo("TOUR", produce_cargo("ENSP", 1)),
 		];
 		layouts: [
 			tilelayout_import_export
@@ -69,79 +60,5 @@ item (FEAT_INDUSTRIES, industry_import_export_0, 8) {
 	}
 	graphics {
 		location_check: loc_check_import_export_0;
-	}
-}
-
-item (FEAT_INDUSTRIES, industry_import_export_1, 2) {
-	property {
-		substitute: 9;
-		name: string(STR_IMPORT_EXPORT_1);
-		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_IMPORT_EXPORT_1));
-		life_type: IND_LIFE_TYPE_BLACK_HOLE;
-		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
-		cargo_types: [
-			accept_cargo("SUGR", produce_cargo("OIL_", 0.75), produce_cargo("PIPE", 0.25)) // FIXME: Why doesn't Oil show up on the industry window?
-		];
-		layouts: [
-			tilelayout_import_export
-		];
-		prob_map_gen: 1; // FIXME: Adjust as necessary
-		prob_in_game: 0;
-		map_colour: 15;
-		prospect_chance: 1;
-		fund_cost_multiplier: 0;
-	}
-	graphics {
-		location_check: loc_check_import_export_1;
-	}
-}
-
-item (FEAT_INDUSTRIES, industry_import_export_2, 9) {
-	property {
-		substitute: 9;
-		name: string(STR_IMPORT_EXPORT_2);
-		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_IMPORT_EXPORT_2));
-		life_type: IND_LIFE_TYPE_BLACK_HOLE;
-		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
-		cargo_types: [
-			accept_cargo("BEER", produce_cargo("TOUR", 1)),
-			accept_cargo("CIGR", produce_cargo("TOUR", 1)),
-			accept_cargo("COBL", produce_cargo("TOUR", 1)),
-		];
-		layouts: [
-			tilelayout_import_export
-		];
-		prob_map_gen: 1; // FIXME: Adjust as necessary
-		prob_in_game: 0;
-		map_colour: 15;
-		prospect_chance: 1;
-		fund_cost_multiplier: 0;
-	}
-	graphics {
-		location_check: loc_check_import_export_2;
-	}
-}
-
-item (FEAT_INDUSTRIES, industry_import_export_3, 10) {
-	property {
-		substitute: 9;
-		name: string(STR_IMPORT_EXPORT_3);
-		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_IMPORT_EXPORT_3));
-		life_type: IND_LIFE_TYPE_BLACK_HOLE;
-		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
-		cargo_types: [
-			accept_cargo("NICK", produce_cargo("FERT", 1))
-		];
-		layouts: [
-			tilelayout_import_export
-		];
-		prob_map_gen: 1; // FIXME: Adjust as necessary
-		prob_in_game: 0;
-		map_colour: 15;
-		prospect_chance: 1;
-		fund_cost_multiplier: 0;
-	}
-	graphics {
-		location_check: loc_check_import_export_3;
 	}
 }

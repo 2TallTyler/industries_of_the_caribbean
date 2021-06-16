@@ -6,7 +6,7 @@ cargotable {
 	PASS, MAIL, TOUR,
 	
 	/* Primary products */
-	JAVA, SGCN, TBCO, WOOD, OIL_, NKOR,
+	JAVA, SGCN, TBCO, OIL_, NKOR,
 	
 	/* Secondary products */
 	SUGR, MOLS, CIGR, BEER, FOOD, CHEM, RFPR, FUEL, NICK, COBL, PIPE,
@@ -303,7 +303,7 @@ item (FEAT_CARGOS, cargo_oil, 0x0D) {
 		cargo_classes:				bitmask(CC_LIQUID);
 		cargo_label:				"OIL_";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		0;
+		town_growth_multiplier:		1.0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				TTD_STR_TONS;
 		penalty_lowerbound:			30;

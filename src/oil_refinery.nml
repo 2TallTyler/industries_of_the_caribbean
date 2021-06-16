@@ -185,12 +185,12 @@ tilelayout industry_layout_oil_refinery_3 {
 }
 
 produce (produce_oil_refinery,
-	[PASS: 4; OIL_: 4;],	// Consume
-	[FUEL: 3; RFPR: 1;],	// Produce
+	[PASS: 1; OIL_: 1;],	// Consume
+	[FUEL: 1;],				// Produce
 	1 						// Run callback again
 	)
 	
-switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_refinery, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("OIL_") >= 4)) {
+switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_refinery, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("OIL_") > 0)) {
 	1: produce_oil_refinery;
 	switch_produce_idle;
 }
@@ -210,8 +210,7 @@ item (FEAT_INDUSTRIES, industry_oil_refinery, 5)
 		cargo_types: [
 			accept_cargo("PASS"),
 			accept_cargo("OIL_"),
-			produce_cargo("RFPR", 0),
-			produce_cargo("FUEL", 0)
+			produce_cargo("FUEL", 0),
 		];
 		prob_map_gen: 0;
 		prob_in_game: 0;
