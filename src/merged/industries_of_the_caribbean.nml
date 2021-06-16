@@ -3,8 +3,8 @@ grf {
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESC);
 	url: string(STR_WEBSITE);
-	version: 0;
-	min_compatible_version: 0;
+	version: 1;
+	min_compatible_version: 1;
 }
 
 /* Disable base game industries */
@@ -206,7 +206,7 @@ cargotable {
 	PASS, MAIL, TOUR,
 	
 	/* Primary products */
-	JAVA, FRUT, SGCN, TBCO, WOOD, OIL_, NKOR,
+	JAVA, SGCN, TBCO, WOOD, OIL_, NKOR,
 	
 	/* Secondary products */
 	SUGR, MOLS, CIGR, BEER, FOOD, CHEM, RFPR, FUEL, NICK, COBL, PIPE,
@@ -312,31 +312,6 @@ item (FEAT_CARGOS, cargo_coffee, 0x03) {
 		price_factor:				193; // FIRS: 173
 		station_list_colour:		63;
 		cargo_payment_list_colour:	63;
-	}
-}
-
-// Uses Livestock ID
-item (FEAT_CARGOS, cargo_fruit, 0x04) {
-	property {
-		number:						0x04;
-		sprite:						4308;
-		type_name:					TTD_STR_CARGO_PLURAL_FRUIT;
-		unit_name:					TTD_STR_CARGO_SINGULAR_FRUIT;
-		type_abbreviation:			TTD_STR_ABBREV_FRUIT;
-		weight:						1;
-		is_freight:					1;
-		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS, CC_REFRIGERATED);
-		cargo_label:				"FRUT";
-		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1;
-		units_of_cargo:				TTD_STR_TONS;
-		items_of_cargo:				TTD_STR_QUANTITY_FRUIT;
-		penalty_lowerbound:			16;
-		single_penalty_length:		64;
-		capacity_multiplier:		1;
-		price_factor:				124; // FIRS: 124
-		station_list_colour:		188;
-		cargo_payment_list_colour:	188;
 	}
 }
 
@@ -1201,169 +1176,6 @@ item (FEAT_INDUSTRIES, industry_cigar_factory, 13)
 	}
 }
 
-/* Begin Citrus Grove */
-
-spritelayout citrus_grove_office_1 {
-	ground {
-		sprite: 2116;
-	}
-	building {
-		sprite: 4450;
-	}
-}
-
-spritelayout citrus_grove_office_2 {
-	ground {
-		sprite: 2116;
-	}
-	building {
-		sprite: 4456;
-	}
-}
-
-random_switch (FEAT_INDUSTRYTILES, SELF, random_citrus_grove_office) {
-	1: return citrus_grove_office_1;
-	1: return citrus_grove_office_2;
-}
-
-item (FEAT_INDUSTRYTILES, ind_tile_citrus_grove) {
-	property {
-		substitute:				116;
-		land_shape_flags:		bitmask(LSF_ONLY_ON_FLAT_LAND);
-		special_flags:			bitmask(INDTILE_FLAG_ACCEPT_ALL);
-	}
-}
-
-item (FEAT_INDUSTRYTILES, ind_tile_citrus_grove_office) {
-	property {
-		substitute: 117;
-		land_shape_flags: bitmask(LSF_ONLY_ON_FLAT_LAND);
-		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
-	}
-	graphics {
-		default: random_citrus_grove_office;
-	}
-}
-
-tilelayout tilelayout_citrus_grove_1 {
-	0,0: ind_tile_citrus_grove;	0,1: ind_tile_citrus_grove;	0,2: ind_tile_citrus_grove;		0,4: ind_tile_citrus_grove;	0,5: ind_tile_citrus_grove;	0,6: ind_tile_citrus_grove;
-	1,0: ind_tile_citrus_grove;	1,1: ind_tile_citrus_grove;	1,2: ind_tile_citrus_grove;		1,4: ind_tile_citrus_grove;	1,5: ind_tile_citrus_grove;	1,6: ind_tile_citrus_grove;
-	2,0: ind_tile_citrus_grove;	2,1: ind_tile_citrus_grove;	2,2: ind_tile_citrus_grove;		2,4: ind_tile_citrus_grove;	2,5: ind_tile_citrus_grove;	2,6: ind_tile_citrus_grove;
-	3,0: ind_tile_citrus_grove;	3,1: ind_tile_citrus_grove;	3,2: ind_tile_citrus_grove;		3,4: ind_tile_citrus_grove;	3,5: ind_tile_citrus_grove;	3,6: ind_tile_citrus_grove;
-	4,0: ind_tile_citrus_grove;	4,1: ind_tile_citrus_grove;	4,2: ind_tile_citrus_grove;		4,4: ind_tile_citrus_grove;	4,5: ind_tile_citrus_grove;	4,6: ind_tile_citrus_grove;
-	5,0: ind_tile_citrus_grove;	5,1: ind_tile_citrus_grove;	5,2: ind_tile_citrus_grove;		5,4: ind_tile_citrus_grove;	5,5: ind_tile_citrus_grove;	5,6: ind_tile_citrus_grove;
-								6,1: ind_tile_citrus_grove_office;
-}
-
-tilelayout tilelayout_citrus_grove_2 {
-	0,0: ind_tile_citrus_grove;	0,1: ind_tile_citrus_grove;	0,2: ind_tile_citrus_grove;		0,4: ind_tile_citrus_grove;	0,5: ind_tile_citrus_grove;	0,6: ind_tile_citrus_grove;
-	1,0: ind_tile_citrus_grove;	1,1: ind_tile_citrus_grove;	1,2: ind_tile_citrus_grove;		1,4: ind_tile_citrus_grove;	1,5: ind_tile_citrus_grove;	1,6: ind_tile_citrus_grove;
-	2,0: ind_tile_citrus_grove;	2,1: ind_tile_citrus_grove;	2,2: ind_tile_citrus_grove;		2,4: ind_tile_citrus_grove;	2,5: ind_tile_citrus_grove;	2,6: ind_tile_citrus_grove;
-	3,0: ind_tile_citrus_grove;	3,1: ind_tile_citrus_grove;	3,2: ind_tile_citrus_grove;		3,4: ind_tile_citrus_grove;	3,5: ind_tile_citrus_grove;	3,6: ind_tile_citrus_grove;
-	4,0: ind_tile_citrus_grove;	4,1: ind_tile_citrus_grove;	4,2: ind_tile_citrus_grove;		4,4: ind_tile_citrus_grove;	4,5: ind_tile_citrus_grove;	4,6: ind_tile_citrus_grove;
-	5,0: ind_tile_citrus_grove;	5,1: ind_tile_citrus_grove;	5,2: ind_tile_citrus_grove;		5,4: ind_tile_citrus_grove;	5,5: ind_tile_citrus_grove;	5,6: ind_tile_citrus_grove;
-																							6,4: ind_tile_citrus_grove_office;
-}
-
-tilelayout tilelayout_citrus_grove_3 {
-	0,0: ind_tile_citrus_grove;	0,1: ind_tile_citrus_grove;	0,2: ind_tile_citrus_grove;		0,4: ind_tile_citrus_grove;	0,5: ind_tile_citrus_grove;	0,6: ind_tile_citrus_grove;
-	1,0: ind_tile_citrus_grove;	1,1: ind_tile_citrus_grove;	1,2: ind_tile_citrus_grove;		1,4: ind_tile_citrus_grove;	1,5: ind_tile_citrus_grove;	1,6: ind_tile_citrus_grove;
-	2,0: ind_tile_citrus_grove;	2,1: ind_tile_citrus_grove;	2,2: ind_tile_citrus_grove;		2,4: ind_tile_citrus_grove;	2,5: ind_tile_citrus_grove;	2,6: ind_tile_citrus_grove; 2,7: ind_tile_citrus_grove_office;
-	3,0: ind_tile_citrus_grove;	3,1: ind_tile_citrus_grove;	3,2: ind_tile_citrus_grove;		3,4: ind_tile_citrus_grove;	3,5: ind_tile_citrus_grove;	3,6: ind_tile_citrus_grove;
-	4,0: ind_tile_citrus_grove;	4,1: ind_tile_citrus_grove;	4,2: ind_tile_citrus_grove;		4,4: ind_tile_citrus_grove;	4,5: ind_tile_citrus_grove;	4,6: ind_tile_citrus_grove;
-	5,0: ind_tile_citrus_grove;	5,1: ind_tile_citrus_grove;	5,2: ind_tile_citrus_grove;		5,4: ind_tile_citrus_grove;	5,5: ind_tile_citrus_grove;	5,6: ind_tile_citrus_grove;
-}
-
-tilelayout tilelayout_citrus_grove_4 {
-	0,0: ind_tile_citrus_grove;	0,1: ind_tile_citrus_grove;	0,2: ind_tile_citrus_grove;	0,3: ind_tile_citrus_grove;
-	1,0: ind_tile_citrus_grove;	1,1: ind_tile_citrus_grove;	1,2: ind_tile_citrus_grove;	1,3: ind_tile_citrus_grove;
-	2,0: ind_tile_citrus_grove;	2,1: ind_tile_citrus_grove;	2,2: ind_tile_citrus_grove;	2,3: ind_tile_citrus_grove;
-	3,0: ind_tile_citrus_grove;	3,1: ind_tile_citrus_grove;	3,2: ind_tile_citrus_grove;	3,3: ind_tile_citrus_grove;
-	4,0: ind_tile_citrus_grove;	4,1: ind_tile_citrus_grove;	4,2: ind_tile_citrus_grove;	4,3: ind_tile_citrus_grove;
-	5,0: ind_tile_citrus_grove;	5,1: ind_tile_citrus_grove;	5,2: ind_tile_citrus_grove;	5,3: ind_tile_citrus_grove;
-								6,1: ind_tile_citrus_grove_office;
-}
-
-tilelayout tilelayout_citrus_grove_5 {
-	0,0: ind_tile_citrus_grove;	0,1: ind_tile_citrus_grove;	0,2: ind_tile_citrus_grove;	0,3: ind_tile_citrus_grove;
-	1,0: ind_tile_citrus_grove;	1,1: ind_tile_citrus_grove;	1,2: ind_tile_citrus_grove;	1,3: ind_tile_citrus_grove;
-	2,0: ind_tile_citrus_grove;	2,1: ind_tile_citrus_grove;	2,2: ind_tile_citrus_grove;	2,3: ind_tile_citrus_grove; 2,4: ind_tile_citrus_grove_office;
-	3,0: ind_tile_citrus_grove;	3,1: ind_tile_citrus_grove;	3,2: ind_tile_citrus_grove;	3,3: ind_tile_citrus_grove;
-	4,0: ind_tile_citrus_grove;	4,1: ind_tile_citrus_grove;	4,2: ind_tile_citrus_grove;	4,3: ind_tile_citrus_grove;
-	5,0: ind_tile_citrus_grove;	5,1: ind_tile_citrus_grove;	5,2: ind_tile_citrus_grove;	5,3: ind_tile_citrus_grove;
-}
-
-tilelayout tilelayout_citrus_grove_6 {
-	0,0: ind_tile_citrus_grove;	0,1: ind_tile_citrus_grove;	0,2: ind_tile_citrus_grove;	0,3: ind_tile_citrus_grove;
-	1,0: ind_tile_citrus_grove;	1,1: ind_tile_citrus_grove;	1,2: ind_tile_citrus_grove;	1,3: ind_tile_citrus_grove;
-	2,0: ind_tile_citrus_grove;	2,1: ind_tile_citrus_grove;	2,2: ind_tile_citrus_grove;	2,3: ind_tile_citrus_grove;
-	3,0: ind_tile_citrus_grove;	3,1: ind_tile_citrus_grove;	3,2: ind_tile_citrus_grove;	3,3: ind_tile_citrus_grove;
-	4,0: ind_tile_citrus_grove;	4,1: ind_tile_citrus_grove;	4,2: ind_tile_citrus_grove;	4,3: ind_tile_citrus_grove; 4,4: ind_tile_citrus_grove_office;
-	5,0: ind_tile_citrus_grove;	5,1: ind_tile_citrus_grove;	5,2: ind_tile_citrus_grove;	5,3: ind_tile_citrus_grove;
-}
-
-/* Citrus groves only generate at elevation 1. */
-switch (FEAT_INDUSTRIES, SELF, loc_check_citrus_grove, IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_CITRUS_LOCATION);}
-
-/* Boosted production if Fertilizier is supplied */
-produce (produce_citrus_grove_boosted,
-	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3; FERT: 3;],	// Consume
-	[FRUT: 24;],																							// Produce
-	0 																										// Don't run callback again
-	)
-
-/* Regular production uses at least 24 passengers/month, but will consume excess passengers (>200) so they don't build up */
-produce (produce_citrus_grove,
-	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3;],	// Consume
-	[FRUT: 12;],																				// Produce
-	0 																							// Don't run callback again
-	)
-
-/* Check for Fertilizier for normal or boosted production */
-switch (FEAT_INDUSTRIES, SELF, switch_produce_citrus_grove_boosted, incoming_cargo_waiting("FERT") >= 3) {1: produce_citrus_grove_boosted; produce_citrus_grove;}
-
-/* Check for Workers for any production */
-switch (FEAT_INDUSTRIES, SELF, switch_produce_citrus_grove, incoming_cargo_waiting("PASS") >= 3) {1: switch_produce_citrus_grove_boosted; produce_none;}
-
-item (FEAT_INDUSTRIES, industry_citrus_grove, 1)
-{
-	property {
-		substitute: INDUSTRYTYPE_FRUIT_PLANTATION;
-		name: string(STR_CITRUS_GROVE);
-		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_CITRUS_GROVE));
-		life_type: IND_LIFE_TYPE_ORGANIC;
-		cargo_types: [
-			accept_cargo("PASS"),
-			accept_cargo("FERT"),
-			produce_cargo("FRUT", 0),
-		];
-		layouts: [
-			tilelayout_citrus_grove_1,
-			tilelayout_citrus_grove_2,
-			tilelayout_citrus_grove_3,
-			tilelayout_citrus_grove_4,
-			tilelayout_citrus_grove_5,
-			tilelayout_citrus_grove_6
-		];
-		conflicting_ind_types: [industry_citrus_grove, industry_sugarcane_plantation]; // FIXME: Add plantations which plant fields around them
-		prob_map_gen: 5; // FIXME: Adjust as necessary
-		prob_in_game: 0;
-		map_colour: 188;
-		prospect_chance: 1;
-		
-	}
-	graphics {
-		produce_256_ticks: switch_produce_citrus_grove;
-		location_check: loc_check_citrus_grove;
-		/* Don't allow any production changes */
-		build_prod_change: 16; // 100% production
-		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
-		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
-		extra_text_industry: string(STR_PRIMARY_HELPTEXT);
-	}
-}
-
-
 /* Begin Coffee Plantation */
 
 spritelayout coffee_plantation_office_1 {
@@ -1442,14 +1254,14 @@ switch (FEAT_INDUSTRIES, SELF, loc_check_coffee_plantation, IndustryElevationChe
 /* Boosted production if Fertilizier is supplied */
 produce (produce_coffee_plantation_boosted,
 	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3; FERT: 3;],	// Consume
-	[JAVA: 8;],																								// Produce
+	[JAVA: 24;],																								// Produce
 	0 																										// Don't run callback again
 	)
 
 /* Regular production uses at least 24 passengers/month, but will consume excess passengers (>200) so they don't build up */
 produce (produce_coffee_plantation,
 	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3;],	// Consume
-	[JAVA: 4;],																					// Produce
+	[JAVA: 12;],																					// Produce
 	0 																							// Don't run callback again
 	)
 
@@ -1624,8 +1436,7 @@ item (FEAT_INDUSTRIES, industry_import_export_0, 8) {
 		life_type: IND_LIFE_TYPE_BLACK_HOLE;
 		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
 		cargo_types: [
-			accept_cargo("JAVA", produce_cargo("FOOD", 0.75), produce_cargo("ENSP", 0.25)),
-			accept_cargo("FRUT", produce_cargo("FOOD", 0.75), produce_cargo("ENSP", 0.25))
+			accept_cargo("JAVA", produce_cargo("FOOD", 0.75), produce_cargo("ENSP", 0.25))
 		];
 		layouts: [
 			tilelayout_import_export
@@ -2566,7 +2377,7 @@ item (FEAT_INDUSTRIES, industry_sugarcane_plantation, 3)
 			accept_cargo("FERT"),
 			produce_cargo("SGCN", 0),
 		];
-		conflicting_ind_types: [industry_sugarcane_plantation, industry_citrus_grove, industry_coffee_plantation]; // FIXME: Add plantations which plant fields around them
+		conflicting_ind_types: [industry_sugarcane_plantation, industry_tobacco_plantation, industry_coffee_plantation]; // FIXME: Add plantations which plant fields around them
 		prob_map_gen: 10; // FIXME: Adjust as necessary
 		prob_in_game: 0;
 		map_colour: 94;

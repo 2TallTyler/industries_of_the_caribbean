@@ -37,7 +37,6 @@ STR_ERR_IMPORT_EXPORT_LOCATION		:Import/Export must be near map edge.
 
 
 STR_COFFEE_PLANTATION				:Coffee Plantation
-STR_CITRUS_GROVE					:Citrus Grove
 STR_SUGARCANE_PLANTATION			:Sugarcane Plantation
 STR_TOBACCO_PLANTATION				:Tobacco Plantation
 STR_SUGAR_MILL						:Sugar Mill

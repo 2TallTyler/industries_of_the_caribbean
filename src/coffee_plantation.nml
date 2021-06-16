@@ -77,14 +77,14 @@ switch (FEAT_INDUSTRIES, SELF, loc_check_coffee_plantation, IndustryElevationChe
 /* Boosted production if Fertilizier is supplied */
 produce (produce_coffee_plantation_boosted,
 	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3; FERT: 3;],	// Consume
-	[JAVA: 8;],																								// Produce
+	[JAVA: 24;],																								// Produce
 	0 																										// Don't run callback again
 	)
 
 /* Regular production uses at least 24 passengers/month, but will consume excess passengers (>200) so they don't build up */
 produce (produce_coffee_plantation,
 	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3;],	// Consume
-	[JAVA: 4;],																					// Produce
+	[JAVA: 12;],																					// Produce
 	0 																							// Don't run callback again
 	)
 
