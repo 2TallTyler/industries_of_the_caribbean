@@ -29,12 +29,10 @@ STR_CIGAR_FACTORY_HELPTEXT			:Production ratio:{}+ 1 Worker{}+ 1 unit of Tobacco
 STR_OIL_REFINERY_HELPTEXT			:Production ratio:{}+ 1 Worker{}+ 1 unit of Oil{}= 3/4 unit of Fuel{}= 1/4 unit of Chemicals
 STR_NICKEL_SMELTER_HELPTEXT			:Production ratio:{}+ 1 Worker{}+ 1 unit of Nickel Ore{}+ 1/8 unit of Chemicals{}= 1 unit of Nickel
 
-STR_ERR_COFFEE_LOCATION				:Coffee Plantations must be at elevation 2 or greater.
-STR_ERR_CITRUS_LOCATION				:Citrus Groves must be at elevation 1.
-STR_ERR_SUGARCANE_LOCATION			:Sugarcane Farms must be near water and at elevation 1.
+STR_ERR_COFFEE_LOCATION				:Coffee Plantations must be at elevation 2 or greater, and not on desert.
+STR_ERR_SUGARCANE_LOCATION			:Sugarcane Farms must be at elevation 1, and not on desert.
 STR_ERR_NICKEL_MINE_LOCATION		:Nickel Mines must be at elevation 2 or greater.
 STR_ERR_IMPORT_EXPORT_LOCATION		:Import/Export must be near map edge.
-
 
 STR_COFFEE_PLANTATION				:Coffee Plantation
 STR_SUGARCANE_PLANTATION			:Sugarcane Plantation

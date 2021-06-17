@@ -62,7 +62,7 @@ item (FEAT_INDUSTRYTILES, tile_sugarcane_plantation_5)
 }
 
 /* Citrus groves only generate at elevation 1. */
-switch (FEAT_INDUSTRIES, SELF, loc_check_sugarcane_plantation, IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_SUGARCANE_LOCATION);}
+switch (FEAT_INDUSTRIES, SELF, loc_check_sugarcane_plantation, IsNotDesert() && IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_SUGARCANE_LOCATION);}
 
 /* Boosted production if Fertilizier is supplied */
 produce (produce_sugarcane_plantation_boosted,
