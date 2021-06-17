@@ -95,7 +95,6 @@ item (FEAT_INDUSTRIES, industry_nickel_mine, 6)
 	graphics {
 		produce_256_ticks: switch_produce_nickel_mine;
 		location_check: loc_check_nickel_mine;
-		//construction_probability: switch_unlock_nickel_mine;
 		/* Don't allow any production changes */
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
