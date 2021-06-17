@@ -3,72 +3,60 @@
 item (FEAT_INDUSTRYTILES, tile_nickel_smelter_0)
 {
 	property {
-		substitute: 64;
-		override: 64;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+		substitute: 52;
+		override: 52;
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
 item (FEAT_INDUSTRYTILES, tile_nickel_smelter_1)
 {
 	property {
-		substitute: 65;
-		override: 65;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+		substitute: 53;
+		override: 53;
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
 item (FEAT_INDUSTRYTILES, tile_nickel_smelter_2)
 {
 	property {
-		substitute: 66;
-		override: 66;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+		substitute: 54;
+		override: 54;
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
 item (FEAT_INDUSTRYTILES, tile_nickel_smelter_3)
 {
 	property {
-		substitute: 67;
-		override: 67;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+		substitute: 55;
+		override: 55;
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
 item (FEAT_INDUSTRYTILES, tile_nickel_smelter_4)
 {
 	property {
-		substitute: 68;
-		override: 68;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+		substitute: 56;
+		override: 56;
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
 item (FEAT_INDUSTRYTILES, tile_nickel_smelter_5)
 {
 	property {
-		substitute: 69;
-		override: 69;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
-	}
-}
-
-item (FEAT_INDUSTRYTILES, tile_nickel_smelter_6)
-{
-	property {
-		substitute: 70;
-		override: 70;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
-	}
-}
-
-item (FEAT_INDUSTRYTILES, tile_nickel_smelter_7)
-{
-	property {
-		substitute: 71;
-		override: 71;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+		substitute: 57;
+		override: 57;
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -86,7 +74,7 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_smelter, (incoming_cargo_wa
 item (FEAT_INDUSTRIES, industry_nickel_smelter, 7)
 {
 	property {
-		substitute: INDUSTRYTYPE_PAPER_MILL;
+		substitute: INDUSTRYTYPE_STEEL_MILL;
 		name: string(STR_NICKEL_SMELTER);
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_NICKEL_SMELTER));
 		life_type: IND_LIFE_TYPE_PROCESSING;
