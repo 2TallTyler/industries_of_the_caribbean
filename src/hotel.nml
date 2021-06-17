@@ -22,7 +22,8 @@ item (FEAT_INDUSTRYTILES, tile_hotel_n)
 {
 	property {
 		substitute: 0;
-		accepted_cargos: [[TOUR, 8], [FOOD, 8]];
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 	graphics {
 		default: sprite_hotel_n;
@@ -33,7 +34,8 @@ item (FEAT_INDUSTRYTILES, tile_hotel_e)
 {
 	property {
 		substitute: 0;
-		accepted_cargos: [[TOUR, 8], [FOOD, 8]];
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 	graphics {
 		default: sprite_hotel_e;

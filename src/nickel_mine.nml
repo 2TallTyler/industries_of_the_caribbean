@@ -6,6 +6,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_0)
 		substitute: 47;
 		override: 47;
 		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -15,6 +16,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_1)
 		substitute: 48;
 		override: 48;
 		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -24,6 +26,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_2)
 		substitute: 49;
 		override: 49;
 		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -33,6 +36,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_3)
 		substitute: 50;
 		override: 50;
 		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -42,6 +46,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_4)
 		substitute: 51;
 		override: 51;
 		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 /* FIXME: Should this industry be unlocked and spawn by itself, be prospected by the player, or appear at map generation? */

@@ -6,6 +6,7 @@ item (FEAT_INDUSTRYTILES, tile_sugar_mill_0)
 		substitute: 60;
 		override: 60;
 		accepted_cargos: [[SGCN, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -15,6 +16,7 @@ item (FEAT_INDUSTRYTILES, tile_sugar_mill_1)
 		substitute: 61;
 		override: 61;
 		accepted_cargos: [[SGCN, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -24,6 +26,7 @@ item (FEAT_INDUSTRYTILES, tile_sugar_mill_2)
 		substitute: 62;
 		override: 62;
 		accepted_cargos: [[SGCN, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -33,6 +36,7 @@ item (FEAT_INDUSTRYTILES, tile_sugar_mill_3)
 		substitute: 63;
 		override: 63;
 		accepted_cargos: [[SGCN, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 

@@ -6,6 +6,7 @@ item (FEAT_INDUSTRYTILES, tile_cigar_factory_0)
 		substitute: 43;
 		override: 43;
 		accepted_cargos: [[TBCO, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -15,6 +16,7 @@ item (FEAT_INDUSTRYTILES, tile_cigar_factory_1)
 		substitute: 44;
 		override: 44;
 		accepted_cargos: [[TBCO, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -24,6 +26,7 @@ item (FEAT_INDUSTRYTILES, tile_cigar_factory_2)
 		substitute: 45;
 		override: 45;
 		accepted_cargos: [[TBCO, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -33,6 +36,7 @@ item (FEAT_INDUSTRYTILES, tile_cigar_factory_3)
 		substitute: 46;
 		override: 46;
 		accepted_cargos: [[TBCO, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 

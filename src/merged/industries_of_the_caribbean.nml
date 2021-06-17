@@ -1134,6 +1134,7 @@ item (FEAT_INDUSTRYTILES, tile_cigar_factory_0)
 		substitute: 43;
 		override: 43;
 		accepted_cargos: [[TBCO, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -1143,6 +1144,7 @@ item (FEAT_INDUSTRYTILES, tile_cigar_factory_1)
 		substitute: 44;
 		override: 44;
 		accepted_cargos: [[TBCO, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -1152,6 +1154,7 @@ item (FEAT_INDUSTRYTILES, tile_cigar_factory_2)
 		substitute: 45;
 		override: 45;
 		accepted_cargos: [[TBCO, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -1161,6 +1164,7 @@ item (FEAT_INDUSTRYTILES, tile_cigar_factory_3)
 		substitute: 46;
 		override: 46;
 		accepted_cargos: [[TBCO, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -1354,7 +1358,8 @@ item (FEAT_INDUSTRYTILES, tile_hotel_n)
 {
 	property {
 		substitute: 0;
-		accepted_cargos: [[TOUR, 8], [FOOD, 8]];
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 	graphics {
 		default: sprite_hotel_n;
@@ -1365,7 +1370,8 @@ item (FEAT_INDUSTRYTILES, tile_hotel_e)
 {
 	property {
 		substitute: 0;
-		accepted_cargos: [[TOUR, 8], [FOOD, 8]];
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 	graphics {
 		default: sprite_hotel_e;
@@ -1496,6 +1502,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_0)
 		substitute: 47;
 		override: 47;
 		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -1505,6 +1512,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_1)
 		substitute: 48;
 		override: 48;
 		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -1514,6 +1522,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_2)
 		substitute: 49;
 		override: 49;
 		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -1523,6 +1532,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_3)
 		substitute: 50;
 		override: 50;
 		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -1532,6 +1542,7 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_4)
 		substitute: 51;
 		override: 51;
 		accepted_cargos: [[FUEL, 8], [ENSP, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 /* FIXME: Should this industry be unlocked and spawn by itself, be prospected by the player, or appear at map generation? */
@@ -1594,72 +1605,60 @@ item (FEAT_INDUSTRIES, industry_nickel_mine, 6)
 item (FEAT_INDUSTRYTILES, tile_nickel_smelter_0)
 {
 	property {
-		substitute: 64;
-		override: 64;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+		substitute: 52;
+		override: 52;
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
 item (FEAT_INDUSTRYTILES, tile_nickel_smelter_1)
 {
 	property {
-		substitute: 65;
-		override: 65;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+		substitute: 53;
+		override: 53;
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
 item (FEAT_INDUSTRYTILES, tile_nickel_smelter_2)
 {
 	property {
-		substitute: 66;
-		override: 66;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+		substitute: 54;
+		override: 54;
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
 item (FEAT_INDUSTRYTILES, tile_nickel_smelter_3)
 {
 	property {
-		substitute: 67;
-		override: 67;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+		substitute: 55;
+		override: 55;
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
 item (FEAT_INDUSTRYTILES, tile_nickel_smelter_4)
 {
 	property {
-		substitute: 68;
-		override: 68;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+		substitute: 56;
+		override: 56;
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
 item (FEAT_INDUSTRYTILES, tile_nickel_smelter_5)
 {
 	property {
-		substitute: 69;
-		override: 69;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
-	}
-}
-
-item (FEAT_INDUSTRYTILES, tile_nickel_smelter_6)
-{
-	property {
-		substitute: 70;
-		override: 70;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
-	}
-}
-
-item (FEAT_INDUSTRYTILES, tile_nickel_smelter_7)
-{
-	property {
-		substitute: 71;
-		override: 71;
-		accepted_cargos: [[NKOR, 8], [RFPR, 8], [PASS, 8]];
+		substitute: 57;
+		override: 57;
+		accepted_cargos: [[PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -1677,7 +1676,7 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_smelter, (incoming_cargo_wa
 item (FEAT_INDUSTRIES, industry_nickel_smelter, 7)
 {
 	property {
-		substitute: INDUSTRYTYPE_PAPER_MILL;
+		substitute: INDUSTRYTYPE_STEEL_MILL;
 		name: string(STR_NICKEL_SMELTER);
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_NICKEL_SMELTER));
 		life_type: IND_LIFE_TYPE_PROCESSING;
@@ -2109,6 +2108,7 @@ item (FEAT_INDUSTRYTILES, tile_rum_distillery_0)
 		substitute: 39;
 		override: 39;
 		accepted_cargos: [[MOLS, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -2118,6 +2118,7 @@ item (FEAT_INDUSTRYTILES, tile_rum_distillery_1)
 		substitute: 40;
 		override: 40;
 		accepted_cargos: [[MOLS, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -2127,6 +2128,7 @@ item (FEAT_INDUSTRYTILES, tile_rum_distillery_2)
 		substitute: 41;
 		override: 41;
 		accepted_cargos: [[MOLS, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -2136,6 +2138,7 @@ item (FEAT_INDUSTRYTILES, tile_rum_distillery_3)
 		substitute: 42;
 		override: 42;
 		accepted_cargos: [[MOLS, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -2181,6 +2184,7 @@ item (FEAT_INDUSTRYTILES, tile_sugar_mill_0)
 		substitute: 60;
 		override: 60;
 		accepted_cargos: [[SGCN, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -2190,6 +2194,7 @@ item (FEAT_INDUSTRYTILES, tile_sugar_mill_1)
 		substitute: 61;
 		override: 61;
 		accepted_cargos: [[SGCN, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -2199,6 +2204,7 @@ item (FEAT_INDUSTRYTILES, tile_sugar_mill_2)
 		substitute: 62;
 		override: 62;
 		accepted_cargos: [[SGCN, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -2208,6 +2214,7 @@ item (FEAT_INDUSTRYTILES, tile_sugar_mill_3)
 		substitute: 63;
 		override: 63;
 		accepted_cargos: [[SGCN, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -2255,6 +2262,7 @@ item (FEAT_INDUSTRYTILES, tile_sugarcane_plantation_0)
 		substitute: 33;
 		override: 33;
 		accepted_cargos: [[FERT, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -2264,6 +2272,7 @@ item (FEAT_INDUSTRYTILES, tile_sugarcane_plantation_1)
 		substitute: 34;
 		override: 34;
 		accepted_cargos: [[FERT, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -2273,6 +2282,7 @@ item (FEAT_INDUSTRYTILES, tile_sugarcane_plantation_2)
 		substitute: 35;
 		override: 35;
 		accepted_cargos: [[FERT, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -2282,6 +2292,7 @@ item (FEAT_INDUSTRYTILES, tile_sugarcane_plantation_3)
 		substitute: 36;
 		override: 36;
 		accepted_cargos: [[FERT, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -2291,6 +2302,7 @@ item (FEAT_INDUSTRYTILES, tile_sugarcane_plantation_4)
 		substitute: 37;
 		override: 37;
 		accepted_cargos: [[FERT, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -2300,6 +2312,7 @@ item (FEAT_INDUSTRYTILES, tile_sugarcane_plantation_5)
 		substitute: 38;
 		override: 38;
 		accepted_cargos: [[FERT, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 

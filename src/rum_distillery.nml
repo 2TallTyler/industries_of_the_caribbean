@@ -6,6 +6,7 @@ item (FEAT_INDUSTRYTILES, tile_rum_distillery_0)
 		substitute: 39;
 		override: 39;
 		accepted_cargos: [[MOLS, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -15,6 +16,7 @@ item (FEAT_INDUSTRYTILES, tile_rum_distillery_1)
 		substitute: 40;
 		override: 40;
 		accepted_cargos: [[MOLS, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -24,6 +26,7 @@ item (FEAT_INDUSTRYTILES, tile_rum_distillery_2)
 		substitute: 41;
 		override: 41;
 		accepted_cargos: [[MOLS, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
@@ -33,6 +36,7 @@ item (FEAT_INDUSTRYTILES, tile_rum_distillery_3)
 		substitute: 42;
 		override: 42;
 		accepted_cargos: [[MOLS, 8], [PASS, 8]];
+		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
 
