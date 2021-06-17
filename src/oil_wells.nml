@@ -122,20 +122,17 @@ tilelayout industry_layout_oil_wells_2 {
 	4,0:	ind_tile_oil_wells;		4,2:	ind_tile_oil_wells;
 }
 
-/* FIXME: Should this industry be unlocked and spawn by itself, be prospected by the player, or appear at map generation? */
-//switch (FEAT_INDUSTRIES, SELF, switch_unlock_oil_wells, (getbits(extra_callback_info2, 0, 8) != IND_CREATION_GENERATION) && industry_count(industry_oil_refinery, -1) > 0) {1: return 1; return 0;}
-
 /* Boosted production: 48 Workers, 48 units of Pipe, and 48 units of Machinery. Extra workers are consumed so they don't build up */
 produce (produce_oil_wells_boosted,
 	[PIPE: 6; PASS: max((incoming_cargo_waiting("PASS") / 8), 6); ENSP: 6;],	// Consume
-	[OIL_: 40;],														// Produce
+	[OIL_: 40;],																// Produce
 	0 																			// Don't run callback again
 	)
 
 /* Regular production: 48 Workers and 48 units of Pipe. Extra workers are consumed so they don't build up */
 produce (produce_oil_wells,
 	[PIPE: 6; PASS: max((incoming_cargo_waiting("PASS") / 8), 6);],	// Consume
-	[OIL_: 20;],											// Produce
+	[OIL_: 20;],													// Produce
 	0 																// Don't run callback again
 	)
 
@@ -169,7 +166,6 @@ item (FEAT_INDUSTRIES, industry_oil_wells, 16)
 	}
 	graphics {
 		produce_256_ticks: switch_produce_oil_wells;
-		//construction_probability: switch_unlock_oil_wells;
 		/* Don't allow any production changes */
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;

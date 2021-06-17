@@ -49,8 +49,6 @@ item (FEAT_INDUSTRYTILES, tile_nickel_mine_4)
 		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
-/* FIXME: Should this industry be unlocked and spawn by itself, be prospected by the player, or appear at map generation? */
-//switch (FEAT_INDUSTRIES, SELF, switch_unlock_nickel_mine, (getbits(extra_callback_info2, 0, 8) != IND_CREATION_GENERATION) && industry_count(industry_oil_refinery, -1) > 0) {1: return 1; return 0;}
 
 /* Nickel Mines must be at least height 2, no max limit. */
 switch (FEAT_INDUSTRIES, SELF, loc_check_nickel_mine, IndustryElevationCheck(2, 255)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_NICKEL_MINE_LOCATION);}
@@ -58,15 +56,15 @@ switch (FEAT_INDUSTRIES, SELF, loc_check_nickel_mine, IndustryElevationCheck(2, 
 /* Boosted production: 48 Workers, 48 units of Fuel, and 48 units of Machinery. Extra workers (>400) are consumed so they don't build up */
 produce (produce_nickel_mine_boosted,
 	[FUEL: 6; PASS: (incoming_cargo_waiting("PASS") > 400) ? (incoming_cargo_waiting("PASS") / 8) : 6; ENSP: 6;],	// Consume
-	[NKOR: 40; COBL: 10;],														// Produce
-	0 																			// Don't run callback again
+	[NKOR: 40; COBL: 10;],																							// Produce
+	0 																												// Don't run callback again
 	)
 
 /* Regular production: 48 Workers and 48 units of Fuel. Extra workers (>400) are consumed so they don't build up */
 produce (produce_nickel_mine,
 	[FUEL: 6; PASS: (incoming_cargo_waiting("PASS") > 400) ? (incoming_cargo_waiting("PASS") / 8) : 6;],	// Consume
-	[NKOR: 20; COBL: 5;],											// Produce
-	0 																// Don't run callback again
+	[NKOR: 20; COBL: 5;],																					// Produce
+	0 																										// Don't run callback again
 	)
 
 /* Check for Machinery for boosted production */
