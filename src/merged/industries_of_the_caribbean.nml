@@ -505,7 +505,7 @@ item (FEAT_CARGOS, cargo_oil, 0x0D) {
 		town_growth_effect:			TOWNGROWTH_NONE;
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				TTD_STR_TONS;
-		items_of_cargo:				TTD_STR_TONS;
+		items_of_cargo:				string(STR_CARGO_QUANTITY_OIL);
 		penalty_lowerbound:			30;
 		single_penalty_length:		255;
 		station_list_colour:		171;
