@@ -31,6 +31,7 @@ STR_NICKEL_SMELTER_HELPTEXT			:Production ratio:{}+ 1 Worker{}+ 1 unit of Nickel
 
 STR_ERR_COFFEE_LOCATION				:Coffee Plantations must be at elevation 2 or greater, and not on desert.
 STR_ERR_SUGARCANE_LOCATION			:Sugarcane Farms must be at elevation 1, and not on desert.
+STR_ERR_TOBACCO_LOCATION			:Tobacco Plantations must be at elevation 1, and not on desert.
 STR_ERR_NICKEL_MINE_LOCATION		:Nickel Mines must be at elevation 2 or greater.
 STR_ERR_IMPORT_EXPORT_LOCATION		:Import/Export must be near map edge.
 

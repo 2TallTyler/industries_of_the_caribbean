@@ -111,7 +111,7 @@ tilelayout tilelayout_tobacco_plantation_6 {
 }
 
 /* Tobacco Plantations only generate at elevation 1. */
-switch (FEAT_INDUSTRIES, SELF, loc_check_tobacco_plantation, IsNotDesert() && IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_CITRUS_LOCATION);}
+switch (FEAT_INDUSTRIES, SELF, loc_check_tobacco_plantation, IsNotDesert() && IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_TOBACCO_LOCATION);}
 
 /* Boosted production if Fertilizier is supplied */
 produce (produce_tobacco_plantation_boosted,
