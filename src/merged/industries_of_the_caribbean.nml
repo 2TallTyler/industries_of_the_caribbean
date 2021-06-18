@@ -315,7 +315,7 @@ item (FEAT_CARGOS, cargo_coffee, 0x03) {
 		penalty_lowerbound:			16;
 		single_penalty_length:		64;
 		capacity_multiplier:		1;
-		price_factor:				193; // FIRS: 173
+		price_factor:				173; // FIRS: 173
 		station_list_colour:		63;
 		cargo_payment_list_colour:	63;
 	}
@@ -1096,20 +1096,16 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_beach, (incoming_cargo_waiting("FO
 item(FEAT_INDUSTRIES, industry_beach, 15) {
 	property {
 		substitute: 0;
-		life_type: IND_LIFE_TYPE_BLACK_HOLE;
+		name: string(STR_BEACH);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_BEACH));
+		life_type: IND_LIFE_TYPE_ORGANIC;
+		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_BUILT_NEAR_TOWN);
 		cargo_types:[
 			accept_cargo("PASS"),
 			accept_cargo("FOOD"),
 			accept_cargo("BEER"),
 			produce_cargo("TOUR", 0),
 			];
-		name: string(STR_BEACH);
-		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_BEACH));
-		prob_map_gen: 5;
-		prob_in_game: 0;
-		fund_cost_multiplier: 7;
-		map_colour: 176;
-		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_BUILT_NEAR_TOWN);		
 		layouts: [
 			beach_layout_NE_1,
 			beach_layout_NE_2,
@@ -1123,13 +1119,20 @@ item(FEAT_INDUSTRIES, industry_beach, 15) {
 			beach_layout_SW_1,
 			beach_layout_SW_2,
 			beach_layout_SW_3,
-			];
+		];
+		
+		prob_map_gen: 5;
+		prob_in_game: 0;
+		fund_cost_multiplier: 7;
+		map_colour: 176;	
 	}
 	graphics {
 		produce_256_ticks: switch_produce_beach;
-		extra_text_industry: string(STR_BEACH_HELPTEXT);
+		/* Don't allow any production changes */
+		build_prod_change: 16; // 100% production
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		extra_text_industry: string(STR_BEACH_HELPTEXT);
 	}
 }
 /* Begin Cigar Factory */
@@ -1415,7 +1418,7 @@ item (FEAT_INDUSTRIES, industry_hotel, 14)
 		substitute: INDUSTRYTYPE_POWER_PLANT;
 		name: string(STR_HOTEL);
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_HOTEL));
-		life_type: IND_LIFE_TYPE_BLACK_HOLE;
+		life_type: IND_LIFE_TYPE_ORGANIC;
 		spec_flags: bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
 		layouts: [
 			tilelayout_hotel_square,
@@ -1426,13 +1429,16 @@ item (FEAT_INDUSTRIES, industry_hotel, 14)
 			accept_cargo("BEER"),
 			produce_cargo("TOUR", 0),
 		];
-		prob_map_gen: 1; // FIXME: Balance this later
-		prob_in_game: 0;
-		fund_cost_multiplier: 2;
+		prob_map_gen: 5; // FIXME: Balance this later
+		prob_in_game: 5;
 		map_colour: 176;
 	}
 	graphics {
 		produce_256_ticks: switch_produce_hotel;
+		/* Don't allow any production changes */
+		build_prod_change: 16; // 100% production
+		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		extra_text_industry: string(STR_HOTEL_HELPTEXT);
 	}
 }
@@ -2494,7 +2500,7 @@ tilelayout tilelayout_tobacco_plantation_6 {
 }
 
 /* Tobacco Plantations only generate at elevation 1. */
-switch (FEAT_INDUSTRIES, SELF, loc_check_tobacco_plantation, IsNotDesert() && IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_CITRUS_LOCATION);}
+switch (FEAT_INDUSTRIES, SELF, loc_check_tobacco_plantation, IsNotDesert() && IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_TOBACCO_LOCATION);}
 
 /* Boosted production if Fertilizier is supplied */
 produce (produce_tobacco_plantation_boosted,

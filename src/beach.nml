@@ -373,20 +373,16 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_beach, (incoming_cargo_waiting("FO
 item(FEAT_INDUSTRIES, industry_beach, 15) {
 	property {
 		substitute: 0;
-		life_type: IND_LIFE_TYPE_BLACK_HOLE;
+		name: string(STR_BEACH);
+		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_BEACH));
+		life_type: IND_LIFE_TYPE_ORGANIC;
+		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_BUILT_NEAR_TOWN);
 		cargo_types:[
 			accept_cargo("PASS"),
 			accept_cargo("FOOD"),
 			accept_cargo("BEER"),
 			produce_cargo("TOUR", 0),
 			];
-		name: string(STR_BEACH);
-		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_BEACH));
-		prob_map_gen: 5;
-		prob_in_game: 0;
-		fund_cost_multiplier: 7;
-		map_colour: 176;
-		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_BUILT_NEAR_TOWN);		
 		layouts: [
 			beach_layout_NE_1,
 			beach_layout_NE_2,
@@ -400,12 +396,19 @@ item(FEAT_INDUSTRIES, industry_beach, 15) {
 			beach_layout_SW_1,
 			beach_layout_SW_2,
 			beach_layout_SW_3,
-			];
+		];
+		
+		prob_map_gen: 5;
+		prob_in_game: 0;
+		fund_cost_multiplier: 7;
+		map_colour: 176;	
 	}
 	graphics {
 		produce_256_ticks: switch_produce_beach;
-		extra_text_industry: string(STR_BEACH_HELPTEXT);
+		/* Don't allow any production changes */
+		build_prod_change: 16; // 100% production
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		extra_text_industry: string(STR_BEACH_HELPTEXT);
 	}
 }
