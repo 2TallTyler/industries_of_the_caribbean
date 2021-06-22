@@ -14,11 +14,9 @@ disable_item(FEAT_INDUSTRIES);
 disable_item(FEAT_CARGOS);
 
 /* Increase base costs for funding industries to 32x the base cost. This gives us a greater range of possible purchase prices for funding industries.
- * Note that this also increase the cost to fund a town, so we also decrement that by the same factor to leave it unchanged. 
  */
 basecost {
 	PR_BUILD_INDUSTRY: 6;
-	PR_BUILD_TOWN: -6;
 }
 
 /* Create an error if OpenTTD version is before 1.10.0 (required for increased cargo types at industries) */
