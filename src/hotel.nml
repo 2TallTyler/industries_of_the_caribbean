@@ -49,23 +49,23 @@ tilelayout tilelayout_hotel_square {
 
 /* Boosted production if Rum is supplied */
 produce (produce_hotel_boosted,
-	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3; FOOD: 3; BEER: 3;],	// Consume
-	[TOUR: 24;],																								// Produce
+	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 6; FOOD: 6; BEER: 6;],	// Consume
+	[TOUR: 48;],																								// Produce
 	0 																										// Don't run callback again
 	)
 
 /* Regular production uses at least 24 passengers/month, but will consume excess passengers (>200) so they don't build up */
 produce (produce_hotel,
-	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3; FOOD: 3;],	// Consume
-	[TOUR: 12;],																				// Produce
+	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 6; FOOD: 6;],	// Consume
+	[TOUR: 24;],																				// Produce
 	0 																							// Don't run callback again
 	)
 
 /* Check for Rum for normal or boosted production */
-switch (FEAT_INDUSTRIES, SELF, switch_produce_hotel_boosted, incoming_cargo_waiting("BEER") >= 3) {1: produce_hotel_boosted; produce_hotel;}
+switch (FEAT_INDUSTRIES, SELF, switch_produce_hotel_boosted, incoming_cargo_waiting("BEER") >= 6) {1: produce_hotel_boosted; produce_hotel;}
 
 /* Check for Workers and Food for any production */
-switch (FEAT_INDUSTRIES, SELF, switch_produce_hotel, (incoming_cargo_waiting("FOOD") >= 3 && incoming_cargo_waiting("PASS") >= 3)) {1: switch_produce_hotel_boosted; switch_produce_idle;}
+switch (FEAT_INDUSTRIES, SELF, switch_produce_hotel, (incoming_cargo_waiting("FOOD") >= 6 && incoming_cargo_waiting("PASS") >= 6)) {1: switch_produce_hotel_boosted; switch_produce_idle;}
 
 item (FEAT_INDUSTRIES, industry_hotel, 14)
 {
