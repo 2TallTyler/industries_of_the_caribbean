@@ -9,7 +9,7 @@ cargotable {
 	JAVA, SGCN, TBCO, OIL_, NKOR,
 	
 	/* Secondary products */
-	SUGR, MOLS, CIGR, BEER, FOOD, RFPR, FUEL, NICK, COBL, PIPE,
+	SUGR, MOLS, CIGR, BEER, FOOD, CHEM, RFPR, FUEL, NICK, COBL, PIPE,
 	
 	/* Boost Supplies */
 	FERT, ENSP
@@ -31,9 +31,9 @@ item (FEAT_CARGOS, cargo_workers, 0x00) {
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				string(STR_CARGO_QUANTITY_WORKERS);
 		items_of_cargo:				string(STR_CARGO_QUANTITY_WORKERS);
-		penalty_lowerbound:			255;
-		single_penalty_length:		255;
-		price_factor:				-5; // FIRS: 105
+		penalty_lowerbound:			10;
+		single_penalty_length:		24;
+		price_factor:				105; // FIRS: 105
 		capacity_multiplier:		4;
 		station_list_colour:		152;
 		cargo_payment_list_colour:	152;
@@ -58,7 +58,7 @@ item (FEAT_CARGOS, cargo_tourists, 0x01) {
 		items_of_cargo:				string(STR_CARGO_QUANTITY_TOURISTS);
 		penalty_lowerbound:			10;
 		single_penalty_length:		24;
-		price_factor:				230; // original: 175
+		price_factor:				175; // original: 175
 		capacity_multiplier:		4;
 		station_list_colour:		176;
 		cargo_payment_list_colour:	176;
@@ -83,7 +83,7 @@ item (FEAT_CARGOS, cargo_mail, 0x02) {
 		items_of_cargo:				TTD_STR_QUANTITY_MAIL;
 		penalty_lowerbound:			6;
 		single_penalty_length:		24;
-		price_factor:				175; // FIRS: 167
+		price_factor:				167; // FIRS: 167
 		capacity_multiplier:		2;
 		station_list_colour:		23;
 		cargo_payment_list_colour:	23;	
@@ -109,7 +109,7 @@ item (FEAT_CARGOS, cargo_coffee, 0x03) {
 		penalty_lowerbound:			16;
 		single_penalty_length:		64;
 		capacity_multiplier:		1;
-		price_factor:				150; // FIRS: 173
+		price_factor:				173; // FIRS: 173
 		station_list_colour:		63;
 		cargo_payment_list_colour:	63;
 	}
@@ -131,9 +131,9 @@ item (FEAT_CARGOS, cargo_rum, 0x05) {
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_RUM);
-		penalty_lowerbound:			255;
-		single_penalty_length:		255;
-		price_factor:				-20; // FIRS: 166 (Alcohol)
+		penalty_lowerbound:			9;
+		single_penalty_length:		36;
+		price_factor:				166; // FIRS: 166 (Alcohol)
 		capacity_multiplier:		1;
 		station_list_colour:		61;
 		cargo_payment_list_colour:	61;
@@ -156,9 +156,9 @@ item (FEAT_CARGOS, cargo_sugarcane, 0x06) {
 		town_growth_multiplier:		1;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_SUGARCANE);
-		penalty_lowerbound:			255;
-		single_penalty_length:		255;
-		price_factor:				-10; // FIRS: 99
+		penalty_lowerbound:			5;
+		single_penalty_length:		30;
+		price_factor:				99; // FIRS: 99
 		capacity_multiplier:		1;
 		station_list_colour:		94;
 		cargo_payment_list_colour:	94;
@@ -183,7 +183,7 @@ item (FEAT_CARGOS, cargo_sugar, 0x07) {
 		items_of_cargo:				TTD_STR_QUANTITY_SUGAR;
 		penalty_lowerbound:			16;
 		single_penalty_length:		64;
-		price_factor:				210; // original: 102
+		price_factor:				102; // original: 102
 		capacity_multiplier:		1;
 		station_list_colour:		15;
 		cargo_payment_list_colour:	15;
@@ -206,9 +206,9 @@ item (FEAT_CARGOS, cargo_tobacco, 0x08) {
 		town_growth_multiplier:		1;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_TOBACCO);
 		units_of_cargo:				TTD_STR_TONS;
-		penalty_lowerbound:			255;
-		single_penalty_length:		255;
-		price_factor:				-30; // original: 116
+		penalty_lowerbound:			5;
+		single_penalty_length:		30;
+		price_factor:				116; // original: 116
 		capacity_multiplier:		1;
 		station_list_colour:		57;
 		cargo_payment_list_colour:	57;
@@ -231,9 +231,9 @@ item (FEAT_CARGOS, cargo_molasses, 0x0A) {
 		town_growth_multiplier:		1;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_MOLASSES);
-		penalty_lowerbound:			255;
+		penalty_lowerbound:			40;
 		single_penalty_length:		255;
-		price_factor:				-15; // original: 96
+		price_factor:				96; // original: 96
 		capacity_multiplier:		1;
 		station_list_colour:		106;
 		cargo_payment_list_colour:	106;
@@ -258,7 +258,7 @@ item (FEAT_CARGOS, cargo_cigars, 0x0B) {
 		items_of_cargo:				string(STR_CARGO_QUANTITY_CIGARS);
 		penalty_lowerbound:			10;
 		single_penalty_length:		56;
-		price_factor:				210; // original: 163
+		price_factor:				163; // original: 163
 		capacity_multiplier:		1;
 		station_list_colour:		36;
 		cargo_payment_list_colour:	36;
@@ -281,9 +281,9 @@ item (FEAT_CARGOS, cargo_food, 0x0C) {
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				TTD_STR_QUANTITY_FOOD;
-		penalty_lowerbound:			255;
-		single_penalty_length:		255;
-		price_factor:				-115; // FIRS: 158
+		penalty_lowerbound:			0;
+		single_penalty_length:		24;
+		price_factor:				158; // FIRS: 158
 		capacity_multiplier:		1;
 		station_list_colour:		48;
 		cargo_payment_list_colour:	48;
@@ -306,11 +306,11 @@ item (FEAT_CARGOS, cargo_oil, 0x0D) {
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_OIL);
-		penalty_lowerbound:			255;
+		penalty_lowerbound:			30;
 		single_penalty_length:		255;
 		station_list_colour:		171;
 		cargo_payment_list_colour:	171;
-		price_factor:				-160; // FIRS: 101
+		price_factor:				101; // FIRS: 101
 		capacity_multiplier:		1;		
 	}
 }
@@ -331,9 +331,9 @@ item (FEAT_CARGOS, cargo_fuel, 0x0E) {
 		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_FUEL);
-		penalty_lowerbound:			255;
-		single_penalty_length:		255;
-		price_factor:				-25; // original: 120
+		penalty_lowerbound:			32;
+		single_penalty_length:		44;
+		price_factor:				120; // original: 120
 		capacity_multiplier:		1;
 		station_list_colour:		173;
 		cargo_payment_list_colour:	173;
@@ -356,9 +356,9 @@ item (FEAT_CARGOS, cargo_chemicals, 0x0F) {
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_CHEMICALS);
-		penalty_lowerbound:			255;
+		penalty_lowerbound:			20;
 		single_penalty_length:		255;
-		price_factor:				-155; // FIRS: 115
+		price_factor:				115; // FIRS: 115
 		capacity_multiplier:		1;
 		station_list_colour:		175;
 		cargo_payment_list_colour:	175;		
@@ -381,9 +381,9 @@ item (FEAT_CARGOS, cargo_pipe, 0x10) {
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_PIPE);
-		penalty_lowerbound:			255;
-		single_penalty_length:		255;
-		price_factor:				-308; // FIRS: 144
+		penalty_lowerbound:			30;
+		single_penalty_length:		42;
+		price_factor:				144; // FIRS: 144
 		capacity_multiplier:		1;
 		station_list_colour:		132;
 		cargo_payment_list_colour:	132;
@@ -408,7 +408,7 @@ item (FEAT_CARGOS, cargo_nickel_ore, 0x11) {
 		items_of_cargo:				string(STR_CARGO_QUANTITY_NICKEL_ORE);
 		penalty_lowerbound:			30;
 		single_penalty_length:		255;
-		price_factor:				-30; // original: 89
+		price_factor:				89; // original: 89
 		capacity_multiplier:		1;
 		station_list_colour:		8;
 		cargo_payment_list_colour:	8;
@@ -433,7 +433,7 @@ item (FEAT_CARGOS, cargo_nickel, 0x12) {
 		items_of_cargo:				string(STR_CARGO_QUANTITY_NICKEL);
 		penalty_lowerbound:			15;
 		single_penalty_length:		255;
-		price_factor:				420; // original: 141
+		price_factor:				141; // original: 141
 		capacity_multiplier:		1;
 		station_list_colour:		11;
 		cargo_payment_list_colour:	11;
@@ -458,7 +458,7 @@ item (FEAT_CARGOS, cargo_cobalt, 0x13) {
 		items_of_cargo:				string(STR_CARGO_QUANTITY_COBALT);
 		penalty_lowerbound:			30;
 		single_penalty_length:		255;
-		price_factor:				410; // original: 162
+		price_factor:				162; // original: 162
 		capacity_multiplier:		1;
 		station_list_colour:		158;
 		cargo_payment_list_colour:	158;
@@ -481,9 +481,9 @@ item (FEAT_CARGOS, cargo_fertilizer, 0x14) {
 		town_growth_multiplier:		1;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_FERTILIZER);
-		penalty_lowerbound:			255;
-		single_penalty_length:		255;
-		price_factor:				-315; // original: 123
+		penalty_lowerbound:			22;
+		single_penalty_length:		44;
+		price_factor:				123; // original: 123
 		capacity_multiplier:		1;
 		station_list_colour:		118;
 		cargo_payment_list_colour:	118;
@@ -506,9 +506,9 @@ item (FEAT_CARGOS, cargo_machinery, 0x15) {
 		town_growth_multiplier:		1;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_MACHINERY);
-		penalty_lowerbound:			255;
-		single_penalty_length:		255;
-		price_factor:				-172; // FIRS: 172
+		penalty_lowerbound:			2;
+		single_penalty_length:		32;
+		price_factor:				172; // FIRS: 172
 		capacity_multiplier:		1;
 		station_list_colour:		165;
 		cargo_payment_list_colour:	165;
