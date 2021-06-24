@@ -233,7 +233,7 @@ item (FEAT_CARGOS, cargo_tobacco, 0x08) {
 		units_of_cargo:				TTD_STR_TONS;
 		penalty_lowerbound:			255;
 		single_penalty_length:		255;
-		price_factor:				-30; // original: 116
+		price_factor:				-35; // original: 116
 		capacity_multiplier:		1;
 		station_list_colour:		57;
 		cargo_payment_list_colour:	57;
