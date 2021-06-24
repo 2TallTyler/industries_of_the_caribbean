@@ -61,12 +61,12 @@ item (FEAT_INDUSTRYTILES, tile_nickel_smelter_5)
 }
 
 produce (produce_nickel_smelter,
-	[PASS: 8; NKOR: 8; RFPR: 1;],	// Consume
-	[NICK: 8;],						// Produce
+	[PASS: 1; NKOR: 1; RFPR: 1;],	// Consume
+	[NICK: 1;],						// Produce
 	1 								// Run callback again
 	)
 	
-switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_smelter, (incoming_cargo_waiting("PASS") >= 8 && incoming_cargo_waiting("NKOR") >= 8 && incoming_cargo_waiting("RFPR") >= 1)) {
+switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_smelter, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("NKOR") > 0 && incoming_cargo_waiting("RFPR") > 0)) {
 	1: produce_nickel_smelter;
 	switch_produce_idle;
 }
