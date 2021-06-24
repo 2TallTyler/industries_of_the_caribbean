@@ -6,7 +6,7 @@ cargotable {
 	PASS, MAIL, TOUR,
 	
 	/* Primary products */
-	JAVA, SGCN, TBCO, OIL_, NKOR,
+	JAVA, SGCN, TBCO, OILI, OILD, NKOR,
 	
 	/* Secondary products */
 	SUGR, MOLS, CIGR, BEER, FOOD, RFPR, FUEL, NICK, COBL, PIPE,
@@ -112,6 +112,31 @@ item (FEAT_CARGOS, cargo_coffee, 0x03) {
 		price_factor:				150; // FIRS: 173
 		station_list_colour:		63;
 		cargo_payment_list_colour:	63;
+	}
+}
+
+// Imported oil
+item (FEAT_CARGOS, cargo_oil_domestic, 0x04) {
+	property {
+		number:						0x04;
+		sprite:						4300;
+		type_name:					string(STR_CARGO_NAME_OIL_DOMESTIC);
+		unit_name:					string(STR_CARGO_NAME_OIL_DOMESTIC);
+		type_abbreviation:			string(STR_CARGO_ABBREV_OIL_DOMESTIC);
+		weight:						0.9;
+		is_freight:					1;
+		cargo_classes:				bitmask(CC_LIQUID);
+		cargo_label:				"OILD";
+		town_growth_effect:			TOWNGROWTH_NONE;
+		town_growth_multiplier:		1.0;
+		units_of_cargo:				TTD_STR_TONS;
+		items_of_cargo:				string(STR_CARGO_QUANTITY_OIL_DOMESTIC);
+		penalty_lowerbound:			255;
+		single_penalty_length:		255;
+		station_list_colour:		171;
+		cargo_payment_list_colour:	171;
+		price_factor:				-40; // FIRS: 101
+		capacity_multiplier:		1;		
 	}
 }
 
@@ -291,21 +316,21 @@ item (FEAT_CARGOS, cargo_food, 0x0C) {
 }
 
 // Oil in 0X0D Fruit
-item (FEAT_CARGOS, cargo_oil, 0x0D) {
+item (FEAT_CARGOS, cargo_oil_imported, 0x0D) {
 	property {
 		number:						0x0D;
 		sprite:						4300;
-		type_name:					TTD_STR_CARGO_PLURAL_OIL;
-		unit_name:					TTD_STR_CARGO_SINGULAR_OIL;
-		type_abbreviation:			TTD_STR_ABBREV_OIL;
+		type_name:					string(STR_CARGO_NAME_OIL_IMPORTED);
+		unit_name:					string(STR_CARGO_NAME_OIL_IMPORTED);
+		type_abbreviation:			string(STR_CARGO_ABBREV_OIL_IMPORTED);
 		weight:						0.9;
 		is_freight:					1;
 		cargo_classes:				bitmask(CC_LIQUID);
-		cargo_label:				"OIL_";
+		cargo_label:				"OILI";
 		town_growth_effect:			TOWNGROWTH_NONE;
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				TTD_STR_TONS;
-		items_of_cargo:				string(STR_CARGO_QUANTITY_OIL);
+		items_of_cargo:				string(STR_CARGO_QUANTITY_OIL_IMPORTED);
 		penalty_lowerbound:			255;
 		single_penalty_length:		255;
 		station_list_colour:		171;

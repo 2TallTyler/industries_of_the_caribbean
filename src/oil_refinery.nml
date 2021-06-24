@@ -184,15 +184,26 @@ tilelayout industry_layout_oil_refinery_3 {
 5,0:	ind_tile_oil_refinery_2;	5,1:	ind_tile_oil_refinery_2;						5,3:	ind_tile_oil_refinery_9;	5,4:	ind_tile_oil_refinery_3;	5,5:	ind_tile_oil_refinery_7;
 }
 
-produce (produce_oil_refinery,
-	[PASS: 1; OIL_: 1;],	// Consume
+produce (produce_oil_refinery_imported,
+	[PASS: 1; OILI: 1;],	// Consume
 	[FUEL: 1;],				// Produce
 	1 						// Run callback again
 	)
-	
-switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_refinery, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("OIL_") > 0)) {
-	1: produce_oil_refinery;
+
+produce (produce_oil_refinery,
+	[PASS: 1; OILD: 1;],	// Consume
+	[FUEL: 1;],				// Produce
+	1 						// Run callback again
+	)
+
+switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_refinery_imported, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("OILI") > 0)) {
+	1: produce_oil_refinery_imported;
 	switch_produce_idle;
+}
+	
+switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_refinery, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("OILD") > 0)) {
+	1: produce_oil_refinery;
+	switch_produce_oil_refinery_imported;
 }
 
 item (FEAT_INDUSTRIES, industry_oil_refinery, 5)
@@ -209,7 +220,8 @@ item (FEAT_INDUSTRIES, industry_oil_refinery, 5)
 		];
 		cargo_types: [
 			accept_cargo("PASS"),
-			accept_cargo("OIL_"),
+			accept_cargo("OILD"),
+			accept_cargo("OILI"),
 			produce_cargo("FUEL", 0),
 		];
 		prob_map_gen: 0;

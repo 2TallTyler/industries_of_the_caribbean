@@ -125,14 +125,14 @@ tilelayout industry_layout_oil_wells_2 {
 /* Boosted production: 48 Workers, 48 units of Pipe, and 48 units of Machinery. Extra workers are consumed so they don't build up */
 produce (produce_oil_wells_boosted,
 	[PIPE: 6; PASS: max((incoming_cargo_waiting("PASS") / 8), 6); ENSP: 6;],	// Consume
-	[OIL_: 40;],																// Produce
+	[OILD: 40;],																// Produce
 	0 																			// Don't run callback again
 	)
 
 /* Regular production: 48 Workers and 48 units of Pipe. Extra workers are consumed so they don't build up */
 produce (produce_oil_wells,
 	[PIPE: 6; PASS: max((incoming_cargo_waiting("PASS") / 8), 6);],	// Consume
-	[OIL_: 20;],													// Produce
+	[OILD: 20;],													// Produce
 	0 																// Don't run callback again
 	)
 
@@ -157,7 +157,7 @@ item (FEAT_INDUSTRIES, industry_oil_wells, 16)
 			accept_cargo("PASS"),
 			accept_cargo("PIPE"),
 			accept_cargo("ENSP"),
-			produce_cargo("OIL_", 0)
+			produce_cargo("OILD", 0)
 		];
 		prob_map_gen: 5; // FIXME: Adjust as necessary
 		prob_in_game: 0;

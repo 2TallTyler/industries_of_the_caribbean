@@ -42,7 +42,7 @@ item (FEAT_INDUSTRIES, industry_import_export_0, 8) {
 		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
 		cargo_types: [
 			accept_cargo("JAVA", produce_cargo("FOOD", 1)),
-			accept_cargo("SUGR", produce_cargo("OIL_", 1)), // FIXME: Why doesn't Oil show up on the industry window?
+			accept_cargo("SUGR", produce_cargo("OILI", 1)),
 			accept_cargo("NICK", produce_cargo("FERT", 1)),
 			accept_cargo("COBL", produce_cargo("PIPE", 1)),
 			accept_cargo("CIGR", produce_cargo("RFPR", 1)),
