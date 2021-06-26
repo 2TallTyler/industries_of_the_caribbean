@@ -58,7 +58,7 @@ item (FEAT_CARGOS, cargo_tourists, 0x01) {
 		items_of_cargo:				string(STR_CARGO_QUANTITY_TOURISTS);
 		penalty_lowerbound:			10;
 		single_penalty_length:		24;
-		price_factor:				230; // original: 175
+		price_factor:				400; // original: 175
 		capacity_multiplier:		4;
 		station_list_colour:		176;
 		cargo_payment_list_colour:	176;
@@ -208,7 +208,7 @@ item (FEAT_CARGOS, cargo_sugar, 0x07) {
 		items_of_cargo:				TTD_STR_QUANTITY_SUGAR;
 		penalty_lowerbound:			16;
 		single_penalty_length:		64;
-		price_factor:				210; // original: 102
+		price_factor:				160; // original: 102
 		capacity_multiplier:		1;
 		station_list_colour:		15;
 		cargo_payment_list_colour:	15;
@@ -308,7 +308,7 @@ item (FEAT_CARGOS, cargo_food, 0x0C) {
 		items_of_cargo:				TTD_STR_QUANTITY_FOOD;
 		penalty_lowerbound:			255;
 		single_penalty_length:		255;
-		price_factor:				-115; // FIRS: 158
+		price_factor:				-200; // FIRS: 158
 		capacity_multiplier:		1;
 		station_list_colour:		48;
 		cargo_payment_list_colour:	48;
@@ -335,7 +335,7 @@ item (FEAT_CARGOS, cargo_oil_imported, 0x0D) {
 		single_penalty_length:		255;
 		station_list_colour:		171;
 		cargo_payment_list_colour:	171;
-		price_factor:				-160; // FIRS: 101
+		price_factor:				-80; // FIRS: 101
 		capacity_multiplier:		1;		
 	}
 }
@@ -383,7 +383,7 @@ item (FEAT_CARGOS, cargo_chemicals, 0x0F) {
 		items_of_cargo:				string(STR_CARGO_QUANTITY_CHEMICALS);
 		penalty_lowerbound:			255;
 		single_penalty_length:		255;
-		price_factor:				-155; // FIRS: 115
+		price_factor:				-90; // FIRS: 115
 		capacity_multiplier:		1;
 		station_list_colour:		175;
 		cargo_payment_list_colour:	175;		
@@ -458,7 +458,7 @@ item (FEAT_CARGOS, cargo_nickel, 0x12) {
 		items_of_cargo:				string(STR_CARGO_QUANTITY_NICKEL);
 		penalty_lowerbound:			15;
 		single_penalty_length:		255;
-		price_factor:				420; // original: 141
+		price_factor:				460; // original: 141
 		capacity_multiplier:		1;
 		station_list_colour:		11;
 		cargo_payment_list_colour:	11;
@@ -508,7 +508,7 @@ item (FEAT_CARGOS, cargo_fertilizer, 0x14) {
 		items_of_cargo:				string(STR_CARGO_QUANTITY_FERTILIZER);
 		penalty_lowerbound:			255;
 		single_penalty_length:		255;
-		price_factor:				-315; // original: 123
+		price_factor:				-140; // original: 123
 		capacity_multiplier:		1;
 		station_list_colour:		118;
 		cargo_payment_list_colour:	118;
