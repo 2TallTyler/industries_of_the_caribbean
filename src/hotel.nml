@@ -73,7 +73,7 @@ item (FEAT_INDUSTRIES, industry_hotel, 14)
 		substitute: INDUSTRYTYPE_POWER_PLANT;
 		name: string(STR_HOTEL);
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_HOTEL));
-		life_type: IND_LIFE_TYPE_ORGANIC;
+		life_type: IND_LIFE_TYPE_PROCESSING;
 		spec_flags: bitmask(IND_FLAG_ONLY_IN_LARGE_TOWNS, IND_FLAG_DO_NOT_FORCE_INSTANCE_AT_MAP_GENERATION);
 		layouts: [
 			tilelayout_hotel_square,
@@ -86,6 +86,7 @@ item (FEAT_INDUSTRIES, industry_hotel, 14)
 		];
 		prob_map_gen: 5; // FIXME: Balance this later
 		prob_in_game: 5;
+		fund_cost_multiplier: 5;
 		map_colour: 176;
 	}
 	graphics {
