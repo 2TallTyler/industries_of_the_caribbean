@@ -41,12 +41,12 @@ item (FEAT_INDUSTRIES, industry_import_export_0, 8) {
 		life_type: IND_LIFE_TYPE_BLACK_HOLE;
 		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_AI_CREATES_AIR_AND_SHIP_ROUTES);
 		cargo_types: [
-			accept_cargo("JAVA", produce_cargo("FOOD", 1)),
+			accept_cargo("JAVA", produce_cargo("FOOD", 0.5)),
 			accept_cargo("SUGR", produce_cargo("OILI", 1)),
-			accept_cargo("NICK", produce_cargo("FERT", 1)),
+			accept_cargo("NICK", produce_cargo("FERT", 1.5)),
 			accept_cargo("COBL", produce_cargo("PIPE", 1)),
-			accept_cargo("CIGR", produce_cargo("RFPR", 3)),
-			accept_cargo("TOUR", produce_cargo("ENSP", 1)),
+			accept_cargo("CIGR", produce_cargo("RFPR", 12)),
+			accept_cargo("TOUR", produce_cargo("ENSP", 1.5)),
 		];
 		layouts: [
 			tilelayout_import_export
