@@ -45,7 +45,7 @@ item (FEAT_INDUSTRIES, industry_import_export_0, 8) {
 			accept_cargo("SUGR", produce_cargo("OILI", 1)),
 			accept_cargo("NICK", produce_cargo("FERT", 1.5)),
 			accept_cargo("COBL", produce_cargo("PIPE", 1)),
-			accept_cargo("CIGR", produce_cargo("RFPR", 12)),
+			accept_cargo("CIGR", produce_cargo("RFPR", 3)),
 			accept_cargo("TOUR", produce_cargo("ENSP", 1.5)),
 		];
 		layouts: [

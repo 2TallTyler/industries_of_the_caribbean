@@ -27,7 +27,7 @@ STR_SUGAR_MILL_HELPTEXT				:Production needs {WHITE}per unit{BLACK} of sugarcane
 STR_RUM_DISTILLERY_HELPTEXT			:Production needs {WHITE}per unit{BLACK} of molasses:{}* 1 worker{}{}Production {WHITE}per unit{BLACK} of molasses:{}* 1 unit of rum
 STR_CIGAR_FACTORY_HELPTEXT			:Production needs {WHITE}per unit{BLACK} of tobacco:{}* 1 worker{}{}Production {WHITE}per unit{BLACK} of tobacco:{}* 1 unit of cigars
 STR_OIL_REFINERY_HELPTEXT			:Production needs {WHITE}per unit{BLACK} of oil:{}* 1 worker{}{}Production {WHITE}per unit{BLACK} of oil:{}* 1 unit of fuel
-STR_NICKEL_SMELTER_HELPTEXT			:Production needs {WHITE}per unit{BLACK} of nickel ore:{}* 1 worker{}* 1 unit of chemicals{}{}Production {WHITE}per unit{BLACK} of nickel ore:{}* 1 unit of nickel
+STR_NICKEL_SMELTER_HELPTEXT			:Production needs {WHITE}per unit{BLACK} of nickel ore:{}* 1 worker{}* 1/4 unit of chemicals{}{}Production {WHITE}per unit{BLACK} of nickel ore:{}* 1 unit of nickel
 
 STR_IMPORT_EXPORT_HELPTEXT			:Trade deals:{} {YELLOW}Coffee {BLACK}-> {YELLOW}Food{} {YELLOW}Sugar {BLACK}-> {YELLOW}Oil{} {YELLOW}Nickel {BLACK}-> {YELLOW}Fertilizer{} {YELLOW}Cobalt {BLACK}-> {YELLOW}Pipe{} {YELLOW}Cigars {BLACK}-> {YELLOW}Chemicals{} {YELLOW}Tourists {BLACK}-> {YELLOW}Machinery
 
