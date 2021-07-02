@@ -109,7 +109,7 @@ item (FEAT_CARGOS, cargo_coffee, 0x03) {
 		penalty_lowerbound:			16;
 		single_penalty_length:		64;
 		capacity_multiplier:		1;
-		price_factor:				150; // FIRS: 173
+		price_factor:				170; // FIRS: 173
 		station_list_colour:		63;
 		cargo_payment_list_colour:	63;
 	}
