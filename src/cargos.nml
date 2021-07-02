@@ -27,7 +27,7 @@ item (FEAT_CARGOS, cargo_workers, 0x00) {
 		is_freight:					0;
 		cargo_classes:				bitmask(CC_PASSENGERS);
 		cargo_label:				"PASS";
-		town_growth_effect:			TOWNGROWTH_PASSENGERS;
+		town_growth_effect:			TOWNGROWTH_NONE;
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				string(STR_CARGO_QUANTITY_WORKERS);
 		items_of_cargo:				string(STR_CARGO_QUANTITY_WORKERS);
@@ -52,7 +52,7 @@ item (FEAT_CARGOS, cargo_tourists, 0x01) {
 		is_freight:					0;
 		cargo_classes:				bitmask(CC_PASSENGERS);
 		cargo_label:				"TOUR";
-		town_growth_effect:			TOWNGROWTH_WATER;
+		town_growth_effect:			TOWNGROWTH_NONE;
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				string(STR_CARGO_QUANTITY_TOURISTS);
 		items_of_cargo:				string(STR_CARGO_QUANTITY_TOURISTS);
@@ -152,7 +152,7 @@ item (FEAT_CARGOS, cargo_rum, 0x05) {
 		is_freight:					1;
 		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS);
 		cargo_label:				"BEER";
-		town_growth_effect:			TOWNGROWTH_WATER;
+		town_growth_effect:			TOWNGROWTH_NONE;
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_RUM);
@@ -302,7 +302,7 @@ item (FEAT_CARGOS, cargo_food, 0x0C) {
 		is_freight:					1;
 		cargo_classes:				bitmask(CC_REFRIGERATED, CC_EXPRESS);
 		cargo_label:				"FOOD";
-		town_growth_effect:			TOWNGROWTH_FOOD;
+		town_growth_effect:			TOWNGROWTH_NONE;
 		town_growth_multiplier:		1.0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				TTD_STR_QUANTITY_FOOD;
