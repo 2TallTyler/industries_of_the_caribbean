@@ -60,5 +60,6 @@ item (FEAT_INDUSTRIES, industry_import_export_0, 8) {
 	graphics {
 		location_check: loc_check_import_export_0;
 		extra_text_industry: string(STR_IMPORT_EXPORT_HELPTEXT);
+		extra_text_fund: string(STR_IMPORT_EXPORT_FUNDTEXT);
 	}
 }

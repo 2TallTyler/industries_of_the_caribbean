@@ -96,5 +96,6 @@ item (FEAT_INDUSTRIES, industry_hotel, 14)
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		extra_text_industry: string(STR_HOTEL_HELPTEXT);
+		extra_text_fund: string(STR_HOTEL_FUNDTEXT);
 	}
 }

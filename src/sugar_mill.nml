@@ -72,6 +72,7 @@ item (FEAT_INDUSTRIES, industry_sugar_mill, 4)
 	graphics {
 		produce_cargo_arrival: switch_produce_sugar_mill;
 		extra_text_industry: string(STR_SUGAR_MILL_HELPTEXT);
+		extra_text_fund: string(STR_SUGAR_MILL_FUNDTEXT);
 		colour: founder_colour1;
 	}
 }

@@ -31,6 +31,14 @@ STR_NICKEL_SMELTER_HELPTEXT			:Production needs {WHITE}per unit{BLACK} of nickel
 
 STR_IMPORT_EXPORT_HELPTEXT			:Trade deals:{} {YELLOW}Coffee {BLACK}-> {YELLOW}Food{} {YELLOW}Sugar {BLACK}-> {YELLOW}Oil{} {YELLOW}Nickel {BLACK}-> {YELLOW}Fertilizer{} {YELLOW}Cobalt {BLACK}-> {YELLOW}Pipe{} {YELLOW}Cigars {BLACK}-> {YELLOW}Chemicals{} {YELLOW}Tourists {BLACK}-> {YELLOW}Machinery
 
+STR_CIGAR_FACTORY_FUNDTEXT			:{BLACK}{}Production needs {WHITE}per unit{BLACK} of tobacco:{}* 1 worker{}{}Production {WHITE}per unit{BLACK} of tobacco:{}* 1 unit of cigars
+STR_HOTEL_FUNDTEXT					:{BLACK}{}Monthly production needs:{}* {WHITE}Base{BLACK}: 48 Workers and 48 units of Food{}* {WHITE}Double{BLACK}: + 48 units of Rum{}{}Must be funded in a town with population 1200 or greater, replacing houses.
+STR_IMPORT_EXPORT_FUNDTEXT			:{BLACK}{}Trade export cargos for import cargos.{}{}Must be funded 1 tile from map edge.
+STR_NICKEL_SMELTER_FUNDTEXT			:{BLACK}{}Production needs {WHITE}per unit{BLACK} of nickel ore:{}* 1 worker{}* 1/4 unit of chemicals{}{}Production {WHITE}per unit{BLACK} of nickel ore:{}* 1 unit of nickel
+STR_OIL_REFINERY_FUNDTEXT			:{BLACK}{}Production needs {WHITE}per unit{BLACK} of oil:{}* 1 worker{}{}Production {WHITE}per unit{BLACK} of oil:{}* 1 unit of fuel
+STR_RUM_DISTILLERY_FUNDTEXT			:{BLACK}{}Production needs {WHITE}per unit{BLACK} of molasses:{}* 1 worker{}{}Production {WHITE}per unit{BLACK} of molasses:{}* 1 unit of rum
+STR_SUGAR_MILL_FUNDTEXT				:{BLACK}{}Production needs {WHITE}per unit{BLACK} of sugarcane:{}* 1 worker{}{}Production {WHITE}per unit{BLACK} of sugarcane:{}* 1/2 unit of sugar{}* 1/8 unit of molasses
+
 STR_ERR_COFFEE_LOCATION				:Coffee Plantations must be at elevation 2 or greater, and not on desert.
 STR_ERR_SUGARCANE_LOCATION			:Sugarcane Farms must be at elevation 1, and not on desert.
 STR_ERR_TOBACCO_LOCATION			:Tobacco Plantations must be at elevation 1, and not on desert.

@@ -71,6 +71,7 @@ item (FEAT_INDUSTRIES, industry_rum_distillery, 11)
 	graphics {
 		produce_cargo_arrival: switch_produce_rum_distillery;
 		extra_text_industry: string(STR_RUM_DISTILLERY_HELPTEXT);
+		extra_text_fund: string(STR_RUM_DISTILLERY_FUNDTEXT);
 		colour: founder_colour1;
 	}
 }
