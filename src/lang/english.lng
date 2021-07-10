@@ -7,7 +7,7 @@ STR_GRF_DESC						:{ORANGE}Cuban-inspired industries with a gameplay focus.{}{}{
 STR_WEBSITE							:https://github.com/2TallTyler/industries_of_the_caribbean/blob/master/README.md
 
 STR_ERROR_GAME_VERSION				:{TITLE} requires OpenTTD version 1.10.0, JGR version 0.34, or better.
-STR_ERROR_NO_ITL					:{TITLE} recommends Improved Town Layouts version 1.4.0 or better.
+STR_ERROR_NO_ITL					:{TITLE} requires Improved Town Layouts version 1.4.0 or better.
 STR_ERROR_INCOMPATIBLE_SET			:{YELLOW}{TITLE}{WHITE} is incompatible with {YELLOW}{STRING}{WHITE}.
 
 STR_NAME_OBJECT_MENU				:Industry Tiles
