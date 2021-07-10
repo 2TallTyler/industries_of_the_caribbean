@@ -2,9 +2,9 @@
 ##plural 0
 
 STR_GRF_NAME						:{TITLE} {VERSION}
-STR_GRF_DESC						:{ORANGE}Cuban-inspired industries with a gameplay focus.{}{}{BLACK}More info coming soon.{}{}{BLACK}Created by 2TallTyler.
+STR_GRF_DESC						:{ORANGE}A Cuban-inspired economy replacement.{}{}{RED}Warning! {BLACK}Gameplay is very different with this mod. Visit the website for a gameplay guide.{}{}{BLACK}Created by 2TallTyler.
 
-STR_WEBSITE							:https://github.com/2TallTyler/industries_of_the_caribbean/blob/master/README.md
+STR_WEBSITE							:https://github.com/2TallTyler/industries_of_the_caribbean/blob/main/README.md
 
 STR_ERROR_GAME_VERSION				:{TITLE} requires OpenTTD version 1.10.0, JGR version 0.34, or better.
 STR_ERROR_NO_ITL					:{TITLE} requires Improved Town Layouts version 1.4.0 or better.
