@@ -2,7 +2,7 @@
 ##plural 0
 
 STR_GRF_NAME						:{TITLE} {VERSION}
-STR_GRF_DESC						:{ORANGE}A Cuban-inspired economy replacement.{}{}{RED}Warning! {BLACK}Gameplay is very different with this mod. Visit the website for a gameplay guide.{}{}{BLACK}Created by 2TallTyler.
+STR_GRF_DESC						:{ORANGE}A Cuban-inspired economy replacement.{}{}{RED}Warning! {BLACK}This mod changes core gameplay aspects, and is quite difficult. Please visit the website to learn more.{}{}{BLACK}Created by 2TallTyler.
 
 STR_WEBSITE							:https://github.com/2TallTyler/industries_of_the_caribbean/blob/main/README.md
 
