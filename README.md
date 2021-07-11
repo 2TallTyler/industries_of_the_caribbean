@@ -1,5 +1,7 @@
 # Industries of the Caribbean
 
+Jump to [Gameplay Guide](#gameplay-guide)
+
 ## Design Notes
 
 Industries of the Caribbean is an experimental industry/economy mod which aims to radically rethink the OpenTTD economy by breaking common design patterns and reclaiming “useless” features to add interesting gameplay.
