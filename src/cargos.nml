@@ -28,7 +28,7 @@ item (FEAT_CARGOS, cargo_workers, 0x00) {
 		cargo_classes:				bitmask(CC_PASSENGERS);
 		cargo_label:				"PASS";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1.0;
+		town_growth_multiplier:		0;
 		units_of_cargo:				string(STR_CARGO_QUANTITY_WORKERS);
 		items_of_cargo:				string(STR_CARGO_QUANTITY_WORKERS);
 		penalty_lowerbound:			255;
@@ -53,7 +53,7 @@ item (FEAT_CARGOS, cargo_tourists, 0x01) {
 		cargo_classes:				bitmask(CC_PASSENGERS);
 		cargo_label:				"TOUR";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1.0;
+		town_growth_multiplier:		0;
 		units_of_cargo:				string(STR_CARGO_QUANTITY_TOURISTS);
 		items_of_cargo:				string(STR_CARGO_QUANTITY_TOURISTS);
 		penalty_lowerbound:			10;
@@ -78,7 +78,7 @@ item (FEAT_CARGOS, cargo_mail, 0x02) {
 		cargo_classes:				bitmask(CC_MAIL);
 		cargo_label:				"MAIL";
 		town_growth_effect:			TOWNGROWTH_MAIL;
-		town_growth_multiplier:		1.0;
+		town_growth_multiplier:		1;
 		units_of_cargo:				TTD_STR_BAGS;
 		items_of_cargo:				TTD_STR_QUANTITY_MAIL;
 		penalty_lowerbound:			6;
@@ -103,7 +103,7 @@ item (FEAT_CARGOS, cargo_coffee, 0x03) {
 		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS);
 		cargo_label:				"JAVA";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_COFFEE);
 		penalty_lowerbound:			16;
@@ -128,7 +128,7 @@ item (FEAT_CARGOS, cargo_oil_domestic, 0x04) {
 		cargo_classes:				bitmask(CC_LIQUID);
 		cargo_label:				"OILD";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1.0;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_OIL_DOMESTIC);
 		penalty_lowerbound:			255;
@@ -153,7 +153,7 @@ item (FEAT_CARGOS, cargo_rum, 0x05) {
 		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS);
 		cargo_label:				"BEER";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1.0;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_RUM);
 		penalty_lowerbound:			255;
@@ -178,7 +178,7 @@ item (FEAT_CARGOS, cargo_sugarcane, 0x06) {
 		cargo_classes:				bitmask(CC_BULK, CC_NON_POURABLE);
 		cargo_label:				"SGCN";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_SUGARCANE);
 		penalty_lowerbound:			255;
@@ -203,7 +203,7 @@ item (FEAT_CARGOS, cargo_sugar, 0x07) {
 		cargo_classes:				bitmask(CC_BULK, CC_COVERED);
 		cargo_label:				"SUGR";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				TTD_STR_QUANTITY_SUGAR;
 		penalty_lowerbound:			16;
@@ -228,7 +228,7 @@ item (FEAT_CARGOS, cargo_tobacco, 0x08) {
 		cargo_classes:				bitmask(CC_BULK, CC_NON_POURABLE);
 		cargo_label:				"TBCO";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1;
+		town_growth_multiplier:		0;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_TOBACCO);
 		units_of_cargo:				TTD_STR_TONS;
 		penalty_lowerbound:			255;
@@ -253,7 +253,7 @@ item (FEAT_CARGOS, cargo_molasses, 0x0A) {
 		cargo_classes:				bitmask(CC_LIQUID);
 		cargo_label:				"MOLS";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_MOLASSES);
 		penalty_lowerbound:			255;
@@ -278,7 +278,7 @@ item (FEAT_CARGOS, cargo_cigars, 0x0B) {
 		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS);
 		cargo_label:				"CIGR";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1.0;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_CIGARS);
 		penalty_lowerbound:			10;
@@ -303,7 +303,7 @@ item (FEAT_CARGOS, cargo_food, 0x0C) {
 		cargo_classes:				bitmask(CC_REFRIGERATED, CC_EXPRESS);
 		cargo_label:				"FOOD";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1.0;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				TTD_STR_QUANTITY_FOOD;
 		penalty_lowerbound:			255;
@@ -328,7 +328,7 @@ item (FEAT_CARGOS, cargo_oil_imported, 0x0D) {
 		cargo_classes:				bitmask(CC_LIQUID);
 		cargo_label:				"OILI";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1.0;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_OIL_IMPORTED);
 		penalty_lowerbound:			255;
@@ -378,7 +378,7 @@ item (FEAT_CARGOS, cargo_chemicals, 0x0F) {
 		cargo_classes:				bitmask(CC_LIQUID, CC_POWDERIZED);
 		cargo_label:				"RFPR";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1.0;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_CHEMICALS);
 		penalty_lowerbound:			255;
@@ -403,7 +403,7 @@ item (FEAT_CARGOS, cargo_pipe, 0x10) {
 		cargo_classes:				bitmask(CC_PIECE_GOODS);
 		cargo_label:				"PIPE";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1.0;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_PIPE);
 		penalty_lowerbound:			255;
@@ -428,7 +428,7 @@ item (FEAT_CARGOS, cargo_nickel_ore, 0x11) {
 		cargo_classes:				bitmask(CC_BULK);
 		cargo_label:				"NKOR";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_NICKEL_ORE);
 		penalty_lowerbound:			30;
@@ -453,7 +453,7 @@ item (FEAT_CARGOS, cargo_nickel, 0x12) {
 		cargo_classes:				bitmask(CC_PIECE_GOODS);
 		cargo_label:				"NICK";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_NICKEL);
 		penalty_lowerbound:			15;
@@ -478,7 +478,7 @@ item (FEAT_CARGOS, cargo_cobalt, 0x13) {
 		cargo_classes:				bitmask(CC_PIECE_GOODS);
 		cargo_label:				"COBL";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_COBALT);
 		penalty_lowerbound:			30;
@@ -503,7 +503,7 @@ item (FEAT_CARGOS, cargo_fertilizer, 0x14) {
 		cargo_classes:				bitmask(CC_PIECE_GOODS, CC_BULK, CC_COVERED);
 		cargo_label:				"FERT";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_FERTILIZER);
 		penalty_lowerbound:			255;
@@ -528,7 +528,7 @@ item (FEAT_CARGOS, cargo_machinery, 0x15) {
 		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS);
 		cargo_label:				"ENSP";
 		town_growth_effect:			TOWNGROWTH_NONE;
-		town_growth_multiplier:		1;
+		town_growth_multiplier:		0;
 		units_of_cargo:				TTD_STR_TONS;
 		items_of_cargo:				string(STR_CARGO_QUANTITY_MACHINERY);
 		penalty_lowerbound:			255;
