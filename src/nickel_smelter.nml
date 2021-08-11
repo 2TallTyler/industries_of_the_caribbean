@@ -91,6 +91,9 @@ item (FEAT_INDUSTRIES, industry_nickel_smelter, 7)
 	}
 	graphics {
 		produce_cargo_arrival: switch_produce_nickel_smelter;
+		/* Don't allow any production changes */
+		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
+		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		extra_text_industry: string(STR_NICKEL_SMELTER_HELPTEXT);
 		extra_text_fund: string(STR_NICKEL_SMELTER_FUNDTEXT);
 		colour: founder_colour1;
