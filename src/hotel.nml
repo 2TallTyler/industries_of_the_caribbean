@@ -67,6 +67,11 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_hotel_boosted, incoming_cargo_wait
 /* Check for Workers and Food for any production */
 switch (FEAT_INDUSTRIES, SELF, switch_produce_hotel, (incoming_cargo_waiting("FOOD") >= 6 && incoming_cargo_waiting("PASS") >= 6)) {1: switch_produce_hotel_boosted; switch_produce_idle;}
 
+/* Location check: Hotels must replace houses in a town with population at least 1,200. Limit one per town. 
+ * NOTE: Check to replace houses is via spec_flags, not the location_check callback. 
+*/
+switch (FEAT_INDUSTRIES, SELF, loc_check_hotel, (IsUniqueInTown(14) && TownHasPopulation(1200))) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_HOTEL_LOCATION);}
+
 item (FEAT_INDUSTRIES, industry_hotel, 14)
 {
 	property {
@@ -91,6 +96,7 @@ item (FEAT_INDUSTRIES, industry_hotel, 14)
 	}
 	graphics {
 		produce_256_ticks: switch_produce_hotel;
+		location_check: loc_check_hotel;
 		/* Don't allow any production changes */
 		build_prod_change: 16; // 100% production
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;

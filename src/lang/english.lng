@@ -45,6 +45,7 @@ STR_ERR_SUGARCANE_LOCATION			:Sugarcane Farms must be at elevation 1, and not on
 STR_ERR_TOBACCO_LOCATION			:Tobacco Plantations must be at elevation 1, and not on desert.
 STR_ERR_NICKEL_MINE_LOCATION		:Nickel Mines must be at elevation 2 or greater.
 STR_ERR_IMPORT_EXPORT_LOCATION		:Import/Export must be near map edge.
+STR_ERR_HOTEL_LOCATION				:Hotels must replace houses in a town with population at least 1,200. Limit one per town.
 
 STR_COFFEE_PLANTATION				:Coffee Plantation
 STR_SUGARCANE_PLANTATION			:Sugarcane Plantation

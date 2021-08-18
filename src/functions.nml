@@ -10,6 +10,20 @@
 switch (FEAT_INDUSTRIES, SELF, IndustryElevationCheck, min_z, max_z, nearby_tile_height(0,0) >= min_z && nearby_tile_height(0,0) <= max_z) {return;}
 
 /**
+ * Check if an industry is unique in a town
+ * @param id Industry ID to check
+ * @return 1 if there are no industries of this type in a town, else 0
+ */
+switch (FEAT_INDUSTRIES, SELF, IsUniqueInTown, id, industry_town_count(id) == 0) {return;}
+
+/**
+ * Check if a town has sufficient population
+ * @param pop The population required
+ * @return 1 if the town population is greater than the input parameter, else 0
+ */
+switch (FEAT_INDUSTRIES, PARENT, TownHasPopulation, pop, population >= pop) {return;}
+
+/**
  * Check if a water-based industry is near land, or a land-based industry is near water
  * @param required distance from land/water
  * @return 1 if the industry is greater than the given distance from land/water, else 0
