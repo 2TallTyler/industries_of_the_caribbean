@@ -3,7 +3,7 @@ grf {
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESC);
 	url: string(STR_WEBSITE);
-	version: 4;
+	version: 5;
 	min_compatible_version: 1;
 }
 
@@ -27,6 +27,11 @@ if (version_openttd(1,10,0,28004) > openttd_version) {
 /* Create an error if inflation is enabled (breaks negative cargo payments) */
 if (inflation == 1) {
 	error(FATAL, string(STR_ERROR_INFLATION));
+}
+
+/* Create an error if not in subtropic climate */
+if (climate != CLIMATE_TROPICAL) {
+	error(ERROR, string(STR_ERROR_CLIMATE));
 }
 
 /* Create a fatal error if Improved Town Layouts is not loaded */

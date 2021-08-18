@@ -10,6 +10,7 @@ STR_ERROR_GAME_VERSION				:{TITLE} requires OpenTTD version 1.10.0, JGR version 
 STR_ERROR_NO_ITL					:{TITLE} requires Improved Town Layouts version 1.4.0 or better.
 STR_ERROR_INCOMPATIBLE_SET			:{YELLOW}{TITLE}{WHITE} is incompatible with {YELLOW}{STRING}{WHITE}.
 STR_ERROR_INFLATION					:{TITLE} does not work with Inflation enabled.
+STR_ERROR_CLIMATE					:{TITLE} is intended for the sub-tropical climate.
 
 STR_NAME_OBJECT_MENU				:Industry Tiles
 
