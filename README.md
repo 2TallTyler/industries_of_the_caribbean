@@ -1,16 +1,74 @@
 # Industries of the Caribbean
 
-Jump to [Design Notes](#design-notes)
-
-## Gameplay Guide
-
 Industries of the Caribbean models a state-run economy where you own the industries and production chain, in addition to the transport network. The economy is export-driven: unless you export a cargo, you don’t get paid for transporting it.
 
-Your island has fertile soil and rich deposits of oil and nickel, but no processing industries to produce valuable products. Initially, the only profitable cargo is coffee, which requires no processing before it is exported. 
+Your island has fertile soil and rich deposits of oil and nickel, but no processing industries to produce valuable products.
 
-Start by exporting as much coffee as you can until you can afford your first processing industry: the sugar mill. After that, unlock new cargo chains by funding the proper industries, as governed by the cargo flowchart and the Import/Export trade deals. Be careful, though, not to expand into a cargo chain before you have the required cargos — for example, the Nickel chain requires Chemicals, which are obtained by exporting Cigars.
+(Jump to [Design Philosophy](#design-philosophy))
 
-### Recommended World Generation settings
+## Production flowchart
+![Cargo flowchart](docs/cargo_chart.png)
+
+#### Trade deals at Import/Export
+* Coffee -> Food
+* Sugar -> Oil
+* Nickel -> Fertilizer
+* Cobalt -> Pipe
+* Cigars -> Chemicals
+* Tourists -> Machinery
+
+## Cargo types
+#### Exported cargos
+These are exported to the Import/Export industry where they are traded for other cargos. These make significant profit.
+
+#### Imported cargos
+These are obtained in exchange for exported cargos at the Import/Export industry. They cost you money to transport, so don't import more than you need!
+
+#### Domestic cargos
+These are all other cargos, including Workers and intermediate cargos which travel between industries. They make a slight loss. The one exception is Mail, which makes a normal profit.
+
+## General industry mechanics
+All industries require Workers to produce cargo. Industries do not close or change production.
+
+#### Primary industries
+* Coffee Plantation
+* Sugarcane Plantation
+* Tobacco Plantation
+* Oil Wells
+* Nickel Mine
+
+These industries generate naturally, sometimes with with elevation or distance from town requirements. They do not produce anything unless you deliver Workers and any other required base cargos (like Pipe for Oil Wells). Also delivering a boost cargo will double production. Boost cargos are stockpiled and consumed during each production tick (8-9 times per month) to determine how much cargo is produced.
+
+#### Secondary industries
+* Oil Refinery
+* Sawmill
+* Furniture Factory
+* Paper Mill
+* Box Factory
+* Bakery
+
+These industries are funded by the player. They require one Worker for each unit of input cargo. If this seems like a lot, it is! Workers are the main production bottleneck and you'll need to both connect many towns to each industry, and deliver the necessary cargos to grow these towns.
+
+Also, some of these industries have additional cargos, like Chemicals for the Nickel Smelter, which are required input cargos. The industry window lists the ratio of input cargo required for each unit of output cargo.
+
+## Getting started
+
+Initially, the only profitable cargo is coffee, which requires no processing before it is exported.
+
+Start by exporting as much coffee as you can until you can afford your first processing industry: the sugar mill. After that, unlock new cargo chains by funding the proper industries, as governed by the cargo flowchart and the Import/Export trade deals.
+
+Be careful, though, not to expand into a cargo chain before you have the required cargos — for example, the Nickel chain requires Chemicals, which are obtained by exporting Cigars.
+
+Remember that imported cargos cost you money to transport — check the Cargo Payment Rates graph if you're unclear.
+
+#### Recommended Settings
+
+* News/Advisors: Warn if a vehicle’s income is negative: Off
+* News/Advisors: Warn if a vehicle is lost: Off
+* Environment > Industries > Company stations can serve industries with attached neutral stations: Off
+* Environment > Cargo distribution: Manual
+
+#### Recommended World Generation settings
 
 * Climate: Sub-tropical
 * Sea level: Medium
@@ -18,24 +76,16 @@ Start by exporting as much coffee as you can until you can afford your first pro
 * No. of industries: Low
 * Desert coverage: 0%
 
-### Recommended Settings
-
-* News/Advisors: Warn if a vehicle’s income is negative: Off
-* News/Advisors: Warn if a vehicle is lost: Off
-* Environment > Industries > Company stations can serve industries with attached neutral stations: Off
-* Environment > Cargo distribution: Manual
-
-### Required NewGRFs
+#### Required NewGRFs
 
 * Improved Town Layouts 1.4.0 or later
-  * these houses don’t accept Workers or Food, keeping those cargos going only to your industries.
+  * (These houses don’t accept Workers or Food, keeping those cargos going only to your industries.)
 
-### Recommended NewGRFs
-
+#### (Optional) Suggested NewGRFs
+My personal favorites, if you don't have your own.
 * Iron Horse 2
 * Termite (tracks)
-* Unsinkable Sam
-    * Currently unfinished as of this writing, so I also use Squid Ate Fish
+* SHARK (ships)
 * Mop Expanded Road Vehicles
 * Unspooled (roads)
 * Av9.8 Aircraft Set
@@ -50,7 +100,7 @@ Start by exporting as much coffee as you can until you can afford your first pro
 ## Credits
 * Beach sprites: [Beach Objects](https://www.tt-forums.net/viewtopic.php?f=26&t=62258) by Quast65, GPL v3 license
 
-## Design Notes
+## Design philosophy
 
 Industries of the Caribbean is an experimental industry/economy mod which aims to radically rethink the OpenTTD economy by breaking common design patterns and reclaiming “useless” features to add interesting gameplay.
 
