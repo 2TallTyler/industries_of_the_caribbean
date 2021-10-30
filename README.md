@@ -47,6 +47,9 @@ Start by exporting as much coffee as you can until you can afford your first pro
 * Total Bridge Renewal Set
 * Rainforest Ruins
 
+## Credits
+* Beach sprites: [Beach Objects](https://www.tt-forums.net/viewtopic.php?f=26&t=62258) by Quast65, GPL v3 license
+
 ## Design Notes
 
 Industries of the Caribbean is an experimental industry/economy mod which aims to radically rethink the OpenTTD economy by breaking common design patterns and reclaiming “useless” features to add interesting gameplay.
