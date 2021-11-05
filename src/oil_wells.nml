@@ -122,25 +122,25 @@ tilelayout industry_layout_oil_wells_2 {
 	4,0:	ind_tile_oil_wells;		4,2:	ind_tile_oil_wells;
 }
 
-/* Boosted production: 48 Workers, 48 units of Pipe, and 48 units of Machinery. Extra workers are consumed so they don't build up */
+/* Boosted production: 48 units of Pipe and 48 units of Machinery. */
 produce (produce_oil_wells_boosted,
-	[PIPE: 6; PASS: max((incoming_cargo_waiting("PASS") / 8), 6); ENSP: 6;],	// Consume
-	[OILD: 40;],																// Produce
-	0 																			// Don't run callback again
+	[PIPE: 6; ENSP: 6;],    // Consume
+	[OILD: 40;],            // Produce
+	0                       // Don't run callback again
 	)
 
-/* Regular production: 48 Workers and 48 units of Pipe. Extra workers are consumed so they don't build up */
+/* Regular production: 48 units of Pipe. */
 produce (produce_oil_wells,
-	[PIPE: 6; PASS: max((incoming_cargo_waiting("PASS") / 8), 6);],	// Consume
-	[OILD: 20;],													// Produce
-	0 																// Don't run callback again
+	[PIPE: 6;],             // Consume
+	[OILD: 20;],            // Produce
+	0                       // Don't run callback again
 	)
 
 /* Check for Machinery for boosted production */
 switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_wells_boosted, incoming_cargo_waiting("ENSP") >= 6) {1: produce_oil_wells_boosted; produce_oil_wells;}	
 
-/* Check for sufficient Workers and Fuel to begin production */
-switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_wells, (incoming_cargo_waiting("PIPE") >= 6 && incoming_cargo_waiting("PASS") >= 6)) {1: switch_produce_oil_wells_boosted; switch_produce_idle;}
+/* Check for sufficient Pipe to begin production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_wells, (incoming_cargo_waiting("PIPE") >= 6)) {1: switch_produce_oil_wells_boosted; produce_none;}
 
 item (FEAT_INDUSTRIES, industry_oil_wells, 16)
 {
@@ -154,7 +154,6 @@ item (FEAT_INDUSTRIES, industry_oil_wells, 16)
 			industry_layout_oil_wells_2,
 		];
 		cargo_types: [
-			accept_cargo("PASS"),
 			accept_cargo("PIPE"),
 			accept_cargo("ENSP"),
 			produce_cargo("OILD", 0)

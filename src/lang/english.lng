@@ -23,11 +23,11 @@ STR_STATION							:{STRING} {STRING}
 
 STR_EMPTY							:
 
-STR_PRIMARY_HELPTEXT				:Monthly production needs:{}* {WHITE}Base{BLACK}: 24 Workers{}* {WHITE}Double{BLACK}: + 24 tons of Fertilizer
-STR_NICKEL_MINE_HELPTEXT			:Monthly production needs:{}* {WHITE}Base{BLACK}: 48 Workers and 48 units of Fuel{}* {WHITE}Double{BLACK}: + 48 units of Machinery
-STR_OIL_WELLS_HELPTEXT				:Monthly production needs:{}* {WHITE}Base{BLACK}: 48 Workers and 48 units of Pipe{}* {WHITE}Double{BLACK}: + 48 units of Machinery
-STR_HOTEL_HELPTEXT					:Monthly production needs:{}* {WHITE}Base{BLACK}: 48 Workers and 48 units of Food{}* {WHITE}Double{BLACK}: + 48 units of Rum
-STR_BEACH_HELPTEXT					:Monthly production needs:{}* {WHITE}Base{BLACK}: 24 Workers and 24 units of Food{}* {WHITE}Double{BLACK}: + 24 units of Rum
+STR_PRIMARY_HELPTEXT                :Monthly production needs:{}* {WHITE}Base{BLACK}: None{}* {WHITE}Double{BLACK}: + 24 tons of Fertilizer
+STR_NICKEL_MINE_HELPTEXT            :Monthly production needs:{}* {WHITE}Base{BLACK}: 48 units of Fuel{}* {WHITE}Double{BLACK}: + 48 units of Machinery
+STR_OIL_WELLS_HELPTEXT              :Monthly production needs:{}* {WHITE}Base{BLACK}: 48 units of Pipe{}* {WHITE}Double{BLACK}: + 48 units of Machinery
+STR_HOTEL_HELPTEXT                  :Monthly production needs:{}* {WHITE}Base{BLACK}: 48 units of Food{}* {WHITE}Double{BLACK}: + 48 units of Rum
+STR_BEACH_HELPTEXT                  :Monthly production needs:{}* {WHITE}Base{BLACK}: 24 units of Food{}* {WHITE}Double{BLACK}: + 24 units of Rum
 
 STR_SUGAR_MILL_HELPTEXT				:Production needs {WHITE}per unit{BLACK} of sugarcane:{}* 1 worker{}{}Production {WHITE}per unit{BLACK} of sugarcane:{}* 1/2 unit of sugar{}* 1/8 unit of molasses
 STR_RUM_DISTILLERY_HELPTEXT			:Production needs {WHITE}per unit{BLACK} of molasses:{}* 1 worker{}{}Production {WHITE}per unit{BLACK} of molasses:{}* 1 unit of rum

@@ -115,23 +115,20 @@ switch (FEAT_INDUSTRIES, SELF, loc_check_tobacco_plantation, IsNotDesert() && In
 
 /* Boosted production if Fertilizier is supplied */
 produce (produce_tobacco_plantation_boosted,
-	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3; FERT: 3;],	// Consume
-	[TBCO: 24;],													// Produce
-	0 																// Don't run callback again
+	[FERT: 3;],     // Consume
+	[TBCO: 24;],    // Produce
+	0               // Don't run callback again
 	)
 
-/* Regular production uses at least 24 passengers/month, but will consume excess passengers so they don't build up */
+/* Regular production  */
 produce (produce_tobacco_plantation,
-	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3;],	// Consume
-	[TBCO: 12;],											// Produce
-	0 														// Don't run callback again
+	[],             // Consume
+	[TBCO: 12;],    // Produce
+	0               // Don't run callback again
 	)
 
 /* Check for Fertilizier for normal or boosted production */
-switch (FEAT_INDUSTRIES, SELF, switch_produce_tobacco_plantation_boosted, incoming_cargo_waiting("FERT") >= 3) {1: produce_tobacco_plantation_boosted; produce_tobacco_plantation;}
-
-/* Check for Workers for any production */
-switch (FEAT_INDUSTRIES, SELF, switch_produce_tobacco_plantation, incoming_cargo_waiting("PASS") >= 3) {1: switch_produce_tobacco_plantation_boosted; produce_none;}
+switch (FEAT_INDUSTRIES, SELF, switch_produce_tobacco_plantation, incoming_cargo_waiting("FERT") >= 3) {1: produce_tobacco_plantation_boosted; produce_tobacco_plantation;}
 
 item (FEAT_INDUSTRIES, industry_tobacco_plantation, 12)
 {
@@ -141,7 +138,6 @@ item (FEAT_INDUSTRIES, industry_tobacco_plantation, 12)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_TOBACCO_PLANTATION));
 		life_type: IND_LIFE_TYPE_ORGANIC;
 		cargo_types: [
-			accept_cargo("PASS"),
 			accept_cargo("FERT"),
 			produce_cargo("TBCO", 0),
 		];

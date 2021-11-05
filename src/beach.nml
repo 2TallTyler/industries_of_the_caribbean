@@ -352,23 +352,23 @@ item(FEAT_INDUSTRYTILES, beach_tile_SW_3) {
 
 /* Boosted production if Rum is supplied */
 produce (produce_beach_boosted,
-	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 4; FOOD: 4; BEER: 4;],	// Consume
-	[TOUR: 32;],																								// Produce
-	0 																										// Don't run callback again
+	[FOOD: 4; BEER: 4;],    // Consume
+	[TOUR: 32;],            // Produce
+	0                       // Don't run callback again
 	)
 
-/* Regular production uses at least 24 passengers/month, but will consume excess passengers (>200) so they don't build up */
+/* Regular production */
 produce (produce_beach,
-	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 4; FOOD: 4;],	// Consume
-	[TOUR: 16;],																				// Produce
-	0 																							// Don't run callback again
+	[FOOD: 4;],             // Consume
+	[TOUR: 16;],            // Produce
+	0                       // Don't run callback again
 	)
 
 /* Check for Rum for normal or boosted production */
 switch (FEAT_INDUSTRIES, SELF, switch_produce_beach_boosted, incoming_cargo_waiting("BEER") >= 4) {1: produce_beach_boosted; produce_beach;}
 
-/* Check for Workers and Food for any production */
-switch (FEAT_INDUSTRIES, SELF, switch_produce_beach, (incoming_cargo_waiting("FOOD") >= 4 && incoming_cargo_waiting("PASS") >= 4)) {1: switch_produce_beach_boosted; switch_produce_idle;}
+/* Check for Food for any production */
+switch (FEAT_INDUSTRIES, SELF, switch_produce_beach, (incoming_cargo_waiting("FOOD") >= 4)) {1: switch_produce_beach_boosted; switch_produce_idle;}
 
 item(FEAT_INDUSTRIES, industry_beach, 15) {
 	property {
@@ -378,7 +378,6 @@ item(FEAT_INDUSTRIES, industry_beach, 15) {
 		life_type: IND_LIFE_TYPE_ORGANIC;
 		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER, IND_FLAG_BUILT_NEAR_TOWN);
 		cargo_types:[
-			accept_cargo("PASS"),
 			accept_cargo("FOOD"),
 			accept_cargo("BEER"),
 			produce_cargo("TOUR", 0),

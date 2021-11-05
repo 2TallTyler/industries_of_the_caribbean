@@ -76,23 +76,20 @@ switch (FEAT_INDUSTRIES, SELF, loc_check_coffee_plantation, IsNotDesert() && Ind
 
 /* Boosted production if Fertilizier is supplied */
 produce (produce_coffee_plantation_boosted,
-	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3; FERT: 3;],	// Consume
-	[JAVA: 24;],																								// Produce
-	0 																										// Don't run callback again
+	[FERT: 3;],    // Consume
+	[JAVA: 24;],   // Produce
+	0              // Don't run callback again
 	)
 
-/* Regular production uses at least 24 passengers/month, but will consume excess passengers (>200) so they don't build up */
+/* Regular production  */
 produce (produce_coffee_plantation,
-	[PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3;],	// Consume
-	[JAVA: 12;],																					// Produce
-	0 																							// Don't run callback again
+	[],	           // Consume
+	[JAVA: 12;],   // Produce
+	0              // Don't run callback again
 	)
 
 /* Check for Fertilizier for normal or boosted production */
-switch (FEAT_INDUSTRIES, SELF, switch_produce_coffee_plantation_boosted, incoming_cargo_waiting("FERT") >= 3) {1: produce_coffee_plantation_boosted; produce_coffee_plantation;}
-
-/* Check for Workers for any production */
-switch (FEAT_INDUSTRIES, SELF, switch_produce_coffee_plantation, incoming_cargo_waiting("PASS") >= 3) {1: switch_produce_coffee_plantation_boosted; produce_none;}
+switch (FEAT_INDUSTRIES, SELF, switch_produce_coffee_plantation, incoming_cargo_waiting("FERT") >= 3) {1: produce_coffee_plantation_boosted; produce_coffee_plantation;}
 
 item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 {
@@ -102,7 +99,6 @@ item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_COFFEE_PLANTATION));
 		life_type: IND_LIFE_TYPE_ORGANIC;
 		cargo_types: [
-			accept_cargo("PASS"),
 			accept_cargo("FERT"),
 			produce_cargo("JAVA", 0),
 		];
