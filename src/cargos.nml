@@ -38,6 +38,9 @@ item (FEAT_CARGOS, cargo_workers, 0x00) {
 		station_list_colour:		152;
 		cargo_payment_list_colour:	152;
 	}
+	graphics {
+		profit:						CargoProfit();
+	}
 }
 
 // Uses Coal ID
@@ -62,6 +65,9 @@ item (FEAT_CARGOS, cargo_tourists, 0x01) {
 		capacity_multiplier:		4;
 		station_list_colour:		176;
 		cargo_payment_list_colour:	176;
+	}
+	graphics {
+		profit:						CargoProfit();
 	}
 }
 
@@ -88,6 +94,9 @@ item (FEAT_CARGOS, cargo_mail, 0x02) {
 		station_list_colour:		23;
 		cargo_payment_list_colour:	23;	
 	}
+	graphics {
+		profit:						CargoProfit();
+	}
 }
 
 // Uses Oil ID
@@ -112,6 +121,9 @@ item (FEAT_CARGOS, cargo_coffee, 0x03) {
 		price_factor:				170; // FIRS: 173
 		station_list_colour:		63;
 		cargo_payment_list_colour:	63;
+	}
+	graphics {
+		profit:						CargoProfit();
 	}
 }
 
@@ -138,6 +150,9 @@ item (FEAT_CARGOS, cargo_oil_domestic, 0x04) {
 		price_factor:				-40; // FIRS: 101
 		capacity_multiplier:		1;		
 	}
+	graphics {
+		profit:						CargoProfit();
+	}
 }
 
 // Rum uses Goods ID for cargo acceptance with old houses. ITL houses do not accept rum -- it must be exported.
@@ -162,6 +177,9 @@ item (FEAT_CARGOS, cargo_rum, 0x05) {
 		capacity_multiplier:		1;
 		station_list_colour:		61;
 		cargo_payment_list_colour:	61;
+	}
+	graphics {
+		profit:						CargoProfit();
 	}
 }
 
@@ -188,6 +206,9 @@ item (FEAT_CARGOS, cargo_sugarcane, 0x06) {
 		station_list_colour:		94;
 		cargo_payment_list_colour:	94;
 	}
+	graphics {
+		profit:						CargoProfit();
+	}
 }
 
 // Sugar in 0x07 Wood
@@ -212,6 +233,9 @@ item (FEAT_CARGOS, cargo_sugar, 0x07) {
 		capacity_multiplier:		1;
 		station_list_colour:		15;
 		cargo_payment_list_colour:	15;
+	}
+	graphics {
+		profit:						CargoProfit();
 	}
 }
 
@@ -238,6 +262,9 @@ item (FEAT_CARGOS, cargo_tobacco, 0x08) {
 		station_list_colour:		57;
 		cargo_payment_list_colour:	57;
 	}
+	graphics {
+		profit:						CargoProfit();
+	}
 }
 
 // Molasses in 0x0A Diamonds
@@ -262,6 +289,9 @@ item (FEAT_CARGOS, cargo_molasses, 0x0A) {
 		capacity_multiplier:		1;
 		station_list_colour:		106;
 		cargo_payment_list_colour:	106;
+	}
+	graphics {
+		profit:						CargoProfit();
 	}
 }
 
@@ -288,6 +318,9 @@ item (FEAT_CARGOS, cargo_cigars, 0x0B) {
 		station_list_colour:		36;
 		cargo_payment_list_colour:	36;
 	}
+	graphics {
+		profit:						CargoProfit();
+	}
 }
 
 // Original ID, required for compatibility with older NewGRF house sets which hard-code cargo acceptance to cargo IDs rather than "FOOD"
@@ -312,6 +345,9 @@ item (FEAT_CARGOS, cargo_food, 0x0C) {
 		capacity_multiplier:		1;
 		station_list_colour:		48;
 		cargo_payment_list_colour:	48;
+	}
+	graphics {
+		profit:						CargoProfit();
 	}
 }
 
@@ -338,6 +374,9 @@ item (FEAT_CARGOS, cargo_oil_imported, 0x0D) {
 		price_factor:				-80; // FIRS: 101
 		capacity_multiplier:		1;		
 	}
+	graphics {
+		profit:						CargoProfit();
+	}
 }
 
 // Fuel in 0x0E Copper Ore
@@ -362,6 +401,9 @@ item (FEAT_CARGOS, cargo_fuel, 0x0E) {
 		capacity_multiplier:		1;
 		station_list_colour:		173;
 		cargo_payment_list_colour:	173;
+	}
+	graphics {
+		profit:						CargoProfit();
 	}
 }
 
@@ -388,6 +430,9 @@ item (FEAT_CARGOS, cargo_chemicals, 0x0F) {
 		station_list_colour:		175;
 		cargo_payment_list_colour:	175;		
 	}
+	graphics {
+		profit:						CargoProfit();
+	}
 }
 
 // Pipe in 0x10 Rubber
@@ -412,6 +457,9 @@ item (FEAT_CARGOS, cargo_pipe, 0x10) {
 		capacity_multiplier:		1;
 		station_list_colour:		132;
 		cargo_payment_list_colour:	132;
+	}
+	graphics {
+		profit:						CargoProfit();
 	}
 }
 
@@ -438,6 +486,9 @@ item (FEAT_CARGOS, cargo_nickel_ore, 0x11) {
 		station_list_colour:		8;
 		cargo_payment_list_colour:	8;
 	}
+	graphics {
+		profit:						CargoProfit();
+	}
 }
 
 // Nickel in 0x12 Toys
@@ -462,6 +513,9 @@ item (FEAT_CARGOS, cargo_nickel, 0x12) {
 		capacity_multiplier:		1;
 		station_list_colour:		11;
 		cargo_payment_list_colour:	11;
+	}
+	graphics {
+		profit:						CargoProfit();
 	}
 }
 
@@ -488,6 +542,9 @@ item (FEAT_CARGOS, cargo_cobalt, 0x13) {
 		station_list_colour:		158;
 		cargo_payment_list_colour:	158;
 	}
+	graphics {
+		profit:						CargoProfit();
+	}
 }
 
 // Fertilizer in 0x14 Sweets
@@ -513,6 +570,9 @@ item (FEAT_CARGOS, cargo_fertilizer, 0x14) {
 		station_list_colour:		118;
 		cargo_payment_list_colour:	118;
 	}
+	graphics {
+		profit:						CargoProfit();
+	}
 }
 
 // Machinery in 0x15 Toffee
@@ -537,5 +597,8 @@ item (FEAT_CARGOS, cargo_machinery, 0x15) {
 		capacity_multiplier:		1;
 		station_list_colour:		165;
 		cargo_payment_list_colour:	165;
+	}
+	graphics {
+		profit:						CargoProfit();
 	}
 }

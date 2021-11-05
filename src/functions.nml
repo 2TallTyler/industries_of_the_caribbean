@@ -75,3 +75,11 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_idle, incoming_cargo_waiting("PASS
  * @returns 1 if the tile is not a desert tile, else 0
  */
  switch (FEAT_INDUSTRIES, SELF, IsNotDesert, nearby_tile_terrain_type(0,0) != TILETYPE_DESERT) {1: return 1; return 0;}
+
+ /**
+  * Calculate the cargo profit if enabled in NewGRF parameters, or let the callback fail to use the default calculation.
+  * This function scales the payment by the map size, so larger maps give greater payments to avoid running costs eating your profits.
+  * Base game code scales this returned value by the cargo value and amount transported.
+  * @return a custom cargo profit if param_static_payments is enabled, else return CB_FAILED.
+  */
+switch (FEAT_CARGOS, SELF, CargoProfit, param_static_payments) {1: return 128 + (map_max_edge / 8); return CB_FAILED;}

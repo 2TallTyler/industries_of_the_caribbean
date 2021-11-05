@@ -5,6 +5,15 @@ grf {
 	url: string(STR_WEBSITE);
 	version: 5;
 	min_compatible_version: 1;
+
+	param 0 {
+		param_static_payments {
+			type: bool;
+			name: string(STR_PARAM_STATIC_PAYMENTS_NAME);
+			desc: string(STR_PARAM_STATIC_PAYMENTS_DESC);
+			def_value: 1;
+		}
+	}
 }
 
 /* Disable base game industries */

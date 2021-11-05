@@ -6,6 +6,10 @@ STR_GRF_DESC						:{ORANGE}A Cuban-inspired economy replacement.{}{}{RED}Warning
 
 STR_WEBSITE							:https://github.com/2TallTyler/industries_of_the_caribbean/blob/main/README.md
 
+STR_PARAM_STATIC_PAYMENTS_NAME                  :Static cargo payments
+STR_PARAM_STATIC_PAYMENTS_DESC                  :{LTBLUE}Default value: {ORANGE}On{}{WHITE}If enabled, cargo delivery payments do not depend on distance transported. This models a market of goods being bought and sold as opposed to transportation payments. Payments are scaled to map size: the larger the map, the greater the payments.
+
+
 STR_ERROR_GAME_VERSION				:{TITLE} requires OpenTTD version 1.10.0, JGR version 0.34, or better.
 STR_ERROR_NO_ITL					:{TITLE} requires Improved Town Layouts version 1.4.0 or better.
 STR_ERROR_INCOMPATIBLE_SET			:{YELLOW}{TITLE}{WHITE} is incompatible with {YELLOW}{STRING}{WHITE}.

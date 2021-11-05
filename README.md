@@ -18,6 +18,8 @@ Your island has fertile soil and rich deposits of oil and nickel, but no process
 * Tourists -> Machinery
 
 ## Cargo types
+Unlike in most OpenTTD economies, cargo payments do not depend on the distance transported. This models the player controlling a state-run import/export economy rather than simply a transport company.
+
 #### Exported cargos
 These are exported to the Import/Export industry where they are traded for other cargos. These make significant profit.
 
