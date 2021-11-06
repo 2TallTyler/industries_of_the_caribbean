@@ -92,8 +92,8 @@ item (FEAT_INDUSTRIES, industry_sugarcane_plantation, 3)
 			accept_cargo("FERT"),
 			produce_cargo("SGCN", 0),
 		];
-		conflicting_ind_types: [industry_sugarcane_plantation, industry_tobacco_plantation, industry_coffee_plantation]; // FIXME: Add plantations which plant fields around them
-		prob_map_gen: 10; // FIXME: Adjust as necessary
+		conflicting_ind_types: [industry_sugarcane_plantation, industry_tobacco_plantation, industry_coffee_plantation];
+		prob_map_gen: 10;
 		prob_in_game: 0;
 		map_colour: 94;
 		prospect_chance: 1;

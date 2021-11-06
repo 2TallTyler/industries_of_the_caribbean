@@ -108,8 +108,8 @@ item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 			tilelayout_coffee_plantation_3,
 			tilelayout_coffee_plantation_4
 		];
-		conflicting_ind_types: [industry_coffee_plantation, industry_sugarcane_plantation]; // FIXME: Add plantations which plant fields around them
-		prob_map_gen: 10; // FIXME: Adjust as necessary
+		conflicting_ind_types: [industry_coffee_plantation, industry_sugarcane_plantation];
+		prob_map_gen: 10;
 		prob_in_game: 0;
 		map_colour: 63;
 		prospect_chance: 1;

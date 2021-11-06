@@ -51,7 +51,7 @@ item (FEAT_INDUSTRIES, industry_import_export_0, 8) {
 		layouts: [
 			tilelayout_import_export
 		];
-		prob_map_gen: 1; // FIXME: Adjust as necessary
+		prob_map_gen: 1;
 		prob_in_game: 0;
 		map_colour: 15;
 		prospect_chance: 1;

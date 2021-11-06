@@ -158,7 +158,7 @@ item (FEAT_INDUSTRIES, industry_oil_wells, 16)
 			accept_cargo("ENSP"),
 			produce_cargo("OILD", 0)
 		];
-		prob_map_gen: 1; // FIXME: Adjust as necessary
+		prob_map_gen: 1;
 		prob_in_game: 0;
 		fund_cost_multiplier: 5;
 		map_colour: 171;
