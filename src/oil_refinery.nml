@@ -206,6 +206,10 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_refinery, (incoming_cargo_wait
 	switch_produce_oil_refinery_imported;
 }
 
+/* Construction check */
+switch (FEAT_INDUSTRIES, SELF, loc_check_oil_refinery, IsBeingFunded() || (!param_primary_only && IsNearTown() && TownHasSecondaryPopulation() && NoNearbyCompetitors(industry_oil_refinery, 128)))
+	{1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW;}
+
 item (FEAT_INDUSTRIES, industry_oil_refinery, 5)
 {
 	property {
@@ -224,18 +228,19 @@ item (FEAT_INDUSTRIES, industry_oil_refinery, 5)
 			accept_cargo("OILI"),
 			produce_cargo("FUEL", 0),
 		];
-		prob_map_gen: 0;
+		prob_map_gen: (param_primary_only) ? 0 : 1;
 		prob_in_game: 0;
 		fund_cost_multiplier: 5;
 		map_colour: 173;
 	}
 	graphics {
+		location_check: loc_check_oil_refinery;
 		produce_cargo_arrival: switch_produce_oil_refinery;
 		/* Don't allow any production changes */
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		extra_text_industry: string(STR_OIL_REFINERY_HELPTEXT);
 		extra_text_fund: string(STR_OIL_REFINERY_FUNDTEXT);
-		colour: founder_colour1;
+		colour: (founder == FOUNDER_GAME) ? COLOUR_PURPLE : founder_colour1;
 	}
 }

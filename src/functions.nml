@@ -10,6 +10,43 @@
 switch (FEAT_INDUSTRIES, SELF, IndustryElevationCheck, min_z, max_z, nearby_tile_height(0,0) >= min_z && nearby_tile_height(0,0) <= max_z) {return;}
 
 /**
+ * Checks if an industrytile is on a non-desert tile
+ * @returns 1 if the tile is not a desert tile, else 0
+ */
+ switch (FEAT_INDUSTRIES, SELF, IsNotDesert, nearby_tile_terrain_type(0,0) != TILETYPE_DESERT) {return;}
+
+/**
+ * Bypass location check requirements if the industry is being funded or if we're in Scenario Editor.
+ * @return 1 if the industry is being funded or we're in Scenario Editor, else 0 (the industry is being generated during map generation or during a game).
+ */
+switch (FEAT_INDUSTRIES, SELF, IsBeingFunded, (extra_callback_info2 == IND_CREATION_FUND || game_mode == GAMEMODE_EDITOR)) {return;}
+
+/**
+ * Helper function for IsWithinDistanceToTown()
+ * Note: The sum of the radii is greater than simply the largest radii, but it means larger towns have a greater range for industry placement.
+ * @returns the sum of the town's townzone radii.
+ */
+ switch (FEAT_INDUSTRIES, PARENT, StoreTownRadii,   town_zone_0_radius_square +
+                                                    town_zone_1_radius_square +
+                                                    town_zone_2_radius_square +
+                                                    town_zone_3_radius_square +
+                                                    town_zone_4_radius_square) {return;}
+
+/**
+ * Checks the distance from an industry to its parent town.
+ * The townzone radii and Euclidean distance are both squared, so we need to sqaure the padding parameter to match.
+ * @param padding Area around the town where industries can spawn.
+ * @return 1 if the industry is within the given distance to the town, else 0.
+ */
+switch (FEAT_INDUSTRIES, SELF, IsWithinDistanceToTown, padding, (town_euclidean_dist(0,0) < ( (padding * padding) + StoreTownRadii()) ) ) {return;}
+
+/**
+ * Check if the industry is near a town - required for secondary industries.
+ * @return 1 if near a town, else 0.
+ */
+ switch (FEAT_INDUSTRIES, SELF, IsNearTown, IsWithinDistanceToTown(15)) {return;}
+
+/**
  * Check if an industry is unique in a town
  * @param id Industry ID to check
  * @return 1 if there are no industries of this type in a town, else 0
@@ -17,11 +54,30 @@ switch (FEAT_INDUSTRIES, SELF, IndustryElevationCheck, min_z, max_z, nearby_tile
 switch (FEAT_INDUSTRIES, SELF, IsUniqueInTown, id, industry_town_count(id) == 0) {return;}
 
 /**
- * Check if a town has sufficient population
- * @param pop The population required
- * @return 1 if the town population is greater than the input parameter, else 0
+ * Get a town's population.
+ * @return the population of the town.
  */
-switch (FEAT_INDUSTRIES, PARENT, TownHasPopulation, pop, population >= pop) {return;}
+ switch (FEAT_INDUSTRIES, PARENT, TownPopulation, population) {return;}
+
+/**
+ * Check if a town has a required population.
+ * @param required The required population.
+ * @return 1 if the town's population is over the given requirement, else 0.
+ */
+switch (FEAT_INDUSTRIES, SELF, TownHasPopulation, required, TownPopulation() > required) {return;}
+
+/**
+ * Check if a town has sufficient population to support a secondary industry.
+ * @param The required population, set by NewGRF Parameters
+ * @return 1 if the town has the required population, else 0.
+ */
+switch (FEAT_INDUSTRIES, SELF, TownHasSecondaryPopulation, TownPopulation() >= (param_secondary_pop + (param_secondary_pop * (industry_town_count(industry_sugar_mill) + industry_town_count(industry_cigar_factory) + industry_town_count(industry_rum_distillery) + industry_town_count(industry_oil_refinery) + industry_town_count(industry_nickel_smelter))))) {return;}
+
+/**
+ * Check if there are any industries of a given type within a given distance.
+ * @return 1 if there are no industries of the given type within the required distance, else 0.
+ */
+ switch (FEAT_INDUSTRIES, SELF, NoNearbyCompetitors, industrytype, required_distance, industry_distance(industrytype) > required_distance) {return;}
 
 /**
  * Check if a water-based industry is near land, or a land-based industry is near water
@@ -65,16 +121,11 @@ produce (produce_none, [], [])
 /* Consume idle workers (no cargo available to process) */ 
 produce (produce_idle_workers, [PASS: (incoming_cargo_waiting("PASS") > 200) ? (incoming_cargo_waiting("PASS") / 8) : 3;], [], 0)
 
+/* Check if we have idle workers to consume, else consume nothing. */
 switch (FEAT_INDUSTRIES, SELF, switch_produce_idle, incoming_cargo_waiting("PASS") > 0) {
 	1: produce_idle_workers;
 	produce_none;
 }
-
-/**
- * Checks if an industrytile is on a non-desert tile
- * @returns 1 if the tile is not a desert tile, else 0
- */
- switch (FEAT_INDUSTRIES, SELF, IsNotDesert, nearby_tile_terrain_type(0,0) != TILETYPE_DESERT) {1: return 1; return 0;}
 
  /**
   * Calculate the cargo profit if enabled in NewGRF parameters, or let the callback fail to use the default calculation.

@@ -14,6 +14,24 @@ grf {
 			def_value: 1;
 		}
 	}
+
+	param 1 {
+		param_primary_only {
+			type: bool;
+			name: string(STR_PARAM_PRIMARY_ONLY_NAME);
+			desc: string(STR_PARAM_PRIMARY_ONLY_DESC);
+			def_value: 0;
+		}
+	}
+
+	param 2 {
+		param_secondary_pop {
+			type: int;
+			name: string(STR_PARAM_SECONDARY_POP_NAME);
+			desc: string(STR_PARAM_SECONDARY_POP_DESC);
+			def_value: 500;
+		}
+	}
 }
 
 /* Disable base game industries */

@@ -51,6 +51,10 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_rum_distillery, (incoming_cargo_wa
 	switch_produce_idle;
 }
 
+/* Construction check */
+switch (FEAT_INDUSTRIES, SELF, loc_check_rum_distillery, IsBeingFunded() || (!param_primary_only && IsNearTown() && TownHasSecondaryPopulation() && NoNearbyCompetitors(industry_rum_distillery, 128)))
+	{1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW;}
+
 item (FEAT_INDUSTRIES, industry_rum_distillery, 11)
 {
 	property {
@@ -63,18 +67,19 @@ item (FEAT_INDUSTRIES, industry_rum_distillery, 11)
 			accept_cargo("MOLS"),
 			produce_cargo("BEER", 0)
 		];
-		prob_map_gen: 0;
+		prob_map_gen: (param_primary_only) ? 0 : 1;
 		prob_in_game: 0;
 		fund_cost_multiplier: 5; // 1.875 million GBP, twice Sugar Mill
 		map_colour: 61;
 	}
 	graphics {
+		location_check: loc_check_rum_distillery;
 		produce_cargo_arrival: switch_produce_rum_distillery;
 		/* Don't allow any production changes */
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		extra_text_industry: string(STR_RUM_DISTILLERY_HELPTEXT);
 		extra_text_fund: string(STR_RUM_DISTILLERY_FUNDTEXT);
-		colour: founder_colour1;
+		colour: (founder == FOUNDER_GAME) ? COLOUR_BROWN : founder_colour1;
 	}
 }
