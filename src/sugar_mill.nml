@@ -75,6 +75,7 @@ item (FEAT_INDUSTRIES, industry_sugar_mill, 4)
 	}
 	graphics {
 		location_check: loc_check_sugar_mill;
+		produce_256_ticks: switch_produce_idle;
 		produce_cargo_arrival: switch_produce_sugar_mill;
 		/* Don't allow any production changes */
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;

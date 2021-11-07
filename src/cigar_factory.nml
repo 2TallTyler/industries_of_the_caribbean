@@ -74,6 +74,7 @@ item (FEAT_INDUSTRIES, industry_cigar_factory, 13)
 	}
 	graphics {
 		location_check: loc_check_cigar_factory;
+		produce_256_ticks: switch_produce_idle;
 		produce_cargo_arrival: switch_produce_cigar_factory;
 		/* Don't allow any production changes */
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;

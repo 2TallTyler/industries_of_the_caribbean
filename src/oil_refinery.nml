@@ -235,6 +235,7 @@ item (FEAT_INDUSTRIES, industry_oil_refinery, 5)
 	}
 	graphics {
 		location_check: loc_check_oil_refinery;
+		produce_256_ticks: switch_produce_idle;
 		produce_cargo_arrival: switch_produce_oil_refinery;
 		/* Don't allow any production changes */
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
