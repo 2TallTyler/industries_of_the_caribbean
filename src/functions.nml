@@ -127,7 +127,7 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_idle, incoming_cargo_waiting("PASS
 	produce_none;
 }
 
- /**
+/**
   * Calculate the cargo profit if enabled in NewGRF parameters, or let the callback fail to use the default calculation.
   * This function scales the payment by the map size, so larger maps give greater payments to avoid running costs eating your profits.
   * Base game code scales this returned value by the cargo value and amount transported.
