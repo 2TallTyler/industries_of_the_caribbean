@@ -130,6 +130,15 @@ produce (produce_tobacco_plantation,
 /* Check for Fertilizier for normal or boosted production */
 switch (FEAT_INDUSTRIES, SELF, switch_produce_tobacco_plantation, incoming_cargo_waiting("FERT") >= 3) {1: produce_tobacco_plantation_boosted; produce_tobacco_plantation;}
 
+/* Don't build up too large a stockpile */
+produce (produce_tobacco_plantation_stockpile,
+	[FERT: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+switch (FEAT_INDUSTRIES, SELF, switch_stockpile_tobacco_plantation, incoming_cargo_waiting("FERT") > 4096) {1: produce_tobacco_plantation_stockpile; produce_none;}
+
 item (FEAT_INDUSTRIES, industry_tobacco_plantation, 12)
 {
 	property {
@@ -158,6 +167,7 @@ item (FEAT_INDUSTRIES, industry_tobacco_plantation, 12)
 	}
 	graphics {
 		produce_256_ticks: switch_produce_tobacco_plantation;
+		produce_cargo_arrival: switch_stockpile_tobacco_plantation;
 		location_check: loc_check_tobacco_plantation;
 		/* Don't allow any production changes */
 		build_prod_change: 16; // 100% production

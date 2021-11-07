@@ -196,9 +196,35 @@ produce (produce_oil_refinery,
 	1 						// Run callback again
 	)
 
+/* Consume extra Oil (Imported) */
+produce (produce_oil_refinery_oil_imported_stockpile,
+	[OILI: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+/* Should we consume extra Oil (Imported)? */
+switch (FEAT_INDUSTRIES, SELF, switch_oil_refinery_stockpile_oil_imported, incoming_cargo_waiting("OILI") > 4096) {
+	1: produce_oil_refinery_oil_imported_stockpile;
+	produce_none;
+}
+
+/* Consume extra Oil (Domestic) */
+produce (produce_oil_refinery_oil_domestic_stockpile,
+	[OILD: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+/* Should we consume extra Oil (Domestic)? */
+switch (FEAT_INDUSTRIES, SELF, switch_oil_refinery_stockpile_oil_domestic, incoming_cargo_waiting("OILD") > 4096) {
+	1: produce_oil_refinery_oil_domestic_stockpile;
+	switch_oil_refinery_stockpile_oil_imported;
+}
+
 switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_refinery_imported, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("OILI") > 0)) {
 	1: produce_oil_refinery_imported;
-	switch_produce_idle;
+	switch_oil_refinery_stockpile_oil_domestic;
 }
 	
 switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_refinery, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("OILD") > 0)) {

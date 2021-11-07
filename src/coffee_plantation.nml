@@ -91,6 +91,15 @@ produce (produce_coffee_plantation,
 /* Check for Fertilizier for normal or boosted production */
 switch (FEAT_INDUSTRIES, SELF, switch_produce_coffee_plantation, incoming_cargo_waiting("FERT") >= 3) {1: produce_coffee_plantation_boosted; produce_coffee_plantation;}
 
+/* Don't build up too large a stockpile */
+produce (produce_coffee_plantation_stockpile,
+	[FERT: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+switch (FEAT_INDUSTRIES, SELF, switch_stockpile_coffee_plantation, incoming_cargo_waiting("FERT") > 4096) {1: produce_coffee_plantation_stockpile; produce_none;}
+
 item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 {
 	property {
@@ -117,6 +126,7 @@ item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 	}
 	graphics {
 		produce_256_ticks: switch_produce_coffee_plantation;
+		produce_cargo_arrival: switch_stockpile_coffee_plantation;
 		location_check: loc_check_coffee_plantation;
 		/* Don't allow any production changes */
 		build_prod_change: 16; // 100% production

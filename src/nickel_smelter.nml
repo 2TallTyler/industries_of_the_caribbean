@@ -65,10 +65,36 @@ produce (produce_nickel_smelter,
 	[NICK: 4;],						// Produce
 	1 								// Run callback again
 	)
-	
+
+/* Consume extra Chemicals */
+produce (produce_nickel_smelter_chemicals_stockpile,
+	[RFPR: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+/* Should we consume extra Chemicals? */
+switch (FEAT_INDUSTRIES, SELF, switch_nickel_smelter_stockpile_chemicals, incoming_cargo_waiting("RFPR") > 4096) {
+	1: produce_nickel_smelter_chemicals_stockpile;
+	produce_none;
+}
+
+/* Consume extra Nickel Ore */
+produce (produce_nickel_smelter_nickel_ore_stockpile,
+	[NKOR: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+/* Should we consume extra Nickel Ore? */
+switch (FEAT_INDUSTRIES, SELF, switch_nickel_smelter_stockpile_nickel_ore, incoming_cargo_waiting("NKOR") > 4096) {
+	1: produce_nickel_smelter_nickel_ore_stockpile;
+	switch_nickel_smelter_stockpile_chemicals;
+}
+
 switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_smelter, (incoming_cargo_waiting("PASS") >= 4 && incoming_cargo_waiting("NKOR") >= 4 && incoming_cargo_waiting("RFPR") > 0)) {
 	1: produce_nickel_smelter;
-	switch_produce_idle;
+	switch_nickel_smelter_stockpile_nickel_ore;
 }
 
 /* Construction check */

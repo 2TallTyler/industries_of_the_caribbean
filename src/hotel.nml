@@ -65,6 +65,32 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_hotel_boosted, incoming_cargo_wait
 /* Check for Food for any production */
 switch (FEAT_INDUSTRIES, SELF, switch_produce_hotel, (incoming_cargo_waiting("FOOD") >= 6)) {1: switch_produce_hotel_boosted; switch_produce_idle;}
 
+/* Consume extra Rum */
+produce (produce_hotel_rum_stockpile,
+	[BEER: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+/* Should we consume extra Rum? */
+switch (FEAT_INDUSTRIES, SELF, switch_hotel_stockpile_rum, incoming_cargo_waiting("BEER") > 4096) {
+	1: produce_hotel_rum_stockpile;
+	produce_none;
+}
+
+/* Consume extra Food */
+produce (produce_hotel_food_stockpile,
+	[FOOD: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+/* Should we consume extra Food? */
+switch (FEAT_INDUSTRIES, SELF, switch_hotel_stockpile_food, incoming_cargo_waiting("FOOD") > 4096) {
+	1: produce_hotel_food_stockpile;
+	switch_hotel_stockpile_rum;
+}
+
 /* Location check: Hotels must replace houses in a town with population at least 1,200. Limit one per town. 
  * NOTE: Check to replace houses is via spec_flags, not the location_check callback. 
 */
@@ -93,6 +119,7 @@ item (FEAT_INDUSTRIES, industry_hotel, 14)
 	}
 	graphics {
 		produce_256_ticks: switch_produce_hotel;
+		produce_cargo_arrival: switch_hotel_stockpile_food;
 		location_check: loc_check_hotel;
 		/* Don't allow any production changes */
 		build_prod_change: 16; // 100% production

@@ -45,10 +45,23 @@ produce (produce_rum_distillery,
 	[BEER: 1;],				// Produce
 	1 						// Run callback again
 	)
+
+/* Consume extra Molasses */
+produce (produce_rum_distillery_molasses_stockpile,
+	[MOLS: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+/* Don't stockpile too much Molasses */
+switch (FEAT_INDUSTRIES, SELF, switch_rum_distillery_stockpile, incoming_cargo_waiting("MOLS") > 4096) {
+	1: produce_rum_distillery_molasses_stockpile;
+	produce_none;
+}
 	
 switch (FEAT_INDUSTRIES, SELF, switch_produce_rum_distillery, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("MOLS") > 0)) {
 	1: produce_rum_distillery;
-	switch_produce_idle;
+	switch_rum_distillery_stockpile;
 }
 
 /* Construction check */

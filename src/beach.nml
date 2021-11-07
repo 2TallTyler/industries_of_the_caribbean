@@ -370,6 +370,32 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_beach_boosted, incoming_cargo_wait
 /* Check for Food for any production */
 switch (FEAT_INDUSTRIES, SELF, switch_produce_beach, (incoming_cargo_waiting("FOOD") >= 4)) {1: switch_produce_beach_boosted; switch_produce_idle;}
 
+/* Consume extra Rum */
+produce (produce_beach_rum_stockpile,
+	[BEER: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+/* Should we consume extra Rum? */
+switch (FEAT_INDUSTRIES, SELF, switch_beach_stockpile_rum, incoming_cargo_waiting("BEER") > 4096) {
+	1: produce_beach_rum_stockpile;
+	produce_none;
+}
+
+/* Consume extra Food */
+produce (produce_beach_food_stockpile,
+	[FOOD: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+/* Should we consume extra Food? */
+switch (FEAT_INDUSTRIES, SELF, switch_beach_stockpile_food, incoming_cargo_waiting("FOOD") > 4096) {
+	1: produce_beach_food_stockpile;
+	switch_beach_stockpile_rum;
+}
+
 item(FEAT_INDUSTRIES, industry_beach, 15) {
 	property {
 		substitute: 0;
@@ -404,6 +430,7 @@ item(FEAT_INDUSTRIES, industry_beach, 15) {
 	}
 	graphics {
 		produce_256_ticks: switch_produce_beach;
+		produce_cargo_arrival: switch_beach_stockpile_food;
 		/* Don't allow any production changes */
 		build_prod_change: 16; // 100% production
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;

@@ -81,6 +81,15 @@ produce (produce_sugarcane_plantation,
 /* Check for Fertilizier for normal or boosted production */
 switch (FEAT_INDUSTRIES, SELF, switch_produce_sugarcane_plantation, incoming_cargo_waiting("FERT") >= 3) {1: produce_sugarcane_plantation_boosted; produce_sugarcane_plantation;}
 
+/* Don't build up too large a stockpile */
+produce (produce_sugarcane_plantation_stockpile,
+	[FERT: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+switch (FEAT_INDUSTRIES, SELF, switch_stockpile_sugarcane_plantation, incoming_cargo_waiting("FERT") > 4096) {1: produce_sugarcane_plantation_stockpile; produce_none;}
+
 item (FEAT_INDUSTRIES, industry_sugarcane_plantation, 3)
 {
 	property {
@@ -101,6 +110,7 @@ item (FEAT_INDUSTRIES, industry_sugarcane_plantation, 3)
 	}
 	graphics {
 		produce_256_ticks: switch_produce_sugarcane_plantation;
+		produce_cargo_arrival: switch_stockpile_sugarcane_plantation;
 		location_check: loc_check_sugarcane_plantation;
 		/* Don't allow any production changes */
 		build_prod_change: 16; // 100% production

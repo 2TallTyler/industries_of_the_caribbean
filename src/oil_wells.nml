@@ -1,4 +1,4 @@
-/* Begin Nickel Mine */
+/* Begin Oil Wells */
 
 
 spritelayout sprlay_oil_wells_1_a { 
@@ -142,6 +142,32 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_wells_boosted, incoming_cargo_
 /* Check for sufficient Pipe to begin production */
 switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_wells, (incoming_cargo_waiting("PIPE") >= 6)) {1: switch_produce_oil_wells_boosted; produce_none;}
 
+/* Consume extra Machinery */
+produce (produce_oil_wells_machinery_stockpile,
+	[ENSP: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+/* Should we consume extra Machinery? */
+switch (FEAT_INDUSTRIES, SELF, switch_oil_wells_stockpile_machinery, incoming_cargo_waiting("ENSP") > 4096) {
+	1: produce_oil_wells_machinery_stockpile;
+	produce_none;
+}
+
+/* Consume extra Pipe */
+produce (produce_oil_wells_pipe_stockpile,
+	[PIPE: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+/* Should we consume extra Pipe? */
+switch (FEAT_INDUSTRIES, SELF, switch_oil_wells_stockpile_pipe, incoming_cargo_waiting("PIPE") > 4096) {
+	1: produce_oil_wells_pipe_stockpile;
+	switch_oil_wells_stockpile_machinery;
+}
+
 item (FEAT_INDUSTRIES, industry_oil_wells, 16)
 {
 	property {
@@ -165,6 +191,7 @@ item (FEAT_INDUSTRIES, industry_oil_wells, 16)
 	}
 	graphics {
 		produce_256_ticks: switch_produce_oil_wells;
+		produce_cargo_arrival: switch_oil_wells_stockpile_pipe;
 		/* Don't allow any production changes */
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;

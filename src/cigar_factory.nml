@@ -45,10 +45,23 @@ produce (produce_cigar_factory,
 	[CIGR: 1;],				// Produce
 	1 						// Run callback again
 	)
+
+/* Consume extra Tobacco */
+produce (produce_cigar_factory_tobacco_stockpile,
+	[TBCO: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+/* Don't stockpile too much Tobacco */
+switch (FEAT_INDUSTRIES, SELF, switch_cigar_factory_stockpile, incoming_cargo_waiting("TBCO") > 4096) {
+	1: produce_cigar_factory_tobacco_stockpile;
+	produce_none;
+}
 	
 switch (FEAT_INDUSTRIES, SELF, switch_produce_cigar_factory, (incoming_cargo_waiting("PASS") > 0 && incoming_cargo_waiting("TBCO") > 0)) {
 	1: produce_cigar_factory;
-	switch_produce_idle;
+	switch_cigar_factory_stockpile;
 }
 
 /* Construction check */

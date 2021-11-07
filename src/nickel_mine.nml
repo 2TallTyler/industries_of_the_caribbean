@@ -68,6 +68,32 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_mine_boosted, incoming_carg
 /* Check for sufficient Fuel to begin production */
 switch (FEAT_INDUSTRIES, SELF, switch_produce_nickel_mine, (incoming_cargo_waiting("FUEL") >= 6)) {1: switch_produce_nickel_mine_boosted; produce_none;}
 
+/* Consume extra Machinery */
+produce (produce_nickel_mine_machinery_stockpile,
+	[ENSP: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+/* Should we consume extra Machinery? */
+switch (FEAT_INDUSTRIES, SELF, switch_nickel_mine_stockpile_machinery, incoming_cargo_waiting("ENSP") > 4096) {
+	1: produce_nickel_mine_machinery_stockpile;
+	produce_none;
+}
+
+/* Consume extra Fuel */
+produce (produce_nickel_mine_fuel_stockpile,
+	[FUEL: 1;],               // Consume
+	[],                       // Produce
+	1                         // Run callback again
+	)
+
+/* Should we consume extra Fuel? */
+switch (FEAT_INDUSTRIES, SELF, switch_nickel_mine_stockpile_fuel, incoming_cargo_waiting("FUEL") > 4096) {
+	1: produce_nickel_mine_fuel_stockpile;
+	switch_nickel_mine_stockpile_machinery;
+}
+
 item (FEAT_INDUSTRIES, industry_nickel_mine, 6)
 {
 	property {
@@ -88,6 +114,7 @@ item (FEAT_INDUSTRIES, industry_nickel_mine, 6)
 	}
 	graphics {
 		produce_256_ticks: switch_produce_nickel_mine;
+		produce_cargo_arrival: switch_nickel_mine_stockpile_fuel;
 		location_check: loc_check_nickel_mine;
 		/* Don't allow any production changes */
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
