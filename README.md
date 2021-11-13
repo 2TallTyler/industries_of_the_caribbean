@@ -102,6 +102,12 @@ My personal favorites, if you don't have your own.
 ## Credits
 * Beach sprites: [Beach Objects](https://www.tt-forums.net/viewtopic.php?f=26&t=62258) by Quast65, GPL v3 license
 
+## Translations
+* English
+* French (arikover)
+
+To add a translation, please create a Pull Request!
+
 ## Design philosophy
 
 Industries of the Caribbean is an experimental industry/economy mod which aims to radically rethink the OpenTTD economy by breaking common design patterns and reclaiming “useless” features to add interesting gameplay.

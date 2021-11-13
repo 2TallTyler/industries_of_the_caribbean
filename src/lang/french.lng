@@ -1,0 +1,147 @@
+##grflangid 0x03
+##plural 0
+
+STR_GRF_NAME						:{TITLE} {VERSION}
+STR_GRF_DESC						:{ORANGE}Une économie inspirée de Cuba.{}{}{RED}Attention{NBSP}! {BLACK}Ce mod change les mécaniques du jeu, et est assez difficile. Visiter le site web pour en savoir plus.{}{}{BLACK}Crée par 2TallTyler.
+
+STR_WEBSITE							:https://github.com/2TallTyler/industries_of_the_caribbean/blob/main/README.md
+
+STR_PARAM_STATIC_PAYMENTS_NAME      :Prix fixe des cargaisons
+STR_PARAM_STATIC_PAYMENTS_DESC      :{LTBLUE}Par défaut: {ORANGE}Activé{}{WHITE}Quand ce paramètre est activé, le paiement des cargaisons ne dépend pas de la distance parcourue. Cela simule un marché de biens achetés et vendus plutôt qu'un prix de transport. Les versements sont proportionnels à la taille de la carte{NBSP}: plus la carte est grande, plus les paiements seront importants.
+
+STR_PARAM_PRIMARY_ONLY_NAME         :Générer des industries primaires uniquement
+STR_PARAM_PRIMARY_ONLY_DESC         :{LTBLUE}Par défaut: {ORANGE}Désactivé{}{WHITE}Quand ce paramètre est activé, seules des industries priamires (Plantation de Café, de Canne à Sucre et de Tabac, Puits de Pétrole, Mine de Nickel, Plage, Hôtel) seront générées en cours de jeu. Les industries secondaires devront être financées par les joueurs.
+
+STR_PARAM_SECONDARY_POP_NAME        :Population par industrie secondaire
+STR_PARAM_SECONDARY_POP_DESC        :{LTBLUE}Par défaut: {ORANGE}500{}{WHITE}La population requise pour chaque industrie secondaire (Raffinerie de Sucre, Fabrique de Cigares, Distillerie de Rhum, Raffinerie Pétrolière, Fonderie de Nickel).
+
+STR_ERROR_GAME_VERSION				:{TITLE} nécessite OpenTTD version 1.10.0, JGR version 0.34, ou ultérieure.
+STR_ERROR_NO_ITL					:{TITLE} nécessite Improved Town Layouts version 1.4.0 ou ultérieure.
+STR_ERROR_INCOMPATIBLE_SET			:{YELLOW}{TITLE}{WHITE} est incompatible avec {YELLOW}{STRING}{WHITE}.
+STR_ERROR_INFLATION					:{TITLE} ne fonctionne pas avec l'inflation.
+STR_ERROR_CLIMATE					:{TITLE} est conçu pour le climat sub-tropical.
+
+STR_NAME_OBJECT_MENU				:Industries
+
+STR_TOWN							:{STRING}
+STR_STATION							:{STRING} {STRING}
+
+STR_EMPTY							:
+
+STR_PRIMARY_HELPTEXT				:La production mensuelle requiert{NBSP}:{}* {WHITE}Base{BLACK}{NBSP}: Rien{}* {WHITE}Double{BLACK}{NBSP}: + 24 tonnes d'Engrais
+STR_NICKEL_MINE_HELPTEXT			:La production mensuelle requiert{NBSP}:{}* {WHITE}Base{BLACK}{NBSP}: 48 unités de Carburant{}* {WHITE}Double{BLACK}{NBSP}: + 48 unités de Machinerie
+STR_OIL_WELLS_HELPTEXT				:La production mensuelle requiert{NBSP}:{}* {WHITE}Base{BLACK}{NBSP}: 48 unités de Tuyauterie{}* {WHITE}Double{BLACK}{NBSP}: + 48 unités de Machinerie
+STR_HOTEL_HELPTEXT					:La production mensuelle requiert{NBSP}:{}* {WHITE}Base{BLACK}{NBSP}: 48 unités de Nourriture{}* {WHITE}Double{BLACK}{NBSP}: + 48 unités de Rhum
+STR_BEACH_HELPTEXT					:La production mensuelle requiert{NBSP}:{}* {WHITE}Base{BLACK}{NBSP}: 24 unités de Nourriture{}* {WHITE}Double{BLACK}{NBSP}: + 24 unités de Rhum
+
+STR_SUGAR_MILL_HELPTEXT				:La production requiert {WHITE}par unité{BLACK} de canne à sucre{NBSP}:{}* 1 travailleur{}{}Production {WHITE}par unité{BLACK} de canne à sucre{NBSP}:{}* 1/2 unité de sucre{}* 1/8 unité de mélasse
+STR_RUM_DISTILLERY_HELPTEXT			:La production requiert {WHITE}par unité{BLACK} de mélasse{NBSP}:{}* 1 travailleur{}{}Production {WHITE}par unité{BLACK} de mélasse{NBSP}:{}* 1 unité de rhum
+STR_CIGAR_FACTORY_HELPTEXT			:La production requiert {WHITE}par unité{BLACK} de tabac{NBSP}:{}* 1 travailleur{}{}Production {WHITE}par unité{BLACK} de tabac{NBSP}:{}* 1 unité de cigares
+STR_OIL_REFINERY_HELPTEXT			:La production requiert {WHITE}par unité{BLACK} de pétrole{NBSP}:{}* 1 travailleur{}{}Production {WHITE}par unité{BLACK} de pétrole{NBSP}:{}* 1 unité de carburant
+STR_NICKEL_SMELTER_HELPTEXT			:La production requiert {WHITE}par unité{BLACK} de minerai de nickel{NBSP}:{}* 1 travailleur{}* 1/4 unité de produits chimiques{}{}Production {WHITE}par unité{BLACK} de minerai de nickel{NBSP}:{}* 1 unité de nickel
+
+STR_IMPORT_EXPORT_HELPTEXT			:Accords commerciaux{NBSP}:{} {YELLOW}Café {BLACK}-> {YELLOW}Nourriture{} {YELLOW}Sucre {BLACK}-> {YELLOW}Pétrole{} {YELLOW}Nickel {BLACK}-> {YELLOW}Engrais{} {YELLOW}Cobalt {BLACK}-> {YELLOW}Tuyauterie{} {YELLOW}Cigares {BLACK}-> {YELLOW}Produits Chimiques{} {YELLOW}Touristes {BLACK}-> {YELLOW}Machinerie
+
+STR_CIGAR_FACTORY_FUNDTEXT			:{BLACK}{}La production requiert {WHITE}par unité{BLACK} de tabac{NBSP}:{}* 1 travailleur{}{}Production {WHITE}par unité{BLACK} de tabac{NBSP}:{}* 1 unité de cigares
+STR_HOTEL_FUNDTEXT					:{BLACK}{}La production mensuelle requiert{NBSP}:{}* {WHITE}Base{BLACK}{NBSP}: 48 Travailleurs et 48 unités de Nourriture{}* {WHITE}Double{BLACK}{NBSP}: + 48 unités de Rhum{}{}Doit être fondé dans une ville de plus de 1200 habitants, en remplaçant un bâtiment.
+STR_IMPORT_EXPORT_FUNDTEXT			:{BLACK}{}Exporte des marchandises pour en importer d'autres.{}{}Doit être fondé à une case du bord de la carte.
+STR_NICKEL_SMELTER_FUNDTEXT			:{BLACK}{}La production requiert {WHITE}par unité{BLACK} de minerai de nickel{NBSP}:{}* 1 travailleur{}* 1/4 unité de produits chimiques{}{}Production {WHITE}par unité{BLACK} de minerai de nickel{NBSP}:{}* 1 unité de nickel
+STR_OIL_REFINERY_FUNDTEXT			:{BLACK}{}La production requiert {WHITE}par unité{BLACK} de pétrole{NBSP}:{}* 1 travailleur{}{}Production {WHITE}par unité{BLACK} de pétrole{NBSP}:{}* 1 unité de carburant
+STR_RUM_DISTILLERY_FUNDTEXT			:{BLACK}{}La production requiert {WHITE}par unité{BLACK} de mélasse{NBSP}:{}* 1 travailleur{}{}Production {WHITE}par unité{BLACK} de mélasse{NBSP}:{}* 1 unité de rhum
+STR_SUGAR_MILL_FUNDTEXT				:{BLACK}{}La production requiert {WHITE}par unité{BLACK} de canne à sucre{NBSP}:{}* 1 travailleur{}{}Production {WHITE}par unité{BLACK} de canne à sucre{NBSP}:{}* 1/2 unité de sucre{}* 1/8 unité de mélasse
+
+STR_ERR_COFFEE_LOCATION				:Les Plantations de Café doivent être à une altitude minimale de 2, et pas dans le désert.
+STR_ERR_SUGARCANE_LOCATION			:Les Plantations de Canne à Sucre doivent être à une altitude de 1, et pas dans le désert.
+STR_ERR_TOBACCO_LOCATION			:Les Plantations de Tabac doivent être à une altitude de 1, et pas dans le désert.
+STR_ERR_NICKEL_MINE_LOCATION		:Les Mines de Nickel doivent être à une altitude minimale de 2.
+STR_ERR_IMPORT_EXPORT_LOCATION		:L'Import/Export doit être près du bord de la carte.
+STR_ERR_HOTEL_LOCATION				:Les Hôtels remplacent des maisons dans une ville d'au moins 1200 habitants. Un seul hôtel par ville.
+
+STR_COFFEE_PLANTATION				:Plantation de Café
+STR_SUGARCANE_PLANTATION			:Plantation de Canne à Sucre
+STR_TOBACCO_PLANTATION				:Plantation de Tabac
+STR_SUGAR_MILL						:Raffinerie de Sucre
+STR_CIGAR_FACTORY					:Fabrique de Cigares
+STR_RUM_DISTILLERY					:Distillerie de Rhum
+STR_OIL_REFINERY					:Raffinerie pétrolière
+STR_OIL_WELLS						:Puits de Pétrole
+STR_HOTEL							:Hôtel
+STR_BEACH							:Plage
+STR_NICKEL_MINE						:Mine de Nickel
+STR_NICKEL_SMELTER					:Fonderie de Nickel
+
+STR_IMPORT_EXPORT					:Import/Export
+
+STR_CARGO_NAME_WORKERS				:Travailleurs
+STR_CARGO_SINGULAR_WORKERS			:Travailleur
+STR_CARGO_ABBREV_WORKERS			:{TINYFONT}TV
+STR_CARGO_QUANTITY_WORKERS			:{COMMA} travailleur{P "" s}
+
+STR_CARGO_NAME_TOURISTS				:Touristes
+STR_CARGO_SINGULAR_TOURISTS			:Touriste
+STR_CARGO_ABBREV_TOURISTS			:{TINYFONT}TO
+STR_CARGO_QUANTITY_TOURISTS			:{COMMA} touriste{P "" s}
+
+STR_CARGO_NAME_COFFEE				:Café
+STR_CARGO_ABBREV_COFFEE				:{TINYFONT}CF
+STR_CARGO_QUANTITY_COFFEE			:{WEIGHT} de café
+
+STR_CARGO_NAME_SUGARCANE			:Canne à Sucre
+STR_CARGO_ABBREV_SUGARCANE			:{TINYFONT}CS
+STR_CARGO_QUANTITY_SUGARCANE		:{WEIGHT} de canne à sucre
+
+STR_CARGO_NAME_TOBACCO				:Tabac
+STR_CARGO_ABBREV_TOBACCO			:{TINYFONT}TB
+STR_CARGO_QUANTITY_TOBACCO			:{WEIGHT} de tabac
+
+STR_CARGO_NAME_MOLASSES				:Mélasse
+STR_CARGO_ABBREV_MOLASSES			:{TINYFONT}ML
+STR_CARGO_QUANTITY_MOLASSES			:{WEIGHT} de mélasse
+
+STR_CARGO_NAME_RUM					:Rhum
+STR_CARGO_ABBREV_RUM				:{TINYFONT}RM
+STR_CARGO_QUANTITY_RUM				:{WEIGHT} de rhum
+
+STR_CARGO_NAME_CIGARS				:Cigares
+STR_CARGO_ABBREV_CIGARS				:{TINYFONT}CI
+STR_CARGO_QUANTITY_CIGARS			:{WEIGHT} de cigares
+
+STR_CARGO_NAME_PIPE					:Tuyauterie
+STR_CARGO_ABBREV_PIPE				:{TINYFONT}TU
+STR_CARGO_QUANTITY_PIPE				:{WEIGHT} de tuyauterie
+
+STR_CARGO_NAME_FUEL					:Carburant
+STR_CARGO_ABBREV_FUEL				:{TINYFONT}CB
+STR_CARGO_QUANTITY_FUEL				:{WEIGHT} de carburant
+
+STR_CARGO_NAME_OIL_DOMESTIC			:Pétrole (local)
+STR_CARGO_ABBREV_OIL_DOMESTIC		:{TINYFONT}PL
+STR_CARGO_QUANTITY_OIL_DOMESTIC		:{WEIGHT} de pétrole (local)
+
+STR_CARGO_NAME_OIL_IMPORTED			:Pétrole (importé)
+STR_CARGO_ABBREV_OIL_IMPORTED		:{TINYFONT}PI
+STR_CARGO_QUANTITY_OIL_IMPORTED		:{WEIGHT} de pétrole (importé)
+
+STR_CARGO_NAME_CHEMICALS			:Produits Chimiques
+STR_CARGO_ABBREV_CHEMICALS			:{TINYFONT}CH
+STR_CARGO_QUANTITY_CHEMICALS		:{WEIGHT} de produits chimiques
+
+STR_CARGO_NAME_NICKEL_ORE			:Minerai de Nickel
+STR_CARGO_ABBREV_NICKEL_ORE			:{TINYFONT}MN
+STR_CARGO_QUANTITY_NICKEL_ORE		:{WEIGHT} de minerai de nickel
+
+STR_CARGO_NAME_NICKEL				:Nickel
+STR_CARGO_ABBREV_NICKEL				:{TINYFONT}NI
+STR_CARGO_QUANTITY_NICKEL			:{WEIGHT} de nickel
+
+STR_CARGO_NAME_COBALT				:Cobalt
+STR_CARGO_ABBREV_COBALT				:{TINYFONT}CO
+STR_CARGO_QUANTITY_COBALT			:{WEIGHT} de cobalt
+
+STR_CARGO_NAME_FERTILIZER			:Engrais
+STR_CARGO_ABBREV_FERTILIZER			:{TINYFONT}EN
+STR_CARGO_QUANTITY_FERTILIZER		:{WEIGHT} d'engrais
+
+STR_CARGO_NAME_MACHINERY			:Machinerie
+STR_CARGO_ABBREV_MACHINERY			:{TINYFONT}MC
+STR_CARGO_QUANTITY_MACHINERY		:{WEIGHT} de machinerie
