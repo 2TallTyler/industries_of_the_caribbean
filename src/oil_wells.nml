@@ -168,6 +168,13 @@ switch (FEAT_INDUSTRIES, SELF, switch_oil_wells_stockpile_pipe, incoming_cargo_w
 	switch_oil_wells_stockpile_machinery;
 }
 
+/* Location check */
+switch (FEAT_INDUSTRIES, SELF, loc_check_oil_wells,
+    PlacedInScenarioEditor() ||
+    (AvoidIndustryType(industry_sugarcane_plantation, 32) && AvoidIndustryType(industry_oil_wells, 32))
+    )
+    {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_NICKEL_MINE_LOCATION);}
+
 item (FEAT_INDUSTRIES, industry_oil_wells, 16)
 {
 	property {
@@ -192,6 +199,7 @@ item (FEAT_INDUSTRIES, industry_oil_wells, 16)
 	graphics {
 		produce_256_ticks: switch_produce_oil_wells;
 		produce_cargo_arrival: switch_oil_wells_stockpile_pipe;
+        location_check: loc_check_oil_wells;
 		/* Don't allow any production changes */
 		monthly_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;
 		random_prod_change: CB_RESULT_IND_PROD_NO_CHANGE;

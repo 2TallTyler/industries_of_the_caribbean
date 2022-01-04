@@ -30,7 +30,7 @@ tilelayout tilelayout_import_export {
 
 switch (FEAT_INDUSTRIES, SELF, loc_check_import_export_0,
 	IsNearMapEdge() && 
-	((DistanceFromWaterOrLand(8) && industry_distance(industry_import_export_0) > 512) || IsFundedConstruction())
+	((DistanceFromWaterOrLand(8) && AvoidIndustryType(industry_import_export_0, 512)) || IsFundedConstruction())
 ) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_IMPORT_EXPORT_LOCATION);}
 
 item (FEAT_INDUSTRIES, industry_import_export_0, 8) {

@@ -61,8 +61,17 @@ item (FEAT_INDUSTRYTILES, tile_sugarcane_plantation_5)
 	}
 }
 
-/* Citrus groves only generate at elevation 1. */
-switch (FEAT_INDUSTRIES, SELF, loc_check_sugarcane_plantation, IsNotDesert() && IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_SUGARCANE_LOCATION);}
+/* Sugarcane Plantations only generate at elevation 1. */
+switch (FEAT_INDUSTRIES, SELF, loc_check_sugarcane_plantation,
+    PlacedInScenarioEditor() ||
+    (IsNotDesert() && IndustryElevationCheck(0, 1)
+    && AvoidIndustryType(industry_sugarcane_plantation, 32)
+    && AvoidIndustryType(industry_coffee_plantation, 32)
+    && AvoidIndustryType(industry_tobacco_plantation, 32)
+    && AvoidIndustryType(industry_oil_wells, 32)
+    && AvoidIndustryType(industry_nickel_mine, 32)
+    ))
+    {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_SUGARCANE_LOCATION);}
 
 /* Boosted production if Fertilizier is supplied */
 produce (produce_sugarcane_plantation_boosted,
@@ -101,7 +110,6 @@ item (FEAT_INDUSTRIES, industry_sugarcane_plantation, 3)
 			accept_cargo("FERT"),
 			produce_cargo("SGCN", 0),
 		];
-		conflicting_ind_types: [industry_sugarcane_plantation, industry_tobacco_plantation, industry_coffee_plantation];
 		prob_map_gen: 10;
 		prob_in_game: 0;
 		map_colour: 94;

@@ -72,7 +72,11 @@ tilelayout tilelayout_coffee_plantation_4 {
 }
 
 /* Coffee plantations must be at least height 2, no max limit. */
-switch (FEAT_INDUSTRIES, SELF, loc_check_coffee_plantation, IsNotDesert() && IndustryElevationCheck(2, 255)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_COFFEE_LOCATION);}
+switch (FEAT_INDUSTRIES, SELF, loc_check_coffee_plantation,
+    PlacedInScenarioEditor() ||
+    (IsNotDesert() && IndustryElevationCheck(2, 255) && AvoidIndustryType(industry_sugarcane_plantation, 32) && AvoidIndustryType(industry_coffee_plantation, 32))
+    )
+    {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_COFFEE_LOCATION);}
 
 /* Boosted production if Fertilizier is supplied */
 produce (produce_coffee_plantation_boosted,
@@ -117,7 +121,6 @@ item (FEAT_INDUSTRIES, industry_coffee_plantation, 0)
 			tilelayout_coffee_plantation_3,
 			tilelayout_coffee_plantation_4
 		];
-		conflicting_ind_types: [industry_coffee_plantation, industry_sugarcane_plantation];
 		prob_map_gen: 10;
 		prob_in_game: 0;
 		map_colour: 63;

@@ -65,7 +65,7 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_cigar_factory, (incoming_cargo_wai
 }
 
 /* Construction check */
-switch (FEAT_INDUSTRIES, SELF, loc_check_cigar_factory, IsBeingFunded() || (!param_primary_only && IsNearTown() && TownHasSecondaryPopulation() && NoNearbyCompetitors(industry_cigar_factory, 128)))
+switch (FEAT_INDUSTRIES, SELF, loc_check_cigar_factory, IsBeingFunded() || (!param_primary_only && IsNearTown() && TownHasSecondaryPopulation() && AvoidIndustryType(industry_cigar_factory, 128)))
 	{1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW;}
 
 item (FEAT_INDUSTRIES, industry_cigar_factory, 13)

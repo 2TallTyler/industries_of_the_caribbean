@@ -233,7 +233,7 @@ switch (FEAT_INDUSTRIES, SELF, switch_produce_oil_refinery, (incoming_cargo_wait
 }
 
 /* Construction check */
-switch (FEAT_INDUSTRIES, SELF, loc_check_oil_refinery, IsBeingFunded() || (!param_primary_only && IsNearTown() && TownHasSecondaryPopulation() && NoNearbyCompetitors(industry_oil_refinery, 128)))
+switch (FEAT_INDUSTRIES, SELF, loc_check_oil_refinery, IsBeingFunded() || (!param_primary_only && IsNearTown() && TownHasSecondaryPopulation() && AvoidIndustryType(industry_oil_refinery, 128)))
 	{1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW;}
 
 item (FEAT_INDUSTRIES, industry_oil_refinery, 5)

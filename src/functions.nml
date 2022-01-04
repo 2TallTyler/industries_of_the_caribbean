@@ -16,10 +16,16 @@ switch (FEAT_INDUSTRIES, SELF, IndustryElevationCheck, min_z, max_z, nearby_tile
  switch (FEAT_INDUSTRIES, SELF, IsNotDesert, nearby_tile_terrain_type(0,0) != TILETYPE_DESERT) {return;}
 
 /**
- * Bypass location check requirements if the industry is being funded or if we're in Scenario Editor.
- * @return 1 if the industry is being funded or we're in Scenario Editor, else 0 (the industry is being generated during map generation or during a game).
+ * Check if the industry is hand-placed in Scenario Editor (as opposed to "build many random industries")
+ * @return 1 if we're in Scenario Editor and the industry is being placed by hand, else 0.
  */
-switch (FEAT_INDUSTRIES, SELF, IsBeingFunded, (extra_callback_info2 == IND_CREATION_FUND || game_mode == GAMEMODE_EDITOR)) {return;}
+ switch (FEAT_INDUSTRIES, SELF, PlacedInScenarioEditor, game_mode == GAMEMODE_EDITOR && extra_callback_info2 != IND_CREATION_GENERATION) {return;}
+
+/**
+ * Check if the industry is being funded (either in-game or in Scenario Editor).
+ * @return 1 if the industry is being funded, else 0.
+ */
+switch (FEAT_INDUSTRIES, SELF, IsBeingFunded, extra_callback_info2 == IND_CREATION_FUND) {return;}
 
 /**
  * Helper function for IsWithinDistanceToTown()
@@ -77,7 +83,7 @@ switch (FEAT_INDUSTRIES, SELF, TownHasSecondaryPopulation, TownPopulation() >= (
  * Check if there are any industries of a given type within a given distance.
  * @return 1 if there are no industries of the given type within the required distance, else 0.
  */
- switch (FEAT_INDUSTRIES, SELF, NoNearbyCompetitors, industrytype, required_distance, industry_distance(industrytype) > required_distance) {return;}
+ switch (FEAT_INDUSTRIES, SELF, AvoidIndustryType, industrytype, required_distance, industry_distance(industrytype) > required_distance) {return;}
 
 /**
  * Check if a water-based industry is near land, or a land-based industry is near water

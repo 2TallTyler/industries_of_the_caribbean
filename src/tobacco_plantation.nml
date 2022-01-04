@@ -111,7 +111,11 @@ tilelayout tilelayout_tobacco_plantation_6 {
 }
 
 /* Tobacco Plantations only generate at elevation 1. */
-switch (FEAT_INDUSTRIES, SELF, loc_check_tobacco_plantation, IsNotDesert() && IndustryElevationCheck(0, 1)) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_TOBACCO_LOCATION);}
+switch (FEAT_INDUSTRIES, SELF, loc_check_tobacco_plantation,
+    PlacedInScenarioEditor() ||
+    (IsNotDesert() && IndustryElevationCheck(0, 1) && AvoidIndustryType(industry_sugarcane_plantation, 32) && AvoidIndustryType(industry_tobacco_plantation, 32))
+    )
+    {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_TOBACCO_LOCATION);}
 
 /* Boosted production if Fertilizier is supplied */
 produce (produce_tobacco_plantation_boosted,
@@ -158,7 +162,6 @@ item (FEAT_INDUSTRIES, industry_tobacco_plantation, 12)
 			tilelayout_tobacco_plantation_5,
 			tilelayout_tobacco_plantation_6
 		];
-		conflicting_ind_types: [industry_tobacco_plantation, industry_sugarcane_plantation];
 		prob_map_gen: 2;
 		prob_in_game: 0;
 		map_colour: 57;
