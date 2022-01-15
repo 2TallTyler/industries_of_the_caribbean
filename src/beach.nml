@@ -397,7 +397,7 @@ switch (FEAT_INDUSTRIES, SELF, switch_beach_stockpile_food, incoming_cargo_waiti
 }
 
 /* Construction check */
-switch (FEAT_INDUSTRIES, SELF, loc_check_beach, IsBeingFunded() || (IsNearTown() && AvoidIndustryType(industry_beach, 128)))
+switch (FEAT_INDUSTRIES, SELF, loc_check_beach, (IsBeingFunded() || (IsWithinDistanceToTown(30) && AvoidIndustryType(industry_beach, 128))))
 	{1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW;}
 
 item(FEAT_INDUSTRIES, industry_beach, 15) {
@@ -405,7 +405,7 @@ item(FEAT_INDUSTRIES, industry_beach, 15) {
 		substitute: 0;
 		name: string(STR_BEACH);
 		nearby_station_name: string(STR_STATION, string(STR_TOWN), string(STR_BEACH));
-		life_type: IND_LIFE_TYPE_ORGANIC;
+		life_type: IND_LIFE_TYPE_PROCESSING;
 		spec_flags: bitmask(IND_FLAG_BUILT_ON_WATER);
 		cargo_types:[
 			accept_cargo("FOOD"),
