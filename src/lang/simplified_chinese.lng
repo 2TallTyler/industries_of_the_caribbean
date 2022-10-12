@@ -2,12 +2,12 @@
 ##plural 0
 
 STR_GRF_NAME                        :{TITLE} {VERSION}
-STR_GRF_DESC                        :{ORANGE}A Cuban-inspired economy replacement.{}{}{RED}Warning! {BLACK}This mod changes core gameplay aspects, and is quite difficult. Please visit the website to learn more.{}{}{BLACK}Created by 2TallTyler.
+STR_GRF_DESC                        :{ORANGE}更加真实的工业环境,包含地图外贸易的经济,工厂需要员工才能高效运转,一部分产品是没有国产(无法生产)的,只能通过边境贸易.{}{}{RED}警告! {BLACK}这个Mod改变了游戏的核心玩法,较为困难,首次游玩请访问主页阅读详细说明(主页暂时没翻译 译者懒..).{}{}{BLACK}Created by 2TallTyler.
 
 STR_WEBSITE                         :https://github.com/2TallTyler/industries_of_the_caribbean/blob/main/README.md
 
-STR_PARAM_STATIC_PAYMENTS_NAME      :Static cargo payments
-STR_PARAM_STATIC_PAYMENTS_DESC      :{LTBLUE}Default value: {ORANGE}On{}{WHITE}If enabled, cargo delivery payments do not depend on distance transported. This models a market of goods being bought and sold as opposed to transportation payments. Payments are scaled to map size: the larger the map, the greater the payments.
+STR_PARAM_STATIC_PAYMENTS_NAME      :贸易设置
+STR_PARAM_STATIC_PAYMENTS_DESC      :{LTBLUE}默认值: {ORANGE}开启{}{WHITE}如果启用，货物交付款不取决于运输距离。
 
 STR_PARAM_PRIMARY_ONLY_NAME         :仅生成初级产业
 STR_PARAM_PRIMARY_ONLY_DESC         :{LTBLUE}默认值: {ORANGE}Off{}{WHITE}若关闭, 只会生成初级产业 (咖啡种植园, 甘蔗种植园, 烟叶种植园, 油井, 镍矿石, 度假沙滩, 酒店) 加工工厂必须由玩家建设(工业设施建设)
@@ -21,7 +21,7 @@ STR_ERROR_INCOMPATIBLE_SET          :{YELLOW}{TITLE}{WHITE} 不兼容 {YELLOW}{S
 STR_ERROR_INFLATION                 :{TITLE} 请关闭设置中的 通货膨胀.
 STR_ERROR_CLIMATE                   :{TITLE} 只能运行在沙漠地图.
 
-STR_NAME_OBJECT_MENU                :Industry Tiles
+STR_NAME_OBJECT_MENU                :工业菜单
 
 STR_TOWN                            :{STRING}
 STR_STATION                         :{STRING} {STRING}
