@@ -12,8 +12,8 @@ STR_PARAM_STATIC_PAYMENTS_DESC      :{LTBLUE}默认值: {ORANGE}开启{}{WHITE}�
 STR_PARAM_PRIMARY_ONLY_NAME         :仅生成初级产业
 STR_PARAM_PRIMARY_ONLY_DESC         :{LTBLUE}默认值: {ORANGE}Off{}{WHITE}若关闭, 只会生成初级产业 (咖啡种植园, 甘蔗种植园, 烟叶种植园, 油井, 镍矿石, 度假沙滩, 酒店) 加工工厂必须由玩家建设(工业设施建设)
 
-STR_PARAM_SECONDARY_POP_NAME        :加工工厂/城镇人口
-STR_PARAM_SECONDARY_POP_DESC        :{LTBLUE}默认值: {ORANGE}500{}{WHITE}支持每个加工工厂 (制糖厂, 烟草公司, 朗姆酒厂, 炼油厂, 镍矿加工厂).
+STR_PARAM_SECONDARY_POP_NAME        :加工工厂人口限制
+STR_PARAM_SECONDARY_POP_DESC        :{LTBLUE}默认值: {ORANGE}500{}{WHITE}高于人口设置的城市才会出现加工工厂,支持每个加工工厂 (制糖厂, 烟草公司, 朗姆酒厂, 炼油厂, 镍矿加工厂).
 
 STR_ERROR_GAME_VERSION              :{TITLE} OpenTTD 版本 1.10.0, JGR 版本 0.34, 或者更高.
 STR_ERROR_NO_ITL                    :{TITLE} 包含 ILT House 2.1 (Improved Town Layouts 已更名为 ILT House) 或更高
