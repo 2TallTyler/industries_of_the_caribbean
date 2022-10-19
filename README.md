@@ -1,5 +1,7 @@
 # Industries of the Caribbean
 
+([Read in Simplified Chinese](README-CN.md))
+
 Industries of the Caribbean models a state-run economy where you own the industries and production chain, in addition to the transport network. The economy is export-driven: unless you export a cargo, you don’t get paid for transporting it.
 
 Your island has fertile soil and rich deposits of oil and nickel, but no processing industries to produce valuable products.
@@ -104,6 +106,7 @@ My personal favorites, if you don't have your own.
 
 ## Translations
 * English
+* Simplified Chinese (chengdd1987)
 * French (arikover)
 
 To add a translation, please create a Pull Request!

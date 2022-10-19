@@ -1,0 +1,146 @@
+##grflangid 0x56
+
+STR_GRF_NAME                        :{TITLE} {VERSION}
+STR_GRF_DESC                        :{ORANGE}更加真实的工业环境,包含地图外贸易的经济,工厂需要员工才能高效运转,一部分产品是没有国产(无法生产)的,只能通过边境贸易.{}{}{RED}警告! {BLACK}这个Mod改变了游戏的核心玩法,较为困难,首次游玩请访问主页阅读详细说明(主页暂时没翻译 译者懒..).{}{}{BLACK}Created by 2TallTyler.
+
+STR_WEBSITE                         :https://github.com/2TallTyler/industries_of_the_caribbean/blob/main/README.md
+
+STR_PARAM_STATIC_PAYMENTS_NAME      :贸易设置
+STR_PARAM_STATIC_PAYMENTS_DESC      :{LTBLUE}默认值: {ORANGE}开启{}{WHITE}如果启用，货物交付款不取决于运输距离。
+
+STR_PARAM_PRIMARY_ONLY_NAME         :仅生成初级产业
+STR_PARAM_PRIMARY_ONLY_DESC         :{LTBLUE}默认值: {ORANGE}Off{}{WHITE}若关闭, 只会生成初级产业 (咖啡种植园, 甘蔗种植园, 烟叶种植园, 油井, 镍矿石, 度假沙滩, 酒店) 加工工厂必须由玩家建设(工业设施建设)
+
+STR_PARAM_SECONDARY_POP_NAME        :加工工厂人口限制
+STR_PARAM_SECONDARY_POP_DESC        :{LTBLUE}默认值: {ORANGE}500{}{WHITE}高于人口设置的城市才会出现加工工厂,支持每个加工工厂 (制糖厂, 烟草公司, 朗姆酒厂, 炼油厂, 镍矿加工厂).
+
+STR_ERROR_GAME_VERSION              :{TITLE} OpenTTD 版本 1.10.0, JGR 版本 0.34, 或者更高.
+STR_ERROR_NO_ITL                    :{TITLE} 包含 ILT House 2.1 (Improved Town Layouts 已更名为 ILT House) 或更高
+STR_ERROR_INCOMPATIBLE_SET          :{YELLOW}{TITLE}{WHITE} 不兼容 {YELLOW}{STRING}{WHITE}.
+STR_ERROR_INFLATION                 :{TITLE} 请关闭设置中的 通货膨胀.
+STR_ERROR_CLIMATE                   :{TITLE} 只能运行在沙漠地图.
+
+STR_NAME_OBJECT_MENU                :工业菜单
+
+STR_TOWN                            :{STRING}
+STR_STATION                         :{STRING} {STRING}
+
+STR_EMPTY                           :
+
+STR_PRIMARY_HELPTEXT                :月度生产需求:{}* {WHITE}基本{BLACK}: 无{}* {WHITE}双倍{BLACK}: + 24 吨肥料
+STR_NICKEL_MINE_HELPTEXT            :月度生产需求:{}* {WHITE}基本{BLACK}: 48 升燃料{}* {WHITE}双倍{BLACK}: + 48 个机械装置
+STR_OIL_WELLS_HELPTEXT              :月度生产需求:{}* {WHITE}基本{BLACK}: 48 个PC塑料管{}* {WHITE}双倍{BLACK}: + 48 个机械装置
+STR_HOTEL_HELPTEXT                  :月度生产需求:{}* {WHITE}基本{BLACK}: 48 箱食品{}* {WHITE}双倍{BLACK}: + 48 瓶朗姆酒
+STR_BEACH_HELPTEXT                  :月度生产需求:{}* {WHITE}基本{BLACK}: 24 箱食品{}* {WHITE}双倍{BLACK}: + 24 瓶朗姆酒
+
+STR_SUGAR_MILL_HELPTEXT             :生产需求 {WHITE}每捆{BLACK} 甘蔗:{}* 1 工人{}{}生产 {BLACK}每捆{BLACK} 甘蔗:{}* 1/2 包糖{}* 1/8 罐糖浆
+STR_RUM_DISTILLERY_HELPTEXT         :生产需求 {WHITE}每罐{BLACK} 糖浆:{}* 1 工人{}{}生产 {WHITE}每罐{BLACK} 糖浆:{}* 1 瓶朗姆酒
+STR_CIGAR_FACTORY_HELPTEXT          :生产需求 {WHITE}每包{BLACK} 烟叶:{}* 1 工人{}{}生产 {WHITE}每包{BLACK} 烟叶:{}* 1 盒雪茄
+STR_OIL_REFINERY_HELPTEXT           :生产需求 {WHITE}每桶{BLACK} 原油:{}* 1 工人{}{}生产 {WHITE}每桶{BLACK} 原油:{}* 1 升燃料
+STR_NICKEL_SMELTER_HELPTEXT         :生产需求 {WHITE}每吨{BLACK} 镍矿石:{}* 1 工人{}* 1/4 化工品{}{}生产 {WHITE}每吨{BLACK} of 镍矿石:{}* 1 吨镍
+
+STR_IMPORT_EXPORT_HELPTEXT          :外贸交易:{} {YELLOW}咖啡 {BLACK}-> {YELLOW}食品{} {YELLOW}糖 {BLACK}-> {YELLOW}原油{} {YELLOW}镍 {BLACK}-> {YELLOW}肥料{} {YELLOW}钴 {BLACK}-> {YELLOW}PC塑料管{} {YELLOW}雪茄 {BLACK}-> {YELLOW}化工品{} {YELLOW}旅客 {BLACK}-> {YELLOW}机械装置
+
+STR_CIGAR_FACTORY_FUNDTEXT          :{BLACK}{}生产需求 {WHITE}每包{BLACK} 烟叶:{}* 1 工人{}{}生产 {WHITE}每包{BLACK} 烟叶:{}* 1 盒雪茄
+STR_HOTEL_FUNDTEXT                  :{BLACK}{}月度生产需求:{}* {WHITE}基本{BLACK}: 48 工人 和 48 箱食品{}* {WHITE}双倍{BLACK}: + 48 瓶朗姆酒{}{}{BLACK}只能设立在人口 {WHITE}1,200 {BLACK}人以上的村庄,将会替代房屋.
+STR_IMPORT_EXPORT_FUNDTEXT          :{BLACK}{}出口产品换取进口产品.{}{}至少需要一个地图边缘是海洋.
+STR_NICKEL_SMELTER_FUNDTEXT         :{BLACK}{}生产需求 {WHITE}每吨{BLACK} 镍矿石:{}* 1 工人{}* 1/4 吨化学品{}{}生产 {WHITE}每吨{BLACK} 吨镍矿石:{}* 1 吨镍
+STR_OIL_REFINERY_FUNDTEXT           :{BLACK}{}生产需求 {WHITE}每桶{BLACK} 原油:{}* 1 工人{}{}生产 {WHITE}每桶{BLACK} 原油:{}* 1 升燃料
+STR_RUM_DISTILLERY_FUNDTEXT         :{BLACK}{}生产需求 {WHITE}每罐{BLACK} 糖浆:{}* 1 工人{}{}生产 {WHITE}每罐{BLACK} 糖浆:{}* 1 瓶朗姆酒
+STR_SUGAR_MILL_FUNDTEXT             :{BLACK}{}生产需求 {WHITE}每捆{BLACK} 甘蔗:{}* 1 工人{}{}生产 {WHITE}每捆{BLACK} 甘蔗:{}* 1/2 包糖{}* 1/8 罐糖浆
+
+STR_ERR_COFFEE_LOCATION             :咖啡种植园 必须建设在海拔2或更高的地方,不能建设在沙漠中.
+STR_ERR_SUGARCANE_LOCATION          :甘蔗种植园 必须建设在海拔1或更高的地方,不能建设在沙漠中.
+STR_ERR_TOBACCO_LOCATION            :烟叶种植园 必须建设在海拔1或更高的地方,不能建设在沙漠中.
+STR_ERR_NICKEL_MINE_LOCATION        :镍矿场 必须建设在海拔2或更高的地方.
+STR_ERR_IMPORT_EXPORT_LOCATION      :外贸进出口 必须设置在地图边缘.
+STR_ERR_HOTEL_LOCATION              :人口至少需要1,200,并且每个村庄只能有一个.
+
+STR_COFFEE_PLANTATION               :咖啡种植园
+STR_SUGARCANE_PLANTATION            :甘蔗种植园
+STR_TOBACCO_PLANTATION              :烟叶种植园
+STR_SUGAR_MILL                      :制糖厂
+STR_CIGAR_FACTORY                   :烟草公司
+STR_RUM_DISTILLERY                  :朗姆酒厂
+STR_OIL_REFINERY                    :炼油厂
+STR_OIL_WELLS                       :油井
+STR_HOTEL                           :酒店
+STR_BEACH                           :度假沙滩
+STR_NICKEL_MINE                     :镍矿场
+STR_NICKEL_SMELTER                  :镍矿加工厂
+
+STR_IMPORT_EXPORT                   :外贸进出口
+
+STR_CARGO_NAME_WORKERS              :工人
+STR_CARGO_SINGULAR_WORKERS          :工人
+STR_CARGO_ABBREV_WORKERS            :{TINYFONT}WK
+STR_CARGO_QUANTITY_WORKERS          :{COMMA} 工人{P "" s}
+
+STR_CARGO_NAME_TOURISTS             :旅客
+STR_CARGO_SINGULAR_TOURISTS         :旅客
+STR_CARGO_ABBREV_TOURISTS           :{TINYFONT}TR
+STR_CARGO_QUANTITY_TOURISTS         :{COMMA} 旅客{P "" s}
+
+STR_CARGO_NAME_COFFEE               :咖啡
+STR_CARGO_ABBREV_COFFEE             :{TINYFONT}CF
+STR_CARGO_QUANTITY_COFFEE           :{WEIGHT} 咖啡
+
+STR_CARGO_NAME_SUGARCANE            :甘蔗
+STR_CARGO_ABBREV_SUGARCANE          :{TINYFONT}SC
+STR_CARGO_QUANTITY_SUGARCANE        :{WEIGHT} 甘蔗
+
+STR_CARGO_NAME_TOBACCO              :烟叶
+STR_CARGO_ABBREV_TOBACCO            :{TINYFONT}TB
+STR_CARGO_QUANTITY_TOBACCO          :{WEIGHT} 烟叶
+
+STR_CARGO_NAME_MOLASSES             :糖浆
+STR_CARGO_ABBREV_MOLASSES           :{TINYFONT}ML
+STR_CARGO_QUANTITY_MOLASSES         :{WEIGHT} 糖浆
+
+STR_CARGO_NAME_RUM                  :朗姆酒
+STR_CARGO_ABBREV_RUM                :{TINYFONT}RM
+STR_CARGO_QUANTITY_RUM              :{WEIGHT} 朗姆酒
+
+STR_CARGO_NAME_CIGARS               :雪茄
+STR_CARGO_ABBREV_CIGARS             :{TINYFONT}CI
+STR_CARGO_QUANTITY_CIGARS           :{WEIGHT} 雪茄
+
+STR_CARGO_NAME_PIPE                 :PC塑料管
+STR_CARGO_ABBREV_PIPE               :{TINYFONT}PI
+STR_CARGO_QUANTITY_PIPE             :{WEIGHT} of PC塑料管
+
+STR_CARGO_NAME_FUEL                 :燃料
+STR_CARGO_ABBREV_FUEL               :{TINYFONT}FU
+STR_CARGO_QUANTITY_FUEL             :{WEIGHT} of 燃料
+
+STR_CARGO_NAME_OIL_DOMESTIC         :原油 (国产的)
+STR_CARGO_ABBREV_OIL_DOMESTIC       :{TINYFONT}OD
+STR_CARGO_QUANTITY_OIL_DOMESTIC     :{WEIGHT} 原油 (国产的)
+
+STR_CARGO_NAME_OIL_IMPORTED         :原油 (进口的)
+STR_CARGO_ABBREV_OIL_IMPORTED       :{TINYFONT}OI
+STR_CARGO_QUANTITY_OIL_IMPORTED     :{WEIGHT} 原油 (进口的)
+
+STR_CARGO_NAME_CHEMICALS            :化学品
+STR_CARGO_ABBREV_CHEMICALS          :{TINYFONT}CH
+STR_CARGO_QUANTITY_CHEMICALS        :{WEIGHT} 化学品
+
+STR_CARGO_NAME_NICKEL_ORE           :镍矿石
+STR_CARGO_ABBREV_NICKEL_ORE         :{TINYFONT}NO
+STR_CARGO_QUANTITY_NICKEL_ORE       :{WEIGHT} 镍矿石
+
+STR_CARGO_NAME_NICKEL               :镍
+STR_CARGO_ABBREV_NICKEL             :{TINYFONT}NI
+STR_CARGO_QUANTITY_NICKEL           :{WEIGHT} 镍
+
+STR_CARGO_NAME_COBALT               :钴
+STR_CARGO_ABBREV_COBALT             :{TINYFONT}CB
+STR_CARGO_QUANTITY_COBALT           :{WEIGHT} 钴
+
+STR_CARGO_NAME_FERTILIZER           :肥料
+STR_CARGO_ABBREV_FERTILIZER         :{TINYFONT}FT
+STR_CARGO_QUANTITY_FERTILIZER       :{WEIGHT} 肥料
+
+STR_CARGO_NAME_MACHINERY            :机械装置
+STR_CARGO_ABBREV_MACHINERY          :{TINYFONT}MC
+STR_CARGO_QUANTITY_MACHINERY        :{WEIGHT} 机械装置
