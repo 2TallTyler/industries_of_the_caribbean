@@ -32,7 +32,7 @@ These are obtained in exchange for exported cargos at the Import/Export industry
 These are all other cargos, including Workers and intermediate cargos which travel between industries. They make a slight loss. The one exception is Mail, which makes a normal profit.
 
 ## General industry mechanics
-All industries require Workers to produce cargo. Industries do not close or change production.
+Industries do not close or change production.
 
 #### Primary industries
 * Coffee Plantation
@@ -41,7 +41,7 @@ All industries require Workers to produce cargo. Industries do not close or chan
 * Oil Wells
 * Nickel Mine
 
-These industries generate naturally, sometimes with with elevation or distance from town requirements. They do not produce anything unless you deliver Workers and any other required base cargos (like Pipe for Oil Wells). Also delivering a boost cargo will double production. Boost cargos are stockpiled and consumed during each production tick (8-9 times per month) to determine how much cargo is produced.
+These industries generate naturally, sometimes with with elevation or distance from town requirements. Many require a cargo to be delivered for their production like Pipe for Oil Wells and Food for Hotels. Also delivering a boost cargo will double production. Boost cargos are stockpiled and consumed during each production tick (8-9 times per month) to determine how much cargo is produced.
 
 #### Secondary industries
 * Oil Refinery
@@ -140,6 +140,4 @@ So, what ~~weird and ill-advised~~ interesting things can we do to change this?
 
 * Primary industries have a fixed production much lower than FIRS, to encourage road vehicles and single-track rail lines to industries while still keeping enough production for busy trunk lines.
 * Only primary industries spawn on map generation, and all secondary industries are funded by the player — more on this later. Industries never change production or close, and only Hotels spawn during the game.
-* All industries require Workers (Passengers) for production. 
-    * Primary industries need a small but steady flow of workers from the nearest town, creating a pleasing network of local roads and bus routes and making towns relevant.
-    * Secondary industries need an immense supply of Workers: one per unit of cargo converted. Funding them requires you to think about worker supply and once built, you’ll need to grow cities and run commuter trains from nearby towns and cities.
+* Secondary industries need an immense supply of Workers: one per unit of cargo converted. Funding them requires you to think about worker supply and once built, you’ll need to grow cities and run commuter trains from nearby towns and cities.
