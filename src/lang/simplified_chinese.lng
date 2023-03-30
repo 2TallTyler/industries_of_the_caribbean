@@ -1,4 +1,5 @@
 ##grflangid 0x56
+##plural 0
 
 STR_GRF_NAME                        :{TITLE} {VERSION}
 STR_GRF_DESC                        :{ORANGE}更加真实的工业环境,包含地图外贸易的经济,工厂需要员工才能高效运转,一部分产品是没有国产(无法生产)的,只能通过边境贸易.{}{}{RED}警告! {BLACK}这个Mod改变了游戏的核心玩法,较为困难,首次游玩请访问主页阅读详细说明(主页暂时没翻译 译者懒..).{}{}{BLACK}Created by 2TallTyler.
