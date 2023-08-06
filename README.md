@@ -109,6 +109,7 @@ My personal favorites, if you don't have your own.
 * English
 * Simplified Chinese (chengdd1987)
 * French (arikover)
+* German (Fauleresel)
 
 To add a translation, please create a Pull Request!
 
