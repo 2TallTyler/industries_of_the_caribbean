@@ -35,21 +35,22 @@ These are all other cargos, including Workers and intermediate cargos which trav
 Industries do not close or change production.
 
 #### Primary industries
+* Beach
 * Coffee Plantation
+* Hotel
+* Nickel Mine
+* Oil Wells
 * Sugarcane Plantation
 * Tobacco Plantation
-* Oil Wells
-* Nickel Mine
 
 These industries generate naturally, sometimes with with elevation or distance from town requirements. Many require a cargo to be delivered for their production like Pipe for Oil Wells and Food for Hotels. Also delivering a boost cargo will double production. Boost cargos are stockpiled and consumed during each production tick (8-9 times per month) to determine how much cargo is produced.
 
 #### Secondary industries
+* Cigar Factory
+* Nickel Smelter
 * Oil Refinery
-* Sawmill
-* Furniture Factory
-* Paper Mill
-* Box Factory
-* Bakery
+* Rum Distillery
+* Sugar Mill
 
 These industries are funded by the player. They require one Worker for each unit of input cargo. If this seems like a lot, it is! Workers are the main production bottleneck and you'll need to both connect many towns to each industry, and deliver the necessary cargos to grow these towns.
 
