@@ -107,7 +107,7 @@ item (FEAT_CARGOS, cargo_coffee, 0x03) {
 		type_name:					string(STR_CARGO_NAME_COFFEE);
 		unit_name:					string(STR_CARGO_NAME_COFFEE);
 		type_abbreviation:			string(STR_CARGO_ABBREV_COFFEE);
-		weight:						0.25;
+		weight:						1;
 		is_freight:					1;
 		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS);
 		cargo_label:				"JAVA";
@@ -135,7 +135,7 @@ item (FEAT_CARGOS, cargo_oil_domestic, 0x04) {
 		type_name:					string(STR_CARGO_NAME_OIL_DOMESTIC);
 		unit_name:					string(STR_CARGO_NAME_OIL_DOMESTIC);
 		type_abbreviation:			string(STR_CARGO_ABBREV_OIL_DOMESTIC);
-		weight:						0.9;
+		weight:						1;
 		is_freight:					1;
 		cargo_classes:				bitmask(CC_LIQUID);
 		cargo_label:				"OILD";
@@ -163,7 +163,7 @@ item (FEAT_CARGOS, cargo_rum, 0x05) {
 		type_name:					string(STR_CARGO_NAME_RUM);
 		unit_name:					string(STR_CARGO_NAME_RUM);
 		type_abbreviation:			string(STR_CARGO_ABBREV_RUM);
-		weight:						0.5;
+		weight:						1;
 		is_freight:					1;
 		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS);
 		cargo_label:				"BEER";
@@ -303,7 +303,7 @@ item (FEAT_CARGOS, cargo_cigars, 0x0B) {
 		type_name:					string(STR_CARGO_NAME_CIGARS);
 		unit_name:					string(STR_CARGO_NAME_CIGARS);
 		type_abbreviation:			string(STR_CARGO_ABBREV_CIGARS);
-		weight:						0.5;
+		weight:						1;
 		is_freight:					1;
 		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS);
 		cargo_label:				"CIGR";
@@ -359,7 +359,7 @@ item (FEAT_CARGOS, cargo_oil_imported, 0x0D) {
 		type_name:					string(STR_CARGO_NAME_OIL_IMPORTED);
 		unit_name:					string(STR_CARGO_NAME_OIL_IMPORTED);
 		type_abbreviation:			string(STR_CARGO_ABBREV_OIL_IMPORTED);
-		weight:						0.9;
+		weight:						1;
 		is_freight:					1;
 		cargo_classes:				bitmask(CC_LIQUID);
 		cargo_label:				"OILI";
@@ -387,7 +387,7 @@ item (FEAT_CARGOS, cargo_fuel, 0x0E) {
 		type_name:					string(STR_CARGO_NAME_FUEL);
 		unit_name:					string(STR_CARGO_NAME_FUEL);
 		type_abbreviation:			string(STR_CARGO_ABBREV_FUEL);
-		weight:						0.8;
+		weight:						1;
 		is_freight:					1;
 		cargo_classes:				bitmask(CC_LIQUID);
 		cargo_label:				"FUEL";
@@ -415,7 +415,7 @@ item (FEAT_CARGOS, cargo_chemicals, 0x0F) {
 		type_name:					string(STR_CARGO_NAME_CHEMICALS);
 		unit_name:					string(STR_CARGO_NAME_CHEMICALS);
 		type_abbreviation:			string(STR_CARGO_ABBREV_CHEMICALS);
-		weight:						1.2;
+		weight:						1;
 		is_freight:					1;
 		cargo_classes:				bitmask(CC_LIQUID, CC_POWDERIZED);
 		cargo_label:				"RFPR";
@@ -583,7 +583,7 @@ item (FEAT_CARGOS, cargo_machinery, 0x15) {
 		type_name:					string(STR_CARGO_NAME_MACHINERY);
 		unit_name:					string(STR_CARGO_NAME_MACHINERY);
 		type_abbreviation:			string(STR_CARGO_ABBREV_MACHINERY);
-		weight:						0.65;
+		weight:						1;
 		is_freight:					1;
 		cargo_classes:				bitmask(CC_EXPRESS, CC_PIECE_GOODS);
 		cargo_label:				"ENSP";
