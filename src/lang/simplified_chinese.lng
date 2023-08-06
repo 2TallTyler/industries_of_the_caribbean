@@ -50,12 +50,7 @@ STR_OIL_REFINERY_FUNDTEXT           :{BLACK}{}生产需求 {WHITE}每桶{BLACK} 
 STR_RUM_DISTILLERY_FUNDTEXT         :{BLACK}{}生产需求 {WHITE}每罐{BLACK} 糖浆:{}* 1 工人{}{}生产 {WHITE}每罐{BLACK} 糖浆:{}* 1 瓶朗姆酒
 STR_SUGAR_MILL_FUNDTEXT             :{BLACK}{}生产需求 {WHITE}每捆{BLACK} 甘蔗:{}* 1 工人{}{}生产 {WHITE}每捆{BLACK} 甘蔗:{}* 1/2 包糖{}* 1/8 罐糖浆
 
-STR_ERR_COFFEE_LOCATION             :咖啡种植园 必须建设在海拔2或更高的地方,不能建设在沙漠中.
-STR_ERR_SUGARCANE_LOCATION          :甘蔗种植园 必须建设在海拔1或更高的地方,不能建设在沙漠中.
-STR_ERR_TOBACCO_LOCATION            :烟叶种植园 必须建设在海拔1或更高的地方,不能建设在沙漠中.
-STR_ERR_NICKEL_MINE_LOCATION        :镍矿场 必须建设在海拔2或更高的地方.
 STR_ERR_IMPORT_EXPORT_LOCATION      :外贸进出口 必须设置在地图边缘.
-STR_ERR_HOTEL_LOCATION              :人口至少需要1,200,并且每个村庄只能有一个.
 
 STR_COFFEE_PLANTATION               :咖啡种植园
 STR_SUGARCANE_PLANTATION            :甘蔗种植园

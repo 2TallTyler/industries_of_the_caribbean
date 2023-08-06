@@ -50,7 +50,7 @@ switch (FEAT_INDUSTRIES, SELF, loc_check_nickel_mine,
     IsBeingFunded() ||
     (IndustryElevationCheck(2, 255) && AvoidIndustryType(industry_sugarcane_plantation, 32) && AvoidIndustryType(industry_nickel_mine, 32))
     )
-    {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_NICKEL_MINE_LOCATION);}
+    {1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW;}
 
 /* Boosted production: 48 units of Fuel and 48 units of Machinery. */
 produce (produce_nickel_mine_boosted,

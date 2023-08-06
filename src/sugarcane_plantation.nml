@@ -65,7 +65,7 @@ switch (FEAT_INDUSTRIES, SELF, loc_check_sugarcane_plantation,
     && AvoidIndustryType(industry_oil_wells, 32)
     && AvoidIndustryType(industry_nickel_mine, 32)
     ))
-    {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_SUGARCANE_LOCATION);}
+    {1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW;}
 
 /* Boosted production if Fertilizier is supplied */
 produce (produce_sugarcane_plantation_boosted,

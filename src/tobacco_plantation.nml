@@ -115,7 +115,7 @@ switch (FEAT_INDUSTRIES, SELF, loc_check_tobacco_plantation,
     IsBeingFunded() ||
     (IsNotDesert() && IndustryElevationCheck(0, 1) && AvoidIndustryType(industry_sugarcane_plantation, 32) && AvoidIndustryType(industry_tobacco_plantation, 32))
     )
-    {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_TOBACCO_LOCATION);}
+    {1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW;}
 
 /* Boosted production if Fertilizier is supplied */
 produce (produce_tobacco_plantation_boosted,

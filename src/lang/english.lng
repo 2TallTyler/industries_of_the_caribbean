@@ -50,12 +50,7 @@ STR_OIL_REFINERY_FUNDTEXT			:{BLACK}{}Production needs {WHITE}per unit{BLACK} of
 STR_RUM_DISTILLERY_FUNDTEXT			:{BLACK}{}Production needs {WHITE}per unit{BLACK} of molasses:{}* 1 worker{}{}Production {WHITE}per unit{BLACK} of molasses:{}* 1 unit of rum
 STR_SUGAR_MILL_FUNDTEXT				:{BLACK}{}Production needs {WHITE}per unit{BLACK} of sugarcane:{}* 1 worker{}{}Production {WHITE}per unit{BLACK} of sugarcane:{}* 1/2 unit of sugar{}* 1/8 unit of molasses
 
-STR_ERR_COFFEE_LOCATION				:Coffee Plantations must be at elevation 2 or greater, and not on desert.
-STR_ERR_SUGARCANE_LOCATION			:Sugarcane Farms must be at elevation 1, and not on desert.
-STR_ERR_TOBACCO_LOCATION			:Tobacco Plantations must be at elevation 1, and not on desert.
-STR_ERR_NICKEL_MINE_LOCATION		:Nickel Mines must be at elevation 2 or greater.
 STR_ERR_IMPORT_EXPORT_LOCATION		:Import/Export must be near map edge.
-STR_ERR_HOTEL_LOCATION				:Hotels must replace houses in a town with population at least 1,200. Limit one per town.
 
 STR_COFFEE_PLANTATION				:Coffee Plantation
 STR_SUGARCANE_PLANTATION			:Sugarcane Plantation

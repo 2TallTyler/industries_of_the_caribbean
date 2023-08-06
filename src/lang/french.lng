@@ -50,12 +50,7 @@ STR_OIL_REFINERY_FUNDTEXT			:{BLACK}{}La production requiert {WHITE}par unité{B
 STR_RUM_DISTILLERY_FUNDTEXT			:{BLACK}{}La production requiert {WHITE}par unité{BLACK} de mélasse{NBSP}:{}* 1 travailleur{}{}Production {WHITE}par unité{BLACK} de mélasse{NBSP}:{}* 1 unité de rhum
 STR_SUGAR_MILL_FUNDTEXT				:{BLACK}{}La production requiert {WHITE}par unité{BLACK} de canne à sucre{NBSP}:{}* 1 travailleur{}{}Production {WHITE}par unité{BLACK} de canne à sucre{NBSP}:{}* 1/2 unité de sucre{}* 1/8 unité de mélasse
 
-STR_ERR_COFFEE_LOCATION				:Les Plantations de Café doivent être à une altitude minimale de 2, et pas dans le désert.
-STR_ERR_SUGARCANE_LOCATION			:Les Plantations de Canne à Sucre doivent être à une altitude de 1, et pas dans le désert.
-STR_ERR_TOBACCO_LOCATION			:Les Plantations de Tabac doivent être à une altitude de 1, et pas dans le désert.
-STR_ERR_NICKEL_MINE_LOCATION		:Les Mines de Nickel doivent être à une altitude minimale de 2.
 STR_ERR_IMPORT_EXPORT_LOCATION		:L'Import/Export doit être près du bord de la carte.
-STR_ERR_HOTEL_LOCATION				:Les Hôtels remplacent des maisons dans une ville d'au moins 1200 habitants. Un seul hôtel par ville.
 
 STR_COFFEE_PLANTATION				:Plantation de Café
 STR_SUGARCANE_PLANTATION			:Plantation de Canne à Sucre

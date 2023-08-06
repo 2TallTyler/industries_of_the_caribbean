@@ -94,7 +94,7 @@ switch (FEAT_INDUSTRIES, SELF, switch_hotel_stockpile_food, incoming_cargo_waiti
 /* Location check: Hotels must replace houses in a town with population at least 1,200. Limit one per town. 
  * NOTE: Check to replace houses is via spec_flags, not the location_check callback. 
 */
-switch (FEAT_INDUSTRIES, SELF, loc_check_hotel, IsUniqueInTown(14) && (IsBeingFunded() || TownHasPopulation(1200))) {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_HOTEL_LOCATION);}
+switch (FEAT_INDUSTRIES, SELF, loc_check_hotel, IsUniqueInTown(14) && (IsBeingFunded() || TownHasPopulation(1200))) {1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW;}
 
 item (FEAT_INDUSTRIES, industry_hotel, 14)
 {
