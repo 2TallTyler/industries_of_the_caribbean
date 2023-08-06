@@ -173,7 +173,7 @@ switch (FEAT_INDUSTRIES, SELF, loc_check_oil_wells,
     IsBeingFunded() ||
     (AvoidIndustryType(industry_sugarcane_plantation, 32) && AvoidIndustryType(industry_oil_wells, 32))
     )
-    {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_NICKEL_MINE_LOCATION);}
+    {1: return CB_RESULT_LOCATION_ALLOW; return CB_RESULT_LOCATION_DISALLOW;}
 
 item (FEAT_INDUSTRIES, industry_oil_wells, 16)
 {
