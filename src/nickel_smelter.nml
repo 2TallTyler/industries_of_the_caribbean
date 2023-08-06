@@ -5,7 +5,6 @@ item (FEAT_INDUSTRYTILES, tile_nickel_smelter_0)
 	property {
 		substitute: 52;
 		override: 52;
-		accepted_cargos: [[PASS, 8]];
 		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
@@ -15,7 +14,6 @@ item (FEAT_INDUSTRYTILES, tile_nickel_smelter_1)
 	property {
 		substitute: 53;
 		override: 53;
-		accepted_cargos: [[PASS, 8]];
 		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
@@ -25,7 +23,6 @@ item (FEAT_INDUSTRYTILES, tile_nickel_smelter_2)
 	property {
 		substitute: 54;
 		override: 54;
-		accepted_cargos: [[PASS, 8]];
 		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
@@ -35,7 +32,6 @@ item (FEAT_INDUSTRYTILES, tile_nickel_smelter_3)
 	property {
 		substitute: 55;
 		override: 55;
-		accepted_cargos: [[PASS, 8]];
 		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
@@ -45,7 +41,6 @@ item (FEAT_INDUSTRYTILES, tile_nickel_smelter_4)
 	property {
 		substitute: 56;
 		override: 56;
-		accepted_cargos: [[PASS, 8]];
 		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
@@ -55,7 +50,6 @@ item (FEAT_INDUSTRYTILES, tile_nickel_smelter_5)
 	property {
 		substitute: 57;
 		override: 57;
-		accepted_cargos: [[PASS, 8]];
 		special_flags: bitmask(INDTILE_FLAG_ACCEPT_ALL);
 	}
 }
