@@ -170,7 +170,7 @@ switch (FEAT_INDUSTRIES, SELF, switch_oil_wells_stockpile_pipe, incoming_cargo_w
 
 /* Location check */
 switch (FEAT_INDUSTRIES, SELF, loc_check_oil_wells,
-    PlacedInScenarioEditor() ||
+    IsBeingFunded() ||
     (AvoidIndustryType(industry_sugarcane_plantation, 32) && AvoidIndustryType(industry_oil_wells, 32))
     )
     {1: return CB_RESULT_LOCATION_ALLOW; return string(STR_ERR_NICKEL_MINE_LOCATION);}

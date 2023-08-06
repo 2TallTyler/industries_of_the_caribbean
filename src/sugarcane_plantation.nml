@@ -57,7 +57,7 @@ item (FEAT_INDUSTRYTILES, tile_sugarcane_plantation_5)
 
 /* Sugarcane Plantations only generate at elevation 1. */
 switch (FEAT_INDUSTRIES, SELF, loc_check_sugarcane_plantation,
-    PlacedInScenarioEditor() ||
+    IsBeingFunded() ||
     (IsNotDesert() && IndustryElevationCheck(0, 1)
     && AvoidIndustryType(industry_sugarcane_plantation, 32)
     && AvoidIndustryType(industry_coffee_plantation, 32)
