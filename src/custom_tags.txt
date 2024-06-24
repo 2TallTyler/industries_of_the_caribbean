@@ -1,2 +1,2 @@
-VERSION			:2.4
+VERSION			:2.5
 TITLE			:Industries of the Caribbean
