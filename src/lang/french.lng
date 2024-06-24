@@ -16,7 +16,7 @@ STR_PARAM_SECONDARY_POP_NAME        :Population par industrie secondaire
 STR_PARAM_SECONDARY_POP_DESC        :{LTBLUE}Par défaut: {ORANGE}500{}{WHITE}La population requise pour chaque industrie secondaire (Raffinerie de Sucre, Fabrique de Cigares, Distillerie de Rhum, Raffinerie Pétrolière, Fonderie de Nickel).
 
 STR_ERROR_GAME_VERSION				:{TITLE} nécessite OpenTTD version 1.10.0, JGR version 0.34, ou ultérieure.
-STR_ERROR_NO_ITL					:{TITLE} nécessite Improved Town Layouts version 1.4.0 ou ultérieure.
+STR_ERROR_NO_ITL					:{TITLE} nécessite ITL Houses version 1.4.0 ou ultérieure.
 STR_ERROR_INCOMPATIBLE_SET			:{YELLOW}{TITLE}{WHITE} est incompatible avec {YELLOW}{STRING}{WHITE}.
 STR_ERROR_INFLATION					:{TITLE} ne fonctionne pas avec l'inflation.
 STR_ERROR_CLIMATE					:{TITLE} est conçu pour le climat sub-tropical.

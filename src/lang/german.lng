@@ -16,7 +16,7 @@ STR_PARAM_SECONDARY_POP_NAME        :Stadteinwohnerzahl pro Industrie
 STR_PARAM_SECONDARY_POP_DESC        :{LTBLUE}Standardwert: {ORANGE}500{}{WHITE}Die Bevölkerungszahl, die benötigt wird um jede einzelne Industrie zu versorgen (Zuckerfabrik, Tabakverarbeitung, Rumbrennerei, Ölraffinerie, Nickelschmelze).
 
 STR_ERROR_GAME_VERSION				:{TITLE} benötigt OpenTTD Version 1.10.0, JGR Version 0.34, oder besser.
-STR_ERROR_NO_ITL					:{TITLE} benötigt "Improved Town Layouts" Version 1.4.0 oder besser.
+STR_ERROR_NO_ITL					:{TITLE} benötigt "ITL Houses" Version 1.4.0 oder besser.
 STR_ERROR_INCOMPATIBLE_SET			:{YELLOW}{TITLE}{WHITE} ist nicht kompatibel {YELLOW}{STRING}{WHITE}.
 STR_ERROR_INFLATION					:{TITLE} funktioniert nicht mit aktivierter Inflation.
 STR_ERROR_CLIMATE					:{TITLE} ist bestimmt für das sub-tropische Klima.

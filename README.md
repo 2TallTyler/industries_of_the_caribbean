@@ -83,7 +83,7 @@ Remember that imported cargos cost you money to transport — check the Cargo Pa
 
 #### Required NewGRFs
 
-* Improved Town Layouts 1.4.0 or later
+* ITL Houses 1.4.0 or later
   * (These houses don’t accept Workers or Food, keeping those cargos going only to your industries.)
 
 #### (Optional) Suggested NewGRFs

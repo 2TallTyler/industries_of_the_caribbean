@@ -16,7 +16,7 @@ STR_PARAM_SECONDARY_POP_NAME        :Town population per secondary industry
 STR_PARAM_SECONDARY_POP_DESC        :{LTBLUE}Default value: {ORANGE}500{}{WHITE}The population required to support each secondary industry (Sugar Mill, Cigar Factory, Rum Distillery, Oil Refinery, Nickel Smelter). Does not apply to player-funded industries.
 
 STR_ERROR_GAME_VERSION				:{TITLE} requires OpenTTD version 1.10.0, JGR version 0.34, or better.
-STR_ERROR_NO_ITL					:{TITLE} requires Improved Town Layouts version 1.4.0 or better.
+STR_ERROR_NO_ITL					:{TITLE} requires ITL Houses version 1.4.0 or better.
 STR_ERROR_INCOMPATIBLE_SET			:{YELLOW}{TITLE}{WHITE} is incompatible with {YELLOW}{STRING}{WHITE}.
 STR_ERROR_INFLATION					:{TITLE} does not work with Inflation enabled.
 STR_ERROR_CLIMATE					:{TITLE} is intended for the sub-tropical climate.
