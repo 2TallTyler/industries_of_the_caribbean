@@ -1,0 +1,141 @@
+##grflangid 0x0C
+
+STR_GRF_NAME                        :IOTC 加勒比海工業 {VERSION}
+STR_GRF_DESC                        :{TITLE} 是{ORANGE}古巴風格的工業套裝。{}{}{RED}警告！ {BLACK}本模組改變了遊戲的核心玩法，難度較大。首次遊玩請訪問主頁閱讀詳細說明。{}{}{BLACK}Created by 2TallTyler
+
+STR_WEBSITE                         :https://github.com/2TallTyler/industries_of_the_caribbean/blob/main/README.md
+
+STR_PARAM_STATIC_PAYMENTS_NAME      :恆定貨物運費
+STR_PARAM_STATIC_PAYMENTS_DESC      :{LTBLUE}默認值：{ORANGE}啟用{}{WHITE}啟用時貨物運費將不取決於運輸的距離。本設置旨在模擬貨物的買賣過程，而不是運輸過程。收入由地圖大小決定。地圖越大，收入越大，反之亦然。
+
+STR_PARAM_PRIMARY_ONLY_NAME         :僅生成初級產業
+STR_PARAM_PRIMARY_ONLY_DESC         :{LTBLUE}默認值：{ORANGE}關閉{}{WHITE}若關閉、只會生成初級產業（咖啡園、甘蔗園、煙葉園、油井、鎳礦石、度假沙灘、酒店）。二級產業必須由玩家建設。
+
+STR_PARAM_SECONDARY_POP_NAME        :加工廠人口限制
+STR_PARAM_SECONDARY_POP_DESC        :{LTBLUE}默認值：{ORANGE}500{}{WHITE}高於人口設置的城市才會出現加工廠，對所有加工廠都有效（製糖廠、煙草廠、朗姆酒廠、煉油廠、鎳礦加工廠）。不適用於玩家建設的工業。
+
+STR_ERROR_GAME_VERSION              :IOTC 加勒比海工業需要 OpenTTD 1.10.0、JGRPP 0.34 或更高版本。
+STR_ERROR_NO_ITL                    :IOTC 加勒比海工業需要 ITL 房屋 1.4.0 或更高版本。
+STR_ERROR_INCOMPATIBLE_SET          :{YELLOW}IOTC 加勒比海工業{WHITE}不兼容於{YELLOW}「{STRING}」{WHITE}。
+STR_ERROR_INFLATION                 :IOTC 加勒比海工業需要關閉通貨膨脹以運行。
+STR_ERROR_CLIMATE                   :IOTC 加勒比海工業只能在沙漠地圖中遊玩。
+
+STR_NAME_OBJECT_MENU                :工業道具
+
+STR_TOWN                            :{STRING}
+STR_STATION                         :{STRING} {STRING}
+
+STR_EMPTY                           :
+
+STR_PRIMARY_HELPTEXT                :月度生產需求：{}* {WHITE}基本{BLACK}：無{}* {WHITE}雙倍{BLACK}：+ 24 噸肥料
+STR_NICKEL_MINE_HELPTEXT            :月度生產需求：{}* {WHITE}基本{BLACK}：48 單位燃料{}* {WHITE}雙倍{BLACK}：+ 48 單位機械裝置
+STR_OIL_WELLS_HELPTEXT              :月度生產需求：{}* {WHITE}基本{BLACK}：48 單位管道{}* {WHITE}雙倍{BLACK}：+ 48 單位機械裝置
+STR_HOTEL_HELPTEXT                  :月度生產需求：{}* {WHITE}基本{BLACK}：48 單位食品{}* {WHITE}雙倍{BLACK}：+ 48 單位朗姆酒
+STR_BEACH_HELPTEXT                  :月度生產需求：{}* {WHITE}基本{BLACK}：24 單位食品{}* {WHITE}雙倍{BLACK}：+ 24 單位朗姆酒
+
+STR_SUGAR_MILL_HELPTEXT             :{WHITE}每單位{BLACK}甘蔗生產需求：{}* 1 位工人{}{}{BLACK}每單位{BLACK}甘蔗產品：{}* 1/2 單位糖{}* 1/8 單位糖漿
+STR_RUM_DISTILLERY_HELPTEXT         :{WHITE}每單位{BLACK}糖漿生產需求：{}* 1 位工人{}{}{WHITE}每單位{BLACK}糖漿產品：{}* 1 單位朗姆酒
+STR_CIGAR_FACTORY_HELPTEXT          :{WHITE}每單位{BLACK}煙葉生產需求：{}* 1 位工人{}{}{WHITE}每單位{BLACK}煙葉產品：{}* 1 單位雪茄
+STR_OIL_REFINERY_HELPTEXT           :{WHITE}每單位{BLACK}原油生產需求：{}* 1 位工人{}{}{WHITE}每單位{BLACK}原油產品：{}* 1 單位燃料
+STR_NICKEL_SMELTER_HELPTEXT         :{WHITE}每單位{BLACK}鎳礦石生產需求：{}* 1 位工人{}* 1/4 單位化工品{}{}{WHITE}每噸{BLACK}鎳礦石產品：{}* 1 單位鎳
+
+STR_IMPORT_EXPORT_HELPTEXT          :外貿交易：{} {YELLOW}咖啡 {BLACK}-> {YELLOW}食品{} {YELLOW}糖 {BLACK}-> {YELLOW}原油{} {YELLOW}鎳 {BLACK}-> {YELLOW}肥料{} {YELLOW}鈷 {BLACK}-> {YELLOW}管道{} {YELLOW}雪茄 {BLACK}-> {YELLOW}化工品{} {YELLOW}旅客 {BLACK}-> {YELLOW}機械裝置
+
+STR_CIGAR_FACTORY_FUNDTEXT          :{BLACK}{}{WHITE}每單位{BLACK}煙葉生產需求：{}* 1 位工人{}{}{WHITE}單位{BLACK}煙葉產品：{}* 1 單位雪茄
+STR_HOTEL_FUNDTEXT                  :{BLACK}{}月度生產需求：{}* {WHITE}基本{BLACK}：48 位工人和 48 單位食品{}* {WHITE}雙倍{BLACK}：+ 48 單位朗姆酒{}{}{BLACK}只能設立在人口{WHITE} 1,200 {BLACK}人以上的城鎮，將會替代房屋。
+STR_IMPORT_EXPORT_FUNDTEXT          :{BLACK}{}出口產品換取進口產品。{}{}至少需要一個地圖邊緣是海洋。
+STR_NICKEL_SMELTER_FUNDTEXT         :{BLACK}{}{WHITE}每噸{BLACK}鎳礦石生產需求：{}* 1 位工人{}* 1/4 噸化學品{}{}{WHITE}每噸{BLACK}鎳礦石產品：{}* 1 噸鎳
+STR_OIL_REFINERY_FUNDTEXT           :{BLACK}{}{WHITE}每桶{BLACK}原油生產需求：{}* 1 位工人{}{}{WHITE}每桶{BLACK}原油產品：{}* 1 單位燃料
+STR_RUM_DISTILLERY_FUNDTEXT         :{BLACK}{}{WHITE}每罐{BLACK}糖漿生產需求：{}* 1 位工人{}{}{WHITE}每罐{BLACK}糖漿產品：{}* 1 單位朗姆酒
+STR_SUGAR_MILL_FUNDTEXT             :{BLACK}{}{WHITE}每捆{BLACK}甘蔗生產需求：{}* 1 位工人{}{}{WHITE}每捆{BLACK}甘蔗產品：{}* 1/2 單位糖{}* 1/8 單位糖漿
+
+STR_ERR_IMPORT_EXPORT_LOCATION      :外貿進出口必須設置在地圖邊緣。
+
+STR_COFFEE_PLANTATION               :咖啡園
+STR_SUGARCANE_PLANTATION            :甘蔗園
+STR_TOBACCO_PLANTATION              :煙葉園
+STR_SUGAR_MILL                      :製糖廠
+STR_CIGAR_FACTORY                   :煙草廠
+STR_RUM_DISTILLERY                  :朗姆酒廠
+STR_OIL_REFINERY                    :煉油廠
+STR_OIL_WELLS                       :油井
+STR_HOTEL                           :酒店
+STR_BEACH                           :沙灘
+STR_NICKEL_MINE                     :鎳礦場
+STR_NICKEL_SMELTER                  :鎳礦加工廠
+
+STR_IMPORT_EXPORT                   :外貿進出口
+
+STR_CARGO_NAME_WORKERS              :工人
+STR_CARGO_SINGULAR_WORKERS          :工人
+STR_CARGO_ABBREV_WORKERS            :{TINYFONT}工
+STR_CARGO_QUANTITY_WORKERS          :{COMMA}{NBSP}位工人
+
+STR_CARGO_NAME_TOURISTS             :遊客
+STR_CARGO_SINGULAR_TOURISTS         :遊客
+STR_CARGO_ABBREV_TOURISTS           :{TINYFONT}遊
+STR_CARGO_QUANTITY_TOURISTS         :{COMMA}{NBSP}位旅客
+
+STR_CARGO_NAME_COFFEE               :咖啡
+STR_CARGO_ABBREV_COFFEE             :{TINYFONT}咖
+STR_CARGO_QUANTITY_COFFEE           :{WEIGHT}咖啡
+
+STR_CARGO_NAME_SUGARCANE            :甘蔗
+STR_CARGO_ABBREV_SUGARCANE          :{TINYFONT}蔗
+STR_CARGO_QUANTITY_SUGARCANE        :{WEIGHT}甘蔗
+
+STR_CARGO_NAME_TOBACCO              :煙葉
+STR_CARGO_ABBREV_TOBACCO            :{TINYFONT}煙
+STR_CARGO_QUANTITY_TOBACCO          :{WEIGHT}煙葉
+
+STR_CARGO_NAME_MOLASSES             :糖漿
+STR_CARGO_ABBREV_MOLASSES           :{TINYFONT}糖
+STR_CARGO_QUANTITY_MOLASSES         :{WEIGHT}糖漿
+
+STR_CARGO_NAME_RUM                  :朗姆酒
+STR_CARGO_ABBREV_RUM                :{TINYFONT}酒
+STR_CARGO_QUANTITY_RUM              :{WEIGHT}朗姆酒
+
+STR_CARGO_NAME_CIGARS               :雪茄
+STR_CARGO_ABBREV_CIGARS             :{TINYFONT}雪
+STR_CARGO_QUANTITY_CIGARS           :{WEIGHT}雪茄
+
+STR_CARGO_NAME_PIPE                 :管道
+STR_CARGO_ABBREV_PIPE               :{TINYFONT}管
+STR_CARGO_QUANTITY_PIPE             :{WEIGHT}管道
+
+STR_CARGO_NAME_FUEL                 :燃料
+STR_CARGO_ABBREV_FUEL               :{TINYFONT}燃
+STR_CARGO_QUANTITY_FUEL             :{WEIGHT}燃料
+
+STR_CARGO_NAME_OIL_DOMESTIC         :國產原油
+STR_CARGO_ABBREV_OIL_DOMESTIC       :{TINYFONT}國油
+STR_CARGO_QUANTITY_OIL_DOMESTIC     :{WEIGHT}國產原油
+
+STR_CARGO_NAME_OIL_IMPORTED         :進口原油
+STR_CARGO_ABBREV_OIL_IMPORTED       :{TINYFONT}外油
+STR_CARGO_QUANTITY_OIL_IMPORTED     :{WEIGHT}進口原油
+
+STR_CARGO_NAME_CHEMICALS            :化學品
+STR_CARGO_ABBREV_CHEMICALS          :{TINYFONT}化
+STR_CARGO_QUANTITY_CHEMICALS        :{WEIGHT}化學品
+
+STR_CARGO_NAME_NICKEL_ORE           :鎳礦石
+STR_CARGO_ABBREV_NICKEL_ORE         :{TINYFONT}鎳礦
+STR_CARGO_QUANTITY_NICKEL_ORE       :{WEIGHT}鎳礦石
+
+STR_CARGO_NAME_NICKEL               :鎳
+STR_CARGO_ABBREV_NICKEL             :{TINYFONT}鎳
+STR_CARGO_QUANTITY_NICKEL           :{WEIGHT}鎳
+
+STR_CARGO_NAME_COBALT               :鈷
+STR_CARGO_ABBREV_COBALT             :{TINYFONT}鈷
+STR_CARGO_QUANTITY_COBALT           :{WEIGHT}鈷
+
+STR_CARGO_NAME_FERTILIZER           :肥料
+STR_CARGO_ABBREV_FERTILIZER         :{TINYFONT}肥
+STR_CARGO_QUANTITY_FERTILIZER       :{WEIGHT}肥料
+
+STR_CARGO_NAME_MACHINERY            :機械裝置
+STR_CARGO_ABBREV_MACHINERY          :{TINYFONT}機
+STR_CARGO_QUANTITY_MACHINERY        :{WEIGHT}機械裝置

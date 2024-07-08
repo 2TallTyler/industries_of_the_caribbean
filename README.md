@@ -108,6 +108,7 @@ My personal favorites, if you don't have your own.
 ## Translations
 * English
 * Simplified Chinese (chengdd1987 and WenSimEHRP)
+* Traditional Chinese (WenSimEHRP)
 * French (arikover)
 * German (Fauleresel)
 
